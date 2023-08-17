@@ -1,0 +1,12 @@
+# VoidTransactionResponse
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `content_type`                                                                         | *str*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `status_code`                                                                          | *int*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `raw_response`                                                                         | [requests.Response](https://requests.readthedocs.io/en/latest/api/#requests.Response)  | :heavy_minus_sign:                                                                     | N/A                                                                                    |
+| `errors_bolt_api_response`                                                             | [Optional[shared.ErrorsBoltAPIResponse]](../../models/shared/errorsboltapiresponse.md) | :heavy_minus_sign:                                                                     | Generic Error Schema                                                                   |
+| `transaction_view`                                                                     | [Optional[shared.TransactionView]](../../models/shared/transactionview.md)             | :heavy_minus_sign:                                                                     | Void Successful                                                                        |

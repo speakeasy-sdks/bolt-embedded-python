@@ -1,0 +1,11 @@
+# CaptureTransaction422ApplicationJSON
+
+Unprocessable Entity
+
+
+## Fields
+
+| Field                                                                                                                         | Type                                                                                                                          | Required                                                                                                                      | Description                                                                                                                   |
+| ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `errors`                                                                                                                      | list[[CaptureTransaction422ApplicationJSONErrors](../../models/operations/capturetransaction422applicationjsonerrors.md)]     | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
+| `result`                                                                                                                      | [Optional[CaptureTransaction422ApplicationJSONResult]](../../models/operations/capturetransaction422applicationjsonresult.md) | :heavy_minus_sign:                                                                                                            | N/A                                                                                                                           |
