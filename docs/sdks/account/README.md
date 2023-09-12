@@ -189,76 +189,7 @@ req = operations.CreateAccountRequest(
                 last_name='Watts',
                 locality='Brooklyn',
                 metadata=shared.Metadata(
-                    additional_properties='tempora',
-                ),
-                name='Alan Watts',
-                phone='+12125550199',
-                postal_code='10044',
-                region='NY',
-                region_code='NY',
-                street_address1='888 main street',
-                street_address2='apt 3021',
-                street_address3='c/o Alicia Watts',
-                street_address4='Bridge Street Apartment Building B',
-            ),
-            shared.AddressAccount(
-                company='Bolt',
-                country='United States',
-                country_code='US',
-                default=False,
-                door_code='123456',
-                email='alan.watts@example.com',
-                first_name='Alan',
-                last_name='Watts',
-                locality='Brooklyn',
-                metadata=shared.Metadata(
-                    additional_properties='suscipit',
-                ),
-                name='Alan Watts',
-                phone='+12125550199',
-                postal_code='10044',
-                region='NY',
-                region_code='NY',
-                street_address1='888 main street',
-                street_address2='apt 3021',
-                street_address3='c/o Alicia Watts',
-                street_address4='Bridge Street Apartment Building B',
-            ),
-            shared.AddressAccount(
-                company='Bolt',
-                country='United States',
-                country_code='US',
-                default=False,
-                door_code='123456',
-                email='alan.watts@example.com',
-                first_name='Alan',
-                last_name='Watts',
-                locality='Brooklyn',
-                metadata=shared.Metadata(
-                    additional_properties='molestiae',
-                ),
-                name='Alan Watts',
-                phone='+12125550199',
-                postal_code='10044',
-                region='NY',
-                region_code='NY',
-                street_address1='888 main street',
-                street_address2='apt 3021',
-                street_address3='c/o Alicia Watts',
-                street_address4='Bridge Street Apartment Building B',
-            ),
-            shared.AddressAccount(
-                company='Bolt',
-                country='United States',
-                country_code='US',
-                default=False,
-                door_code='123456',
-                email='alan.watts@example.com',
-                first_name='Alan',
-                last_name='Watts',
-                locality='Brooklyn',
-                metadata=shared.Metadata(
-                    additional_properties='minus',
+                    additional_properties='delectus',
                 ),
                 name='Alan Watts',
                 phone='+12125550199',
@@ -295,133 +226,16 @@ req = operations.CreateAccountRequest(
                 ),
                 billing_address_id='null',
                 bin='411111',
-                cryptogram='voluptatum',
+                cryptogram='tempora',
                 default=False,
-                eci='iusto',
+                eci='suscipit',
                 expiration='2025-11',
                 last4='1234',
                 metadata=shared.Metadata(
-                    additional_properties='excepturi',
+                    additional_properties='molestiae',
                 ),
-                network=shared.PaymentMethodAccountNetwork.AMEX,
-                number='recusandae',
-                postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.TWO,
-                save=False,
-                token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-                token_type=shared.PaymentMethodAccountTokenType.BOLT,
-            ),
-            shared.PaymentMethodAccount(
-                billing_address=shared.Address(
-                    company='Bolt',
-                    country='United States',
-                    country_code='US',
-                    default=True,
-                    door_code='123456',
-                    email='alan.watts@example.com',
-                    first_name='Alan',
-                    last_name='Watts',
-                    locality='Brooklyn',
-                    name='Alan Watts',
-                    phone='+12125550199',
-                    postal_code='10044',
-                    region='NY',
-                    region_code='NY',
-                    street_address1='888 main street',
-                    street_address2='apt 3021',
-                    street_address3='c/o Alicia Watts',
-                    street_address4='Bridge Street Apartment Building B',
-                ),
-                billing_address_id='null',
-                bin='411111',
-                cryptogram='ab',
-                default=False,
-                eci='quis',
-                expiration='2025-11',
-                last4='1234',
-                metadata=shared.Metadata(
-                    additional_properties='veritatis',
-                ),
-                network=shared.PaymentMethodAccountNetwork.JCB,
-                number='perferendis',
-                postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.ONE,
-                save=False,
-                token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-                token_type=shared.PaymentMethodAccountTokenType.BOLT,
-            ),
-            shared.PaymentMethodAccount(
-                billing_address=shared.Address(
-                    company='Bolt',
-                    country='United States',
-                    country_code='US',
-                    default=True,
-                    door_code='123456',
-                    email='alan.watts@example.com',
-                    first_name='Alan',
-                    last_name='Watts',
-                    locality='Brooklyn',
-                    name='Alan Watts',
-                    phone='+12125550199',
-                    postal_code='10044',
-                    region='NY',
-                    region_code='NY',
-                    street_address1='888 main street',
-                    street_address2='apt 3021',
-                    street_address3='c/o Alicia Watts',
-                    street_address4='Bridge Street Apartment Building B',
-                ),
-                billing_address_id='null',
-                bin='411111',
-                cryptogram='repellendus',
-                default=False,
-                eci='sapiente',
-                expiration='2025-11',
-                last4='1234',
-                metadata=shared.Metadata(
-                    additional_properties='quo',
-                ),
-                network=shared.PaymentMethodAccountNetwork.VISA,
-                number='at',
-                postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.TWO,
-                save=False,
-                token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-                token_type=shared.PaymentMethodAccountTokenType.BOLT,
-            ),
-            shared.PaymentMethodAccount(
-                billing_address=shared.Address(
-                    company='Bolt',
-                    country='United States',
-                    country_code='US',
-                    default=True,
-                    door_code='123456',
-                    email='alan.watts@example.com',
-                    first_name='Alan',
-                    last_name='Watts',
-                    locality='Brooklyn',
-                    name='Alan Watts',
-                    phone='+12125550199',
-                    postal_code='10044',
-                    region='NY',
-                    region_code='NY',
-                    street_address1='888 main street',
-                    street_address2='apt 3021',
-                    street_address3='c/o Alicia Watts',
-                    street_address4='Bridge Street Apartment Building B',
-                ),
-                billing_address_id='null',
-                bin='411111',
-                cryptogram='maiores',
-                default=False,
-                eci='molestiae',
-                expiration='2025-11',
-                last4='1234',
-                metadata=shared.Metadata(
-                    additional_properties='quod',
-                ),
-                network=shared.PaymentMethodAccountNetwork.ALLIANCEDATA,
-                number='esse',
+                network=shared.PaymentMethodAccountNetwork.UNIONPAY,
+                number='placeat',
                 postal_code='10044',
                 priority=shared.PaymentMethodAccountPriority.TWO,
                 save=False,
@@ -434,7 +248,7 @@ req = operations.CreateAccountRequest(
             first_name='Alan',
             last_name='Watts',
             metadata=shared.ProfileMetadata(
-                additional_properties='porro',
+                additional_properties='iusto',
             ),
             phone='+12125550199',
         ),
@@ -476,8 +290,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeleteAddressRequest(
-    x_publishable_key='dolorum',
-    id='1ba928fc-8167-442c-b739-205929396fea',
+    x_publishable_key='excepturi',
+    id='6ed151a0-5dfc-42dd-b7cc-78ca1ba928fc',
 )
 
 res = s.account.delete_address(req, operations.DeleteAddressSecurity(
@@ -515,8 +329,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    x_publishable_key='in',
-    payment_method_id='corporis',
+    x_publishable_key='totam',
+    payment_method_id='beatae',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -558,10 +372,10 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='iste',
-    email='Sterling6@yahoo.com',
-    phone='766.323.1736 x33504',
-    sha256_email='culpa',
+    x_publishable_key='commodi',
+    email='Diego_Dibbert45@yahoo.com',
+    phone='610.461.6263',
+    sha256_email='hic',
 )
 
 res = s.account.detect_account(req)
@@ -597,7 +411,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
-    x_publishable_key='doloribus',
+    x_publishable_key='saepe',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -609,7 +423,7 @@ req = operations.EditAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='sapiente',
+            additional_properties='fuga',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -621,7 +435,7 @@ req = operations.EditAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='1a3a2fa9-4677-4392-91aa-52c3f5ad019d',
+    id='7596eb10-faaa-4235-ac59-55907aff1a3a',
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
@@ -659,7 +473,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetAccountRequest(
-    x_publishable_key='laborum',
+    x_publishable_key='consequuntur',
 )
 
 res = s.account.get_account(req, operations.GetAccountSecurity(
@@ -699,8 +513,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
-    idempotency_key='quasi',
-    x_publishable_key='reiciendis',
+    idempotency_key='repellat',
+    x_publishable_key='mollitia',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -712,7 +526,7 @@ req = operations.ReplaceAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='voluptatibus',
+            additional_properties='occaecati',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -724,7 +538,7 @@ req = operations.ReplaceAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='e78f097b-0074-4f15-871b-5e6e13b99d48',
+    id='46773925-1aa5-42c3-b5ad-019da1ffe78f',
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
@@ -766,10 +580,10 @@ req = operations.UpdateAccountProfileRequest(
         first_name='Alan',
         last_name='Watts',
         metadata=shared.Metadata(
-            additional_properties='rem',
+            additional_properties='ipsa',
         ),
     ),
-    x_publishable_key='voluptates',
+    x_publishable_key='omnis',
 )
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(

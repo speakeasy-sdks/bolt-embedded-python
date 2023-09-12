@@ -24,15 +24,15 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateTestingShopperAccountRequest(
     request_body=operations.CreateTestingShopperAccountRequestBody(
-        deactivate_in_days=878601,
-        email='Zita.Streich@gmail.com',
+        deactivate_in_days=674848,
+        email='Doyle71@yahoo.com',
         email_state=operations.CreateTestingShopperAccountRequestBodyEmailState.VERIFIED,
         has_address=False,
         migrated=False,
-        phone='534-551-6044',
+        phone='545.812.1141 x3790',
         phone_state=shared.Onev11testing1shopper1createPostRequestBodyContentApplication1jsonSchemaPropertiesEmailState.VERIFIED,
     ),
-    x_publishable_key='pariatur',
+    x_publishable_key='cumque',
 )
 
 res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShopperAccountSecurity(

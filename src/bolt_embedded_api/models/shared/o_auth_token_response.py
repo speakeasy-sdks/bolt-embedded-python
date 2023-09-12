@@ -11,7 +11,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class OAuthTokenResponse:
-    r"""OAuth token response."""
     access_token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('access_token'), 'exclude': lambda f: f is None }})
     r"""An access token you can use to make requests on behalf of a Bolt Account."""
     expires_in: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expires_in'), 'exclude': lambda f: f is None }})

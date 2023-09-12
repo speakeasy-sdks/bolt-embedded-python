@@ -12,7 +12,6 @@ from ..shared import i_weight as shared_i_weight
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
-from marshmallow import fields
 from typing import Optional
 
 
@@ -38,7 +37,7 @@ class ICartShipmentView:
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
     description: Optional[list[shared_i_description_part.IDescriptionPart]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
     description_tooltips: Optional[list[shared_i_description_tooltip.IDescriptionTooltip]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description_tooltips'), 'exclude': lambda f: f is None }})
-    estimated_delivery_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('estimated_delivery_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'mm_field': fields.DateTime(format='iso'), 'exclude': lambda f: f is None }})
+    estimated_delivery_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('estimated_delivery_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
     expedited: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expedited'), 'exclude': lambda f: f is None }})
     r"""Used to determine whether a shipment has been expedited or not."""
     gift_options: Optional[shared_gift_option_view.GiftOptionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_options'), 'exclude': lambda f: f is None }})

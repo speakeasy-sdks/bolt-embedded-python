@@ -11,7 +11,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class ErrorsOauthServerResponse:
-    r"""Invalid request to OAuth Token."""
     error: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error'), 'exclude': lambda f: f is None }})
     error_description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('error_description'), 'exclude': lambda f: f is None }})
     

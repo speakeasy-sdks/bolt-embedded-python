@@ -11,7 +11,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class V1AccountsView:
-    r"""Has Bolt Account"""
     has_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_bolt_account'), 'exclude': lambda f: f is None }})
     
 

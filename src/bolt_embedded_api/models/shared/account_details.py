@@ -62,7 +62,6 @@ class AccountDetailsAddresses:
 
 @dataclasses.dataclass
 class AccountDetails:
-    r"""Account Details Fetched"""
     addresses: Optional[list[AccountDetailsAddresses]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses'), 'exclude': lambda f: f is None }})
     r"""A list of all addresses associated to the shopper's account."""
     has_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_bolt_account'), 'exclude': lambda f: f is None }})

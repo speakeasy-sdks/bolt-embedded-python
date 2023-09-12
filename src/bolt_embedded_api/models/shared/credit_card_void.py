@@ -11,7 +11,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class CreditCardVoid:
-    r"""Void a Transaction"""
     transaction_reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_reference') }})
     r"""The transaction's 12-digit Bolt reference ID. **Nullable** for Transactions Details."""
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})

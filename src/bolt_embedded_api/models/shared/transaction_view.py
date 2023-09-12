@@ -115,7 +115,6 @@ class TransactionViewVoid:
 
 @dataclasses.dataclass
 class TransactionView:
-    r"""Capture Successful"""
     amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
     authorization: Optional[shared_credit_card_authorization_view.CreditCardAuthorizationView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authorization'), 'exclude': lambda f: f is None }})
     capture: Optional[TransactionViewCapture] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('capture'), 'exclude': lambda f: f is None }})

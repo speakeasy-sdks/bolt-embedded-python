@@ -13,7 +13,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class ErrorsBoltAPIResponse:
-    r"""Missing Query Parameter"""
     errors: Optional[list[shared_error_bolt_api.ErrorBoltAPI]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
     result: Optional[shared_request_result.RequestResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
     r"""Custom-defined Bolt result object."""

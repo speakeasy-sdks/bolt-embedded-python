@@ -11,7 +11,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class CaptureTransactionWithReference:
-    r"""Capture a Transaction"""
     amount: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount') }})
     r"""The amount in cents. **Nullable** for Transactions Details."""
     currency: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currency') }})

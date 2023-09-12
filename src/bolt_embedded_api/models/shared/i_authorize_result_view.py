@@ -12,7 +12,6 @@ from typing import Optional
 
 @dataclasses.dataclass
 class IAuthorizeResultView:
-    r"""Authorization Successful"""
     did_create_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('did_create_bolt_account'), 'exclude': lambda f: f is None }})
     order_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order_number'), 'exclude': lambda f: f is None }})
     transaction: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
