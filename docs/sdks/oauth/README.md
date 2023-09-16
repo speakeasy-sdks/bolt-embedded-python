@@ -1,4 +1,4 @@
-# o_auth
+# OAuth
 
 ## Overview
 
