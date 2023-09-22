@@ -10,8 +10,6 @@ pip install git+https://github.com/speakeasy-sdks/bolt-embedded-python.git
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```python
 import bolt_embedded_api
 from bolt_embedded_api.models import operations, shared
@@ -19,8 +17,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddAddressRequest(
-    idempotency_key='corrupti',
-    x_publishable_key='provident',
+    idempotency_key='quibusdam',
+    x_publishable_key='unde',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -32,7 +30,7 @@ req = operations.AddAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='distinctio',
+            additional_properties='nulla',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -97,6 +95,32 @@ if res.add_address_200_application_json_object is not None:
 * [update_transaction](docs/sdks/transactions/README.md#update_transaction) - Update a Transaction
 * [void_transaction](docs/sdks/transactions/README.md#void_transaction) - Void a Transaction
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Pagination -->
+# Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you make your SDK calls as usual, but the
+returned response object will have a `Next` method that can be called to pull down the next group of results. If the
+return value of `Next` is `None`, then there are no more pages to be fetched.
+
+Here's an example of one such pagination call:
+
+
+<!-- End Pagination -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### Maturity
 

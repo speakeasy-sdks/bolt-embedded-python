@@ -31,8 +31,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddAddressRequest(
-    idempotency_key='quibusdam',
-    x_publishable_key='unde',
+    idempotency_key='corrupti',
+    x_publishable_key='illum',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -44,7 +44,7 @@ req = operations.AddAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='nulla',
+            additional_properties='vel',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -96,7 +96,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddPaymentMethodRequest(
-    idempotency_key='corrupti',
+    idempotency_key='error',
     request_body=operations.AddPaymentMethodRequestBody(
         billing_address=shared.Address(
             company='Bolt',
@@ -120,23 +120,23 @@ req = operations.AddPaymentMethodRequest(
         ),
         billing_address_id='null',
         bin='411111',
-        cryptogram='illum',
+        cryptogram='deserunt',
         currency='USD',
-        eci='vel',
+        eci='suscipit',
         expiration='2025-11',
         last4='1234',
         metadata=shared.Metadata(
-            additional_properties='error',
+            additional_properties='iure',
         ),
-        network=operations.AddPaymentMethodRequestBodyNetwork.JCB,
-        number='suscipit',
+        network=operations.AddPaymentMethodRequestBodyNetwork.MASTERCARD,
+        number='debitis',
         postal_code='10044',
         priority=operations.AddPaymentMethodRequestBodyPriority.ONE,
         save=False,
         token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
         token_type=operations.AddPaymentMethodRequestBodyTokenType.BOLT,
     ),
-    x_publishable_key='magnam',
+    x_publishable_key='delectus',
 )
 
 res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
@@ -174,8 +174,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateAccountRequest(
-    idempotency_key='debitis',
-    x_publishable_key='ipsa',
+    idempotency_key='tempora',
+    x_publishable_key='suscipit',
     create_account_input=shared.CreateAccountInput(
         addresses=[
             shared.AddressAccount(
@@ -189,7 +189,7 @@ req = operations.CreateAccountRequest(
                 last_name='Watts',
                 locality='Brooklyn',
                 metadata=shared.Metadata(
-                    additional_properties='delectus',
+                    additional_properties='molestiae',
                 ),
                 name='Alan Watts',
                 phone='+12125550199',
@@ -226,18 +226,18 @@ req = operations.CreateAccountRequest(
                 ),
                 billing_address_id='null',
                 bin='411111',
-                cryptogram='tempora',
+                cryptogram='minus',
                 default=False,
-                eci='suscipit',
+                eci='placeat',
                 expiration='2025-11',
                 last4='1234',
                 metadata=shared.Metadata(
-                    additional_properties='molestiae',
+                    additional_properties='voluptatum',
                 ),
-                network=shared.PaymentMethodAccountNetwork.UNIONPAY,
-                number='placeat',
+                network=shared.PaymentMethodAccountNetwork.DISCOVER,
+                number='excepturi',
                 postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.TWO,
+                priority=shared.PaymentMethodAccountPriority.ONE,
                 save=False,
                 token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
                 token_type=shared.PaymentMethodAccountTokenType.BOLT,
@@ -248,7 +248,7 @@ req = operations.CreateAccountRequest(
             first_name='Alan',
             last_name='Watts',
             metadata=shared.ProfileMetadata(
-                additional_properties='iusto',
+                additional_properties='recusandae',
             ),
             phone='+12125550199',
         ),
@@ -290,8 +290,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeleteAddressRequest(
-    x_publishable_key='excepturi',
-    id='6ed151a0-5dfc-42dd-b7cc-78ca1ba928fc',
+    x_publishable_key='temporibus',
+    id='151a05df-c2dd-4f7c-878c-a1ba928fc816',
 )
 
 res = s.account.delete_address(req, operations.DeleteAddressSecurity(
@@ -329,8 +329,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    x_publishable_key='totam',
-    payment_method_id='beatae',
+    x_publishable_key='molestiae',
+    payment_method_id='modi',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -372,10 +372,10 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='commodi',
-    email='Diego_Dibbert45@yahoo.com',
-    phone='610.461.6263',
-    sha256_email='hic',
+    x_publishable_key='qui',
+    email='Myra56@hotmail.com',
+    phone='1-236-362-6399',
+    sha256_email='fuga',
 )
 
 res = s.account.detect_account(req)
@@ -411,7 +411,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
-    x_publishable_key='saepe',
+    x_publishable_key='in',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -423,7 +423,7 @@ req = operations.EditAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='fuga',
+            additional_properties='corporis',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -435,7 +435,7 @@ req = operations.EditAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='7596eb10-faaa-4235-ac59-55907aff1a3a',
+    id='96eb10fa-aa23-452c-9955-907aff1a3a2f',
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
@@ -473,7 +473,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetAccountRequest(
-    x_publishable_key='consequuntur',
+    x_publishable_key='mollitia',
 )
 
 res = s.account.get_account(req, operations.GetAccountSecurity(
@@ -513,8 +513,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
-    idempotency_key='repellat',
-    x_publishable_key='mollitia',
+    idempotency_key='occaecati',
+    x_publishable_key='numquam',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -526,7 +526,7 @@ req = operations.ReplaceAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='occaecati',
+            additional_properties='commodi',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -538,7 +538,7 @@ req = operations.ReplaceAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='46773925-1aa5-42c3-b5ad-019da1ffe78f',
+    id='7739251a-a52c-43f5-ad01-9da1ffe78f09',
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
@@ -580,10 +580,10 @@ req = operations.UpdateAccountProfileRequest(
         first_name='Alan',
         last_name='Watts',
         metadata=shared.Metadata(
-            additional_properties='ipsa',
+            additional_properties='voluptate',
         ),
     ),
-    x_publishable_key='omnis',
+    x_publishable_key='cum',
 )
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(

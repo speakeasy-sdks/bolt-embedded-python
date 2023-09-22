@@ -32,14 +32,14 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 
 req = operations.OAuthTokenRequest(
     request_body=shared.OAuthTokenInput2(
-        client_id='cum',
-        client_secret='perferendis',
-        code='doloremque',
+        client_id='doloremque',
+        client_secret='reprehenderit',
+        code='ut',
         grant_type=shared.OAuthTokenInputGrantType.AUTHORIZATION_CODE,
-        scope=shared.OAuthTokenInputScope.BOLT_ACCOUNT_VIEW,
-        state='ut',
+        scope=shared.OAuthTokenInputScope.OPENID,
+        state='dicta',
     ),
-    x_publishable_key='maiores',
+    x_publishable_key='corporis',
 )
 
 res = s.o_auth.o_auth_token(req)
