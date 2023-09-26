@@ -22,11 +22,14 @@ class OAuthTokenRequest:
 @dataclasses.dataclass
 class OAuthTokenResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     errors_oauth_server_response: Optional[shared_errors_oauth_server_response.ErrorsOauthServerResponse] = dataclasses.field(default=None)
     r"""Invalid request to OAuth Token."""
     o_auth_token_response: Optional[shared_o_auth_token_response.OAuthTokenResponse] = dataclasses.field(default=None)
     r"""OAuth token response."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     
 

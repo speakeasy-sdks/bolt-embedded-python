@@ -83,9 +83,12 @@ class EditAddress200ApplicationJSON:
 @dataclasses.dataclass
 class EditAddressResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     edit_address_200_application_json_object: Optional[EditAddress200ApplicationJSON] = dataclasses.field(default=None)
     r"""Address Updated Successfully"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     
 

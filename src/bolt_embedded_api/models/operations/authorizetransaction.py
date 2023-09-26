@@ -37,9 +37,12 @@ class AuthorizeTransactionRequest:
 @dataclasses.dataclass
 class AuthorizeTransactionResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     i_authorize_result_view: Optional[shared_i_authorize_result_view.IAuthorizeResultView] = dataclasses.field(default=None)
     r"""Authorization Successful"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     
 

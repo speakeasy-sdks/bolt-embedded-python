@@ -27,10 +27,13 @@ class DetectAccountRequest:
 @dataclasses.dataclass
 class DetectAccountResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
     r"""Missing Query Parameter"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     v1_accounts_view: Optional[shared_v1_accounts_view.V1AccountsView] = dataclasses.field(default=None)
     r"""Has Bolt Account"""
     

@@ -39,9 +39,12 @@ class GetTestCreditCardToken200ApplicationJSON:
 @dataclasses.dataclass
 class GetTestCreditCardTokenResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     get_test_credit_card_token_200_application_json_object: Optional[GetTestCreditCardToken200ApplicationJSON] = dataclasses.field(default=None)
     r"""Successfully Fetched Credit Card Token"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     
 

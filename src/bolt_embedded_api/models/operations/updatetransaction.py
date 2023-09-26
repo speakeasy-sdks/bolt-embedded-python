@@ -201,10 +201,13 @@ class UpdateTransaction200ApplicationJSON:
 @dataclasses.dataclass
 class UpdateTransactionResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
     r"""Generic Error Schema"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     update_transaction_200_application_json_object: Optional[UpdateTransaction200ApplicationJSON] = dataclasses.field(default=None)
     r"""Transaction Details Retrieved"""
     

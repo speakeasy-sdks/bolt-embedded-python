@@ -62,12 +62,15 @@ class CaptureTransaction422ApplicationJSON:
 @dataclasses.dataclass
 class CaptureTransactionResponse:
     content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
     capture_transaction_422_application_json_object: Optional[CaptureTransaction422ApplicationJSON] = dataclasses.field(default=None)
     r"""Unprocessable Entity"""
     errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
     r"""Generic Error Schema"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
+    r"""Raw HTTP response; suitable for custom response parsing"""
     transaction_view: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None)
     r"""Capture Successful"""
     
