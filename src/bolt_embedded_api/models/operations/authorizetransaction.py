@@ -4,7 +4,9 @@ from __future__ import annotations
 import dataclasses
 import requests as requests_http
 from ..shared import i_authorize_result_view as shared_i_authorize_result_view
-from typing import Any, Optional
+from ..shared import merchant_credit_card_authorization as shared_merchant_credit_card_authorization
+from ..shared import merchant_credit_card_authorization_recharge as shared_merchant_credit_card_authorization_recharge
+from typing import Optional, Union
 
 
 
@@ -18,10 +20,22 @@ class AuthorizeTransactionSecurity:
 
 
 @dataclasses.dataclass
+class AuthorizeTransactionRequestBody:
+    r"""**Authorize a Transaction**
+    * • `merchant_credit_card_authorization`: For authorizing with a new, unsaved card. This can be for a guest checkout flow, one-time payment, or an existing Bolt shopper.
+    * • `merchant_credit_card_authorization_recharge`: For authorizing a card using a shoppers saved payment methods.
+    * • **Anytime the shopper is paying while logged-in attach their OAuth `access_token` to the request.**
+    """
+    
+
+
+
+
+@dataclasses.dataclass
 class AuthorizeTransactionRequest:
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
     r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
-    request_body: Optional[Any] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
+    request_body: Optional[Union[shared_merchant_credit_card_authorization.MerchantCreditCardAuthorization, shared_merchant_credit_card_authorization_recharge.MerchantCreditCardAuthorizationRecharge]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     r"""**Authorize a Transaction**
     * • `merchant_credit_card_authorization`: For authorizing with a new, unsaved card. This can be for a guest checkout flow, one-time payment, or an existing Bolt shopper.
     * • `merchant_credit_card_authorization_recharge`: For authorizing a card using a shoppers saved payment methods.

@@ -58,7 +58,7 @@ if res.add_address_200_application_json_object is not None:
 ## Available Resources and Operations
 
 
-### [Account](docs/sdks/account/README.md)
+### [account](docs/sdks/account/README.md)
 
 * [add_address](docs/sdks/account/README.md#add_address) - Add Address
 * [add_payment_method](docs/sdks/account/README.md#add_payment_method) - Add Payment Method
@@ -71,22 +71,22 @@ if res.add_address_200_application_json_object is not None:
 * [replace_address](docs/sdks/account/README.md#replace_address) - Replace Address
 * [update_account_profile](docs/sdks/account/README.md#update_account_profile) - Update Profile
 
-### [OAuth](docs/sdks/oauth/README.md)
+### [o_auth](docs/sdks/oauth/README.md)
 
 * [o_auth_token](docs/sdks/oauth/README.md#o_auth_token) - OAuth Token Endpoint
 
-### [Payments](docs/sdks/payments/README.md)
+### [payments](docs/sdks/payments/README.md)
 
 * [finalize_payment](docs/sdks/payments/README.md#finalize_payment) - Finalize Payment
 * [initialize_payment](docs/sdks/payments/README.md#initialize_payment) - Initialize Payment
 * [update_payment](docs/sdks/payments/README.md#update_payment) - Update Payment
 
-### [Testing](docs/sdks/testing/README.md)
+### [testing](docs/sdks/testing/README.md)
 
 * [create_testing_shopper_account](docs/sdks/testing/README.md#create_testing_shopper_account) - Create Testing Shopper Account
 * [get_test_credit_card_token](docs/sdks/testing/README.md#get_test_credit_card_token) - Fetch a Test Credit Card Token
 
-### [Transactions](docs/sdks/transactions/README.md)
+### [transactions](docs/sdks/transactions/README.md)
 
 * [authorize_transaction](docs/sdks/transactions/README.md#authorize_transaction) - Authorize a Card
 * [capture_transaction](docs/sdks/transactions/README.md#capture_transaction) - Capture a Transaction

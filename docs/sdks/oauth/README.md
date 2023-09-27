@@ -1,4 +1,5 @@
 # OAuth
+(*o_auth*)
 
 ## Overview
 
@@ -31,15 +32,8 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.OAuthTokenRequest(
-    request_body=shared.OAuthTokenInput2(
-        client_id='doloremque',
-        client_secret='reprehenderit',
-        code='ut',
-        grant_type=shared.OAuthTokenInputGrantType.AUTHORIZATION_CODE,
-        scope=shared.OAuthTokenInputScope.OPENID,
-        state='dicta',
-    ),
-    x_publishable_key='corporis',
+    request_body=[],
+    x_publishable_key='perferendis',
 )
 
 res = s.o_auth.o_auth_token(req)

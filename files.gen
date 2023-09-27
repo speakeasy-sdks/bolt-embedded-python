@@ -212,6 +212,7 @@ docs/models/operations/updateaccountprofilesecurity.md
 docs/models/operations/updateaccountprofilerequestbody.md
 docs/models/operations/updateaccountprofilerequest.md
 docs/models/operations/updateaccountprofileresponse.md
+docs/models/operations/oauthtokenrequestbody.md
 docs/models/operations/oauthtokenrequest.md
 docs/models/operations/oauthtokenresponse.md
 docs/models/operations/finalizepaymentsecurity.md
@@ -247,6 +248,7 @@ docs/models/operations/gettestcreditcardtokensecurity.md
 docs/models/operations/gettestcreditcardtoken200applicationjson.md
 docs/models/operations/gettestcreditcardtokenresponse.md
 docs/models/operations/authorizetransactionsecurity.md
+docs/models/operations/authorizetransactionrequestbody.md
 docs/models/operations/authorizetransactionrequest.md
 docs/models/operations/authorizetransactionresponse.md
 docs/models/operations/capturetransactionsecurity.md
@@ -287,6 +289,7 @@ docs/models/shared/cardnetwork.md
 docs/models/shared/addressview.md
 docs/models/shared/address.md
 docs/models/shared/accountdetailsaddresses.md
+docs/models/shared/accountdetailspaymentmethods.md
 docs/models/shared/accountdetails.md
 docs/models/shared/profileview.md
 docs/models/shared/savedpaypalaccountviewtype.md
