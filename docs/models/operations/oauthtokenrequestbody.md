@@ -3,15 +3,15 @@
 
 ## Supported Types
 
-### OAuthTokenInput2
+### OAuthTokenInput
 
 ```python
-oAuthTokenRequestBody: shared.OAuthTokenInput2 = /* values here */
+oAuthTokenRequestBody: shared.OAuthTokenInput = /* values here */
 ```
 
-### OAuthTokenInputRefresh1
+### OAuthTokenInputRefresh
 
 ```python
-oAuthTokenRequestBody: shared.OAuthTokenInputRefresh1 = /* values here */
+oAuthTokenRequestBody: shared.OAuthTokenInputRefresh = /* values here */
 ```
 

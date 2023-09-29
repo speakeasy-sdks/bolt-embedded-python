@@ -17,8 +17,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddAddressRequest(
-    idempotency_key='quibusdam',
-    x_publishable_key='unde',
+    idempotency_key='Maserati Bespoke frictionless',
+    x_publishable_key='deploy Central',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -30,7 +30,7 @@ req = operations.AddAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='nulla',
+            additional_properties='Loan Dollar',
         ),
         name='Alan Watts',
         phone='+12125550199',

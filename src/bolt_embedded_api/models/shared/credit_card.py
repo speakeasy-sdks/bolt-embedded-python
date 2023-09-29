@@ -6,16 +6,12 @@ from ..shared import address as shared_address
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
+from typing import Final, Optional
 
 class CreditCardPriority(int, Enum):
     r"""Used to indicate the card's priority. '1' indicates primary, while '2' indicates a secondary card."""
     ONE = 1
     TWO = 2
-
-class CreditCardTokenType(str, Enum):
-    r"""Used to define which payment processor generated the token for this credit card; for those using Bolt's tokenizer, the value must be `bolt`."""
-    BOLT = 'bolt'
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
@@ -33,7 +29,7 @@ class CreditCard:
     r"""Used for the postal or zip code associated with the credit card."""
     token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token') }})
     r"""The Bolt token associated to the credit card."""
-    token_type: CreditCardTokenType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token_type') }})
+    TOKEN_TYPE: Final[str] = dataclasses.field(default='bolt', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token_type') }})
     r"""Used to define which payment processor generated the token for this credit card; for those using Bolt's tokenizer, the value must be `bolt`."""
     billing_address: Optional[shared_address.Address] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_address'), 'exclude': lambda f: f is None }})
     r"""The Address object is used for billing, shipping, and physical store address use cases."""

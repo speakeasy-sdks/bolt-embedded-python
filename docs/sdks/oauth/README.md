@@ -33,7 +33,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 
 req = operations.OAuthTokenRequest(
     request_body=[],
-    x_publishable_key='perferendis',
+    x_publishable_key='Tesla',
 )
 
 res = s.o_auth.o_auth_token(req)

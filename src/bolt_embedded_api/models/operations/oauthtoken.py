@@ -4,8 +4,8 @@ from __future__ import annotations
 import dataclasses
 import requests as requests_http
 from ..shared import errors_oauth_server_response as shared_errors_oauth_server_response
-from ..shared import o_auth_token_input2 as shared_o_auth_token_input2
-from ..shared import o_auth_token_input_refresh1 as shared_o_auth_token_input_refresh1
+from ..shared import o_auth_token_input as shared_o_auth_token_input
+from ..shared import o_auth_token_input_refresh as shared_o_auth_token_input_refresh
 from ..shared import o_auth_token_response as shared_o_auth_token_response
 from typing import Optional, Union
 
@@ -19,7 +19,7 @@ class OAuthTokenRequestBody:
 
 @dataclasses.dataclass
 class OAuthTokenRequest:
-    request_body: Optional[Union[shared_o_auth_token_input2.OAuthTokenInput2, shared_o_auth_token_input_refresh1.OAuthTokenInputRefresh1]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/x-www-form-urlencoded' }})
+    request_body: Optional[Union[shared_o_auth_token_input.OAuthTokenInput, shared_o_auth_token_input_refresh.OAuthTokenInputRefresh]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/x-www-form-urlencoded' }})
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     

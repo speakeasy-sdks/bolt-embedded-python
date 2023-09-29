@@ -32,8 +32,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddAddressRequest(
-    idempotency_key='corrupti',
-    x_publishable_key='illum',
+    idempotency_key='Maserati Bespoke frictionless',
+    x_publishable_key='deploy Central',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -45,7 +45,7 @@ req = operations.AddAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='vel',
+            additional_properties='Loan Dollar',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -97,7 +97,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddPaymentMethodRequest(
-    idempotency_key='error',
+    idempotency_key='violet Scandium',
     request_body=operations.AddPaymentMethodRequestBody(
         billing_address=shared.Address(
             company='Bolt',
@@ -121,23 +121,23 @@ req = operations.AddPaymentMethodRequest(
         ),
         billing_address_id='null',
         bin='411111',
-        cryptogram='deserunt',
+        cryptogram='Gasoline aggregate',
         currency='USD',
-        eci='suscipit',
+        eci='District',
         expiration='2025-11',
         last4='1234',
         metadata=shared.Metadata(
-            additional_properties='iure',
+            additional_properties='male Chips termite',
         ),
-        network=operations.AddPaymentMethodRequestBodyNetwork.MASTERCARD,
-        number='debitis',
+        network=operations.AddPaymentMethodRequestBodyNetwork.AMEX,
+        number='Fish Transgender ivory',
         postal_code='10044',
         priority=operations.AddPaymentMethodRequestBodyPriority.ONE,
         save=False,
         token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
         token_type=operations.AddPaymentMethodRequestBodyTokenType.BOLT,
     ),
-    x_publishable_key='delectus',
+    x_publishable_key='katal Buckinghamshire',
 )
 
 res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
@@ -175,8 +175,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateAccountRequest(
-    idempotency_key='tempora',
-    x_publishable_key='suscipit',
+    idempotency_key='grey North rare',
+    x_publishable_key='content Man',
     create_account_input=shared.CreateAccountInput(
         addresses=[
             shared.AddressAccount(
@@ -190,7 +190,7 @@ req = operations.CreateAccountRequest(
                 last_name='Watts',
                 locality='Brooklyn',
                 metadata=shared.Metadata(
-                    additional_properties='molestiae',
+                    additional_properties='Handmade',
                 ),
                 name='Alan Watts',
                 phone='+12125550199',
@@ -227,18 +227,18 @@ req = operations.CreateAccountRequest(
                 ),
                 billing_address_id='null',
                 bin='411111',
-                cryptogram='minus',
+                cryptogram='West Rap',
                 default=False,
-                eci='placeat',
+                eci='matrix',
                 expiration='2025-11',
                 last4='1234',
                 metadata=shared.Metadata(
-                    additional_properties='voluptatum',
+                    additional_properties='Bicycle Lauderhill',
                 ),
-                network=shared.PaymentMethodAccountNetwork.DISCOVER,
-                number='excepturi',
+                network=shared.PaymentMethodAccountNetwork.AMEX,
+                number='Hybrid frame Alabama',
                 postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.ONE,
+                priority=shared.PaymentMethodAccountPriority.TWO,
                 save=False,
                 token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
                 token_type=shared.PaymentMethodAccountTokenType.BOLT,
@@ -249,7 +249,7 @@ req = operations.CreateAccountRequest(
             first_name='Alan',
             last_name='Watts',
             metadata=shared.ProfileMetadata(
-                additional_properties='recusandae',
+                additional_properties='payment',
             ),
             phone='+12125550199',
         ),
@@ -291,8 +291,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeleteAddressRequest(
-    x_publishable_key='temporibus',
-    id='151a05df-c2dd-4f7c-878c-a1ba928fc816',
+    x_publishable_key='Grocery Configurable Larissa',
+    id='<ID>',
 )
 
 res = s.account.delete_address(req, operations.DeleteAddressSecurity(
@@ -330,8 +330,8 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    x_publishable_key='molestiae',
-    payment_method_id='modi',
+    x_publishable_key='Rico Security aha',
+    payment_method_id='sed',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -373,10 +373,10 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='qui',
-    email='Myra56@hotmail.com',
-    phone='1-236-362-6399',
-    sha256_email='fuga',
+    x_publishable_key='Specialist',
+    email='Connor42@gmail.com',
+    phone='935-762-8190 x328',
+    sha256_email='markets Frozen',
 )
 
 res = s.account.detect_account(req)
@@ -412,7 +412,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
-    x_publishable_key='in',
+    x_publishable_key='Latin Lead',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -424,7 +424,7 @@ req = operations.EditAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='corporis',
+            additional_properties='Nauru Frozen',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -436,7 +436,7 @@ req = operations.EditAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='96eb10fa-aa23-452c-9955-907aff1a3a2f',
+    id='<ID>',
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
@@ -474,7 +474,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetAccountRequest(
-    x_publishable_key='mollitia',
+    x_publishable_key='Market',
 )
 
 res = s.account.get_account(req, operations.GetAccountSecurity(
@@ -514,8 +514,8 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
-    idempotency_key='occaecati',
-    x_publishable_key='numquam',
+    idempotency_key='West Northwest logistical',
+    x_publishable_key='purple',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
@@ -527,7 +527,7 @@ req = operations.ReplaceAddressRequest(
         last_name='Watts',
         locality='Brooklyn',
         metadata=shared.Metadata(
-            additional_properties='commodi',
+            additional_properties='Frozen Zealand Passenger',
         ),
         name='Alan Watts',
         phone='+12125550199',
@@ -539,7 +539,7 @@ req = operations.ReplaceAddressRequest(
         street_address3='c/o Alicia Watts',
         street_address4='Bridge Street Apartment Building B',
     ),
-    id='7739251a-a52c-43f5-ad01-9da1ffe78f09',
+    id='<ID>',
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
@@ -581,10 +581,10 @@ req = operations.UpdateAccountProfileRequest(
         first_name='Alan',
         last_name='Watts',
         metadata=shared.Metadata(
-            additional_properties='voluptate',
+            additional_properties='over',
         ),
     ),
-    x_publishable_key='cum',
+    x_publishable_key='monetize Northwest',
 )
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(

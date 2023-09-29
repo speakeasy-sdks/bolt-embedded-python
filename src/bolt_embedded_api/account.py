@@ -21,11 +21,11 @@ class Account:
         
         url = base_url + '/v1/account/addresses'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -54,11 +54,11 @@ class Account:
         
         url = base_url + '/v1/account/payment_methods'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -85,11 +85,11 @@ class Account:
         
         url = base_url + '/v1/account'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "create_account_input", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "create_account_input", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -117,7 +117,7 @@ class Account:
         url = utils.generate_url(operations.DeleteAddressRequest, base_url, '/v1/account/addresses/{id}', request)
         headers = utils.get_headers(request)
         headers['Accept'] = '*/*'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -139,7 +139,7 @@ class Account:
         url = utils.generate_url(operations.DeletePaymentMethodRequest, base_url, '/v1/account/payment_methods/{payment_method_id}', request)
         headers = utils.get_headers(request)
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -170,7 +170,7 @@ class Account:
         headers = utils.get_headers(request)
         query_params = utils.get_query_params(operations.DetectAccountRequest, request)
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = self.sdk_configuration.security_client
         
@@ -204,11 +204,11 @@ class Account:
         
         url = utils.generate_url(operations.EditAddressRequest, base_url, '/v1/account/addresses/{id}', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -236,7 +236,7 @@ class Account:
         url = base_url + '/v1/account'
         headers = utils.get_headers(request)
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -264,11 +264,11 @@ class Account:
         
         url = utils.generate_url(operations.ReplaceAddressRequest, base_url, '/v1/account/addresses/{id}', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         
@@ -295,11 +295,11 @@ class Account:
         
         url = base_url + '/v1/account/profile'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
-        headers['user-agent'] = f'speakeasy-sdk/{self.sdk_configuration.language} {self.sdk_configuration.sdk_version} {self.sdk_configuration.gen_version} {self.sdk_configuration.openapi_doc_version}'
+        headers['user-agent'] = self.sdk_configuration.user_agent
         
         client = utils.configure_security_client(self.sdk_configuration.client, security)
         

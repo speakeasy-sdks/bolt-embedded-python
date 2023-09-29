@@ -19,14 +19,14 @@ from typing import Optional
 
 @dataclasses.dataclass
 class CartCreateFees:
-    name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
+    name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""Name of the fee that will appear in the order ledger."""
     quantity: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('quantity') }})
     reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference') }})
     r"""Unique reference used to identify the fee."""
     unit_price: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit_price') }})
     unit_tax_amount: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit_tax_amount') }})
-    description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
+    description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""Description of the fee that will appear in the tooltip if the mouse hovers over the fee."""
     
 

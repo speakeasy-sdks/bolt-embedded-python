@@ -32,9 +32,9 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AuthorizeTransactionRequest(
-    idempotency_key='dolores',
+    idempotency_key='Handmade',
     request_body=[],
-    x_publishable_key='distinctio',
+    x_publishable_key='green Northeast online',
 )
 
 res = s.transactions.authorize_transaction(req, operations.AuthorizeTransactionSecurity(
@@ -75,7 +75,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CaptureTransactionRequest(
-    idempotency_key='facilis',
+    idempotency_key='Metal',
     capture_transaction_with_reference=shared.CaptureTransactionWithReference(
         amount=754,
         currency='USD',
@@ -122,7 +122,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetTransactionDetailsRequest(
-    reference='aliquid',
+    reference='repurpose Holmium Trans',
 )
 
 res = s.transactions.get_transaction_details(req, operations.GetTransactionDetailsSecurity(
@@ -159,7 +159,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.RefundTransactionRequest(
-    idempotency_key='quam',
+    idempotency_key='strategy Gasoline',
     request_body=operations.RefundTransactionRequestBody(
         amount=754,
         currency='USD',
@@ -203,12 +203,12 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.UpdateTransactionRequest(
-    idempotency_key='molestias',
-    reference='temporibus',
+    idempotency_key='Paterson',
+    reference='set Administrator Networked',
     request_body=operations.UpdateTransactionRequestBody(
         display_id='order-123',
         metadata={
-            "qui": 'neque',
+            "rerum": 'circuit',
         },
     ),
 )
@@ -250,7 +250,7 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.VoidTransactionRequest(
-    idempotency_key='fugit',
+    idempotency_key='Bicycle',
     credit_card_void=shared.CreditCardVoid(
         merchant_event_id='dbe0cd5d-3261-41d9-ba61-49e5b9d07567',
         skip_hook_notification=False,

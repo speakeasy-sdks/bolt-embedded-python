@@ -10,7 +10,7 @@ from ..shared import user_identity as shared_user_identity
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
+from typing import Final, Optional
 
 class MerchantCreditCardAuthorizationProcessingInitiator(str, Enum):
     r"""Determines who initiated the transaction (e.g. shopper, merchant) and how they did it (e.g. recurring subscription, on-file card).
@@ -31,9 +31,6 @@ class MerchantCreditCardAuthorizationProcessingInitiator(str, Enum):
     CARDHOLDER_INITIATED = 'cardholder_initiated'
     RECURRING = 'recurring'
 
-class MerchantCreditCardAuthorizationSource(str, Enum):
-    DIRECT_PAYMENTS = 'direct_payments'
-
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 
@@ -47,14 +44,14 @@ class MerchantCreditCardAuthorization:
     r"""The credit_card object is used to to pay for guest-checkout transactions or save payment method details to an account. Once saved, you can reference the credit card with the associated `credit_card_id` for future transactions. Add `billing_address` to this if storing a billing address for a returning shopper."""
     division_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('division_id') }})
     r"""The unique ID associated to the merchant's Bolt Account division; Merchants can have different divisions to suit multiple use cases (storefronts, pay-by-link, phone order processing). Use the Bolt Merchant Dashboard to switch between divisions and find the division ID under `Merchant Division Public ID`."""
-    source: MerchantCreditCardAuthorizationSource = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
     user_identifier: shared_user_identifier.UserIdentifier = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_identifier') }})
     r"""The object containing key lookup IDs associated with the shopper's account, such as the unique email address and phone number."""
     user_identity: shared_user_identity.UserIdentity = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_identity') }})
+    SOURCE: Final[str] = dataclasses.field(default='direct_payments', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
     auto_capture: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auto_capture'), 'exclude': lambda f: f is None }})
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
-    previous_transaction_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('previous_transaction_id'), 'exclude': lambda f: f is None }})
+    previous_transaction_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('previous_transaction_id') }})
     r"""The unique ID associated with to the shopper's previous subscription-based transaction. Leave `null` for standard, non-subscription transactions."""
     processing_initiator: Optional[MerchantCreditCardAuthorizationProcessingInitiator] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processing_initiator'), 'exclude': lambda f: f is None }})
     r"""Determines who initiated the transaction (e.g. shopper, merchant) and how they did it (e.g. recurring subscription, on-file card).
