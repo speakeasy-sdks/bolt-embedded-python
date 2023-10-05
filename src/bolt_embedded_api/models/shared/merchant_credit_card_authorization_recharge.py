@@ -9,7 +9,11 @@ from ..shared import user_identifier as shared_user_identifier
 from ..shared import user_identity as shared_user_identity
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Final, Optional
+from enum import Enum
+from typing import Optional
+
+class MerchantCreditCardAuthorizationRechargeSource(str, Enum):
+    DIRECT_PAYMENTS = 'direct_payments'
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
@@ -22,10 +26,10 @@ class MerchantCreditCardAuthorizationRecharge:
     r"""The unique ID associated to the saved credit card in the account's wallet."""
     division_id: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('division_id') }})
     r"""The unique ID associated to the merchant's Bolt Account division; Merchants can have different divisions to suit multiple use cases (storefronts, pay-by-link, phone order processing). Use the Bolt Merchant Dashboard to switch between divisions and find the division ID under `Merchant Division Public ID`."""
+    source: MerchantCreditCardAuthorizationRechargeSource = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
     user_identifier: shared_user_identifier.UserIdentifier = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_identifier') }})
     r"""The object containing key lookup IDs associated with the shopper's account, such as the unique email address and phone number."""
     user_identity: shared_user_identity.UserIdentity = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('user_identity') }})
-    SOURCE: Final[str] = dataclasses.field(default='direct_payments', metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
     auto_capture: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auto_capture'), 'exclude': lambda f: f is None }})
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
