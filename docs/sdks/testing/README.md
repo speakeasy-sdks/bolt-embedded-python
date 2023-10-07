@@ -25,15 +25,9 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateTestingShopperAccountRequest(
     request_body=operations.CreateTestingShopperAccountRequestBody(
-        deactivate_in_days=277760,
-        email='Estella.Hoeger@hotmail.com',
         email_state=operations.CreateTestingShopperAccountRequestBodyEmailState.VERIFIED,
-        has_address=False,
-        migrated=False,
-        phone='1-459-828-6149 x8692',
         phone_state=shared.Onev11testing1shopper1createPostRequestBodyContentApplication1jsonSchemaPropertiesEmailState.VERIFIED,
     ),
-    x_publishable_key='Coupe Reggae Plastic',
 )
 
 res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShopperAccountSecurity(
