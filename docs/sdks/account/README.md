@@ -32,21 +32,16 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddAddressRequest(
-    idempotency_key='Maserati Bespoke frictionless',
-    x_publishable_key='deploy Central',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
         country_code='US',
-        default=False,
         door_code='123456',
         email='alan.watts@example.com',
         first_name='Alan',
         last_name='Watts',
         locality='Brooklyn',
-        metadata=shared.Metadata(
-            additional_properties='Loan Dollar',
-        ),
+        metadata=shared.Metadata(),
         name='Alan Watts',
         phone='+12125550199',
         postal_code='10044',
@@ -97,7 +92,6 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.AddPaymentMethodRequest(
-    idempotency_key='violet Scandium',
     request_body=operations.AddPaymentMethodRequestBody(
         billing_address=shared.Address(
             company='Bolt',
@@ -121,23 +115,14 @@ req = operations.AddPaymentMethodRequest(
         ),
         billing_address_id='null',
         bin='411111',
-        cryptogram='Gasoline aggregate',
         currency='USD',
-        eci='District',
         expiration='2025-11',
         last4='1234',
-        metadata=shared.Metadata(
-            additional_properties='male Chips termite',
-        ),
-        network=operations.AddPaymentMethodRequestBodyNetwork.AMEX,
-        number='Fish Transgender ivory',
+        metadata=shared.Metadata(),
         postal_code='10044',
-        priority=operations.AddPaymentMethodRequestBodyPriority.ONE,
-        save=False,
         token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
         token_type=operations.AddPaymentMethodRequestBodyTokenType.BOLT,
     ),
-    x_publishable_key='katal Buckinghamshire',
 )
 
 res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
@@ -175,23 +160,18 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateAccountRequest(
-    idempotency_key='grey North rare',
-    x_publishable_key='content Man',
     create_account_input=shared.CreateAccountInput(
         addresses=[
             shared.AddressAccount(
                 company='Bolt',
                 country='United States',
                 country_code='US',
-                default=False,
                 door_code='123456',
                 email='alan.watts@example.com',
                 first_name='Alan',
                 last_name='Watts',
                 locality='Brooklyn',
-                metadata=shared.Metadata(
-                    additional_properties='Handmade',
-                ),
+                metadata=shared.Metadata(),
                 name='Alan Watts',
                 phone='+12125550199',
                 postal_code='10044',
@@ -227,19 +207,10 @@ req = operations.CreateAccountRequest(
                 ),
                 billing_address_id='null',
                 bin='411111',
-                cryptogram='West Rap',
-                default=False,
-                eci='matrix',
                 expiration='2025-11',
                 last4='1234',
-                metadata=shared.Metadata(
-                    additional_properties='Bicycle Lauderhill',
-                ),
-                network=shared.PaymentMethodAccountNetwork.AMEX,
-                number='Hybrid frame Alabama',
+                metadata=shared.Metadata(),
                 postal_code='10044',
-                priority=shared.PaymentMethodAccountPriority.TWO,
-                save=False,
                 token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
                 token_type=shared.PaymentMethodAccountTokenType.BOLT,
             ),
@@ -248,9 +219,7 @@ req = operations.CreateAccountRequest(
             email='alan.watts@example.com',
             first_name='Alan',
             last_name='Watts',
-            metadata=shared.ProfileMetadata(
-                additional_properties='payment',
-            ),
+            metadata=shared.ProfileMetadata(),
             phone='+12125550199',
         ),
     ),
@@ -291,7 +260,6 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeleteAddressRequest(
-    x_publishable_key='Grocery Configurable Larissa',
     id='<ID>',
 )
 
@@ -330,8 +298,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    x_publishable_key='Rico Security aha',
-    payment_method_id='sed',
+    payment_method_id='Rico Security aha',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -374,9 +341,6 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 
 req = operations.DetectAccountRequest(
     x_publishable_key='Specialist',
-    email='Connor42@gmail.com',
-    phone='935-762-8190 x328',
-    sha256_email='markets Frozen',
 )
 
 res = s.account.detect_account(req)
@@ -412,20 +376,16 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
-    x_publishable_key='Latin Lead',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
         country_code='US',
-        default=False,
         door_code='123456',
         email='alan.watts@example.com',
         first_name='Alan',
         last_name='Watts',
         locality='Brooklyn',
-        metadata=shared.Metadata(
-            additional_properties='Nauru Frozen',
-        ),
+        metadata=shared.Metadata(),
         name='Alan Watts',
         phone='+12125550199',
         postal_code='10044',
@@ -473,9 +433,7 @@ from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.GetAccountRequest(
-    x_publishable_key='Market',
-)
+req = operations.GetAccountRequest()
 
 res = s.account.get_account(req, operations.GetAccountSecurity(
     o_auth="",
@@ -514,21 +472,16 @@ from bolt_embedded_api.models import operations, shared
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
-    idempotency_key='West Northwest logistical',
-    x_publishable_key='purple',
     address_account=shared.AddressAccount(
         company='Bolt',
         country='United States',
         country_code='US',
-        default=False,
         door_code='123456',
         email='alan.watts@example.com',
         first_name='Alan',
         last_name='Watts',
         locality='Brooklyn',
-        metadata=shared.Metadata(
-            additional_properties='Frozen Zealand Passenger',
-        ),
+        metadata=shared.Metadata(),
         name='Alan Watts',
         phone='+12125550199',
         postal_code='10044',
@@ -580,11 +533,8 @@ req = operations.UpdateAccountProfileRequest(
     request_body=operations.UpdateAccountProfileRequestBody(
         first_name='Alan',
         last_name='Watts',
-        metadata=shared.Metadata(
-            additional_properties='over',
-        ),
+        metadata=shared.Metadata(),
     ),
-    x_publishable_key='monetize Northwest',
 )
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(
