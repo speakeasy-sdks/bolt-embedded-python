@@ -61,6 +61,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 
 if res.add_address_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -132,6 +133,7 @@ res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
 
 if res.saved_credit_card_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -231,6 +233,7 @@ res = s.account.create_account(req, operations.CreateAccountSecurity(
 
 if res.account_details is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -270,6 +273,7 @@ res = s.account.delete_address(req, operations.DeleteAddressSecurity(
 
 if res.status_code == 200:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -308,6 +312,7 @@ res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurit
 
 if res.status_code == 200:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -347,6 +352,7 @@ res = s.account.detect_account(req)
 
 if res.v1_accounts_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -406,6 +412,7 @@ res = s.account.edit_address(req, operations.EditAddressSecurity(
 
 if res.edit_address_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -442,6 +449,7 @@ res = s.account.get_account(req, operations.GetAccountSecurity(
 
 if res.account_details is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -502,6 +510,7 @@ res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
 
 if res.replace_address_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -544,6 +553,7 @@ res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecur
 
 if res.profile_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters

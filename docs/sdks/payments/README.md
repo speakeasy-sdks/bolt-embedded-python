@@ -45,6 +45,7 @@ res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
 
 if res.finalize_payment_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -577,6 +578,7 @@ res = s.payments.initialize_payment(req, operations.InitializePaymentSecurity(
 
 if res.initialize_payment_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -1042,8 +1044,8 @@ req = operations.UpdatePaymentRequest(
                 ),
             ],
             metadata={
-                "key1": 'value1',
                 "key2": 'value2',
+                "key1": 'value1',
             },
             order_description='Order #1234567890',
             order_reference='order_100',
@@ -1110,6 +1112,7 @@ res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(
 
 if res.update_payment_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters

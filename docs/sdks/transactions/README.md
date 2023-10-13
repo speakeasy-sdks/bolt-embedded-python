@@ -593,6 +593,7 @@ res = s.transactions.authorize_transaction(req, operations.AuthorizeTransactionS
 
 if res.i_authorize_result_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -639,6 +640,7 @@ res = s.transactions.capture_transaction(req, operations.CaptureTransactionSecur
 
 if res.transaction_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -679,6 +681,7 @@ res = s.transactions.get_transaction_details(req, operations.GetTransactionDetai
 
 if res.get_transaction_details_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -722,6 +725,7 @@ res = s.transactions.refund_transaction(req, operations.RefundTransactionSecurit
 
 if res.transaction_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -754,8 +758,8 @@ req = operations.UpdateTransactionRequest(
     request_body=operations.UpdateTransactionRequestBody(
         display_id='order-123',
         metadata={
-            "key1": 'value1',
             "key2": 'value2',
+            "key1": 'value1',
         },
     ),
 )
@@ -766,6 +770,7 @@ res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurit
 
 if res.update_transaction_200_application_json_object is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
@@ -810,6 +815,7 @@ res = s.transactions.void_transaction(req, operations.VoidTransactionSecurity(
 
 if res.transaction_view is not None:
     # handle response
+    pass
 ```
 
 ### Parameters

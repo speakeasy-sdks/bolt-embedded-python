@@ -45,6 +45,7 @@ res = s.o_auth.o_auth_token(req)
 
 if res.o_auth_token_response is not None:
     # handle response
+    pass
 ```
 
 ### Parameters
