@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class PackageDimension:
     r"""Contains the package's width, eight, depth, and unit details."""

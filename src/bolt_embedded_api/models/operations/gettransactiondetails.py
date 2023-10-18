@@ -36,15 +36,13 @@ from ..shared import void as shared_void
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
-
+from typing import Dict, List, Optional
 
 
 @dataclasses.dataclass
 class GetTransactionDetailsSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
     
-
 
 
 
@@ -66,7 +64,6 @@ class GetTransactionDetails200ApplicationJSONSplitsType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GetTransactionDetails200ApplicationJSONSplits:
     r"""A split of fees by type and amount."""
@@ -78,7 +75,6 @@ class GetTransactionDetails200ApplicationJSONSplits:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthRejectionDetails:
     reason_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_code'), 'exclude': lambda f: f is None }})
@@ -88,7 +84,6 @@ class GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthReje
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GetTransactionDetails200ApplicationJSONTransactionRejectionDetails:
     auth_rejection_details: Optional[GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth_rejection_details'), 'exclude': lambda f: f is None }})
@@ -97,12 +92,11 @@ class GetTransactionDetails200ApplicationJSONTransactionRejectionDetails:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GetTransactionDetails200ApplicationJSON:
     r"""Transaction Details Retrieved"""
     address_change_request_metadata: Optional[shared_address_change_request_metadata_view.AddressChangeRequestMetadataView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address_change_request_metadata'), 'exclude': lambda f: f is None }})
-    adjust_transactions: Optional[list[shared_transaction_view.TransactionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjust_transactions'), 'exclude': lambda f: f is None }})
+    adjust_transactions: Optional[List[shared_transaction_view.TransactionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjust_transactions'), 'exclude': lambda f: f is None }})
     r"""**Nullable** for Transactions Details."""
     amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
     auth_verification_status: Optional[shared_authorization_verification_status.AuthorizationVerificationStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth_verification_status'), 'exclude': lambda f: f is None }})
@@ -112,7 +106,7 @@ class GetTransactionDetails200ApplicationJSON:
     r"""The authorization's id."""
     capture: Optional[shared_capture.Capture] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('capture'), 'exclude': lambda f: f is None }})
     r"""Deprecated. Use `captures`."""
-    captures: Optional[list[shared_capture.Capture]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('captures'), 'exclude': lambda f: f is None }})
+    captures: Optional[List[shared_capture.Capture]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('captures'), 'exclude': lambda f: f is None }})
     r"""All captures associated with the transaction. **Nullable** for Transactions Details."""
     chargeback_details: Optional[shared_chargeback_details.ChargebackDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_details'), 'exclude': lambda f: f is None }})
     credit: Optional[shared_credit.Credit] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('credit'), 'exclude': lambda f: f is None }})
@@ -144,14 +138,14 @@ class GetTransactionDetails200ApplicationJSON:
     order: Optional[shared_order_view.OrderView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order'), 'exclude': lambda f: f is None }})
     order_decision: Optional[shared_order_decision.OrderDecision] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order_decision'), 'exclude': lambda f: f is None }})
     r"""Decision and score for an order."""
-    platform_metadata: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_metadata'), 'exclude': lambda f: f is None }})
+    platform_metadata: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_metadata'), 'exclude': lambda f: f is None }})
     processor: Optional[shared_transaction_processor.TransactionProcessor] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor'), 'exclude': lambda f: f is None }})
     r"""The processor used. **Nullable** for Transactions Details."""
     reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference'), 'exclude': lambda f: f is None }})
     r"""The transaction's 12-digit Bolt reference ID. **Nullable** for Transactions Details."""
-    refund_transaction_ids: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_transaction_ids'), 'exclude': lambda f: f is None }})
+    refund_transaction_ids: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_transaction_ids'), 'exclude': lambda f: f is None }})
     r"""**Nullable** for Transactions Details."""
-    refund_transactions: Optional[list[shared_transaction_view.TransactionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_transactions'), 'exclude': lambda f: f is None }})
+    refund_transactions: Optional[List[shared_transaction_view.TransactionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refund_transactions'), 'exclude': lambda f: f is None }})
     r"""**Nullable** for Transactions Details."""
     refunded_amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('refunded_amount'), 'exclude': lambda f: f is None }})
     review_ticket: Optional[shared_review_ticket.ReviewTicket] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('review_ticket'), 'exclude': lambda f: f is None }})
@@ -162,7 +156,7 @@ class GetTransactionDetails200ApplicationJSON:
     r"""Describes the current Risk Review status. A transaction could be unreviewed, reviewed, or pending manual review by the Bolt team."""
     risk_score: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_score'), 'exclude': lambda f: f is None }})
     source_transaction: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source_transaction'), 'exclude': lambda f: f is None }})
-    splits: Optional[list[GetTransactionDetails200ApplicationJSONSplits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
+    splits: Optional[List[GetTransactionDetails200ApplicationJSONSplits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
     r"""A list of splits. **Nullable** for Transactions Details."""
     status: Optional[shared_transaction_status.TransactionStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The transaction's status."""
@@ -170,7 +164,7 @@ class GetTransactionDetails200ApplicationJSON:
     to_consumer: Optional[shared_consumer_self_view.ConsumerSelfView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to_consumer'), 'exclude': lambda f: f is None }})
     to_credit_card: Optional[shared_credit_card_view.CreditCardView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to_credit_card'), 'exclude': lambda f: f is None }})
     r"""Contains details about the credit card transaction."""
-    transaction_properties: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_properties'), 'exclude': lambda f: f is None }})
+    transaction_properties: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_properties'), 'exclude': lambda f: f is None }})
     transaction_rejection_details: Optional[GetTransactionDetails200ApplicationJSONTransactionRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_rejection_details'), 'exclude': lambda f: f is None }})
     type: Optional[shared_transaction_type.TransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""The type of transaction."""
@@ -178,7 +172,6 @@ class GetTransactionDetails200ApplicationJSON:
     void: Optional[shared_void.Void] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('void'), 'exclude': lambda f: f is None }})
     void_cause: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('void_cause'), 'exclude': lambda f: f is None }})
     
-
 
 
 

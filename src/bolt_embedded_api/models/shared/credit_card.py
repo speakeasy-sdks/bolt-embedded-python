@@ -19,7 +19,6 @@ class CreditCardTokenType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditCard:
     r"""The credit_card object is used to to pay for guest-checkout transactions or save payment method details to an account. Once saved, you can reference the credit card with the associated `credit_card_id` for future transactions. Add `billing_address` to this if storing a billing address for a returning shopper."""

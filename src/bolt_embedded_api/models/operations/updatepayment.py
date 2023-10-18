@@ -10,7 +10,6 @@ from enum import Enum
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class UpdatePaymentSecurity:
     o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
@@ -20,7 +19,6 @@ class UpdatePaymentSecurity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UpdatePaymentRequestBodyShopperIdentity:
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
@@ -39,7 +37,6 @@ class UpdatePaymentRequestBodyShopperIdentity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UpdatePaymentRequestBody:
     cart: Optional[shared_cart_create.CartCreate] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart'), 'exclude': lambda f: f is None }})
@@ -47,7 +44,6 @@ class UpdatePaymentRequestBody:
     shopper_identity: Optional[UpdatePaymentRequestBodyShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
     
-
 
 
 
@@ -71,7 +67,6 @@ class UpdatePayment200ApplicationJSONStatus(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UpdatePayment200ApplicationJSON:
     r"""Payment updated."""
@@ -80,7 +75,6 @@ class UpdatePayment200ApplicationJSON:
     status: Optional[UpdatePayment200ApplicationJSONStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The current payment status."""
     
-
 
 
 

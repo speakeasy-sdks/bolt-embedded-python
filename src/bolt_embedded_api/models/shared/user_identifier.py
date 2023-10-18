@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UserIdentifier:
     r"""The object containing key lookup IDs associated with the shopper's account, such as the unique email address and phone number."""

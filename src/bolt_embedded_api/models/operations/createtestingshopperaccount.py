@@ -10,7 +10,6 @@ from enum import Enum
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class CreateTestingShopperAccountSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
@@ -25,7 +24,6 @@ class CreateTestingShopperAccountRequestBodyEmailState(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreateTestingShopperAccountRequestBody:
     deactivate_in_days: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deactivate_in_days'), 'exclude': lambda f: f is None }})
@@ -46,7 +44,6 @@ class CreateTestingShopperAccountRequestBody:
 
 
 
-
 @dataclasses.dataclass
 class CreateTestingShopperAccountRequest:
     request_body: Optional[CreateTestingShopperAccountRequestBody] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
@@ -57,7 +54,6 @@ class CreateTestingShopperAccountRequest:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreateTestingShopperAccount200ApplicationJSON:
     r"""Testing Account Created"""
@@ -78,7 +74,6 @@ class CreateTestingShopperAccount200ApplicationJSON:
     will_deactivate_at: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('will_deactivate_at'), 'exclude': lambda f: f is None }})
     r"""The created testing account will be deactivated after this date"""
     
-
 
 
 

@@ -36,7 +36,6 @@ class MerchantCreditCardAuthorizationSource(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class MerchantCreditCardAuthorization:
     r"""This request is used for authorizing a new, unsaved card."""

@@ -13,7 +13,6 @@ class OAuthTokenInputRefreshGrantType(str, Enum):
     REFRESH_TOKEN = 'refresh_token'
 
 
-
 @dataclasses.dataclass
 class OAuthTokenInputRefresh:
     client_id: str = dataclasses.field(metadata={'form': { 'field_name': 'client_id' }})

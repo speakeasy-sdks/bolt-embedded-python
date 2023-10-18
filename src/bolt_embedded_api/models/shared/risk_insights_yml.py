@@ -5,20 +5,19 @@ import dataclasses
 from ..shared import risk_decision_factor_yml as shared_risk_decision_factor_yml
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import Dict, List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class RiskInsightsYml:
     r"""Displays fraud decisioning insights based on key factors. This information can either be forwarded via a `risk_insights` transaction webhook type or be polled by sending a `GET` request to Bolt's [transactions endpoint](/api-bolt/#operation/transaction-details)."""
     available: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('available'), 'exclude': lambda f: f is None }})
     r"""Must be set to `true` to receive fraud insights."""
-    decision_factors: Optional[list[shared_risk_decision_factor_yml.RiskDecisionFactorYml]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
+    decision_factors: Optional[List[shared_risk_decision_factor_yml.RiskDecisionFactorYml]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
     r"""The top 5 factors of the fraud decision."""
     fraud_probability: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fraud_probability'), 'exclude': lambda f: f is None }})
     r"""The total [fraud score](/merchants/references/policies/fraud-review/#fraud-scoring)."""
-    payment_instrument_factors: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_instrument_factors'), 'exclude': lambda f: f is None }})
+    payment_instrument_factors: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_instrument_factors'), 'exclude': lambda f: f is None }})
     
 

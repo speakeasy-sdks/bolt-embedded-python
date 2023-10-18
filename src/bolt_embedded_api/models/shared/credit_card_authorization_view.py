@@ -7,7 +7,7 @@ from ..shared import credit_card_authorization_status as shared_credit_card_auth
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
+from typing import Dict, Optional
 
 class CreditCardAuthorizationViewAvsResponse(str, Enum):
     ZERO = '00'
@@ -86,7 +86,6 @@ class CreditCardAuthorizationViewProcessor(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CreditCardAuthorizationView:
     auth: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth'), 'exclude': lambda f: f is None }})
@@ -94,7 +93,7 @@ class CreditCardAuthorizationView:
     cvv_response: Optional[CreditCardAuthorizationViewCvvResponse] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cvv_response'), 'exclude': lambda f: f is None }})
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
-    metadata: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is None }})
+    metadata: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is None }})
     processor: Optional[CreditCardAuthorizationViewProcessor] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor'), 'exclude': lambda f: f is None }})
     reason: Optional[shared_credit_card_authorization_reason.CreditCardAuthorizationReason] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason'), 'exclude': lambda f: f is None }})
     r"""The reason code explaining the authorization status.

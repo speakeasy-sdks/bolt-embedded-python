@@ -8,11 +8,10 @@ from ..shared import chargeback_reason_code as shared_chargeback_reason_code
 from ..shared import chargeback_representment_result as shared_chargeback_representment_result
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ChargebackDetails:
     amt_won: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amt_won'), 'exclude': lambda f: f is None }})
@@ -20,7 +19,7 @@ class ChargebackDetails:
     chargeback_fee: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_fee'), 'exclude': lambda f: f is None }})
     chargeback_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_id'), 'exclude': lambda f: f is None }})
     r"""The unique ID of the chargeback."""
-    event_views: Optional[list[shared_chargeback_event_view.ChargebackEventView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_views'), 'exclude': lambda f: f is None }})
+    event_views: Optional[List[shared_chargeback_event_view.ChargebackEventView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_views'), 'exclude': lambda f: f is None }})
     net_amt: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('net_amt'), 'exclude': lambda f: f is None }})
     reason: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason'), 'exclude': lambda f: f is None }})
     r"""The reason for the chargeback."""

@@ -8,7 +8,6 @@ from ..shared import v1_accounts_view as shared_v1_accounts_view
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class DetectAccountRequest:
     x_publishable_key: str = dataclasses.field(metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
@@ -20,7 +19,6 @@ class DetectAccountRequest:
     sha256_email: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'sha256_email', 'style': 'form', 'explode': True }})
     r"""The sha256 hash of the shopper's normalized email address can be used to detect an account instead of `email`."""
     
-
 
 
 

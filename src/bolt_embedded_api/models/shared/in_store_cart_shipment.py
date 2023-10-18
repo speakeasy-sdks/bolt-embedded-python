@@ -15,7 +15,6 @@ class InStoreCartShipmentDistanceUnit(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InStoreCartShipment:
     cart_shipment: Optional[shared_cart_shipment.CartShipment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart_shipment'), 'exclude': lambda f: f is None }})

@@ -8,15 +8,13 @@ from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
 from ..shared import transaction_view as shared_transaction_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
-
+from typing import List, Optional
 
 
 @dataclasses.dataclass
 class CaptureTransactionSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
     
-
 
 
 
@@ -31,7 +29,6 @@ class CaptureTransactionRequest:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CaptureTransaction422ApplicationJSONErrors:
     code: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code'), 'exclude': lambda f: f is None }})
@@ -41,21 +38,18 @@ class CaptureTransaction422ApplicationJSONErrors:
 
 
 
-
 @dataclasses.dataclass
 class CaptureTransaction422ApplicationJSONResult:
     pass
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CaptureTransaction422ApplicationJSON:
     r"""Unprocessable Entity"""
-    errors: Optional[list[CaptureTransaction422ApplicationJSONErrors]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
+    errors: Optional[List[CaptureTransaction422ApplicationJSONErrors]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
     result: Optional[CaptureTransaction422ApplicationJSONResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
     
-
 
 
 

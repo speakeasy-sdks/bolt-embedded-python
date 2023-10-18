@@ -10,7 +10,6 @@ from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class UpdateAccountProfileSecurity:
     o_auth: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
@@ -20,7 +19,6 @@ class UpdateAccountProfileSecurity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class UpdateAccountProfileRequestBody:
     r"""The profile fields that can be updated for a shopper."""
@@ -34,14 +32,12 @@ class UpdateAccountProfileRequestBody:
 
 
 
-
 @dataclasses.dataclass
 class UpdateAccountProfileRequest:
     request_body: Optional[UpdateAccountProfileRequestBody] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
-
 
 
 

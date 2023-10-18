@@ -7,7 +7,6 @@ from ..shared import account_details as shared_account_details
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class GetAccountSecurity:
     o_auth: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
@@ -16,13 +15,11 @@ class GetAccountSecurity:
 
 
 
-
 @dataclasses.dataclass
 class GetAccountRequest:
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
-
 
 
 

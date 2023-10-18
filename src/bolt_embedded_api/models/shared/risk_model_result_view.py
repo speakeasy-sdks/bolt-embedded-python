@@ -5,13 +5,12 @@ import dataclasses
 from ..shared import risk_model_resul_contribution_view as shared_risk_model_resul_contribution_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class RiskModelResultView:
-    contribution: Optional[list[shared_risk_model_resul_contribution_view.RiskModelResulContributionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('contribution'), 'exclude': lambda f: f is None }})
+    contribution: Optional[List[shared_risk_model_resul_contribution_view.RiskModelResulContributionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('contribution'), 'exclude': lambda f: f is None }})
     
 

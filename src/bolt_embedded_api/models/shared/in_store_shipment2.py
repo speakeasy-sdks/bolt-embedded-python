@@ -15,7 +15,6 @@ class InStoreShipment2DistanceUnit(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InStoreShipment2:
     r"""A cart that is being prepared for shipment"""

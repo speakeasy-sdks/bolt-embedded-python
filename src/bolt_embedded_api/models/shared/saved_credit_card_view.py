@@ -17,7 +17,6 @@ class SavedCreditCardViewType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SavedCreditCardView:
     r"""Saved Credit Card Detail"""

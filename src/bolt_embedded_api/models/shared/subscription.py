@@ -16,7 +16,6 @@ class SubscriptionFrequencyUnit(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SubscriptionFrequency:
     r"""Describes how often the subscription recurs."""
@@ -29,7 +28,6 @@ class SubscriptionFrequency:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class Subscription:
     r"""Describes a product added as a recurring subscription."""

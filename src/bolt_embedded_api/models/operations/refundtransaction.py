@@ -10,7 +10,6 @@ from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class RefundTransactionSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
@@ -19,7 +18,6 @@ class RefundTransactionSecurity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class RefundTransactionRequestBody:
     r"""Refund a Transaction"""
@@ -37,7 +35,6 @@ class RefundTransactionRequestBody:
 
 
 
-
 @dataclasses.dataclass
 class RefundTransactionRequest:
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
@@ -45,7 +42,6 @@ class RefundTransactionRequest:
     request_body: Optional[RefundTransactionRequestBody] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     r"""Refund a Transaction"""
     
-
 
 
 

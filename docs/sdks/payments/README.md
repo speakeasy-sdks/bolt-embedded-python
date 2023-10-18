@@ -79,9 +79,9 @@ req = operations.InitializePaymentRequest(
         cart=shared.CartCreate(
             add_ons=[
                 shared.CartAddOn(
-                    name='Bicycle',
-                    price=807.72,
-                    product_id='override',
+                    name='drive',
+                    price=7770.83,
+                    product_id='blue',
                 ),
             ],
             billing_address=shared.Address(
@@ -121,10 +121,10 @@ req = operations.InitializePaymentRequest(
                 shared.CartCreateFees(
                     description='Item Fee',
                     name='Item Fee',
-                    quantity=4039.97,
+                    quantity=609.16,
                     reference='ItemFee',
-                    unit_price=7837.59,
-                    unit_tax_amount=643.7,
+                    unit_price=5506.34,
+                    unit_tax_amount=1718.77,
                 ),
             ],
             fulfillments=[
@@ -564,10 +564,10 @@ req = operations.InitializePaymentRequest(
         ),
         shopper_identity=operations.InitializePaymentRequestBodyShopperIdentity(
             create_bolt_account=True,
-            email='Deondre.Hudson@hotmail.com',
-            first_name='Marlin',
-            last_name='Konopelski',
-            phone='698.508.7970',
+            email='Ottis.Bergnaum38@yahoo.com',
+            first_name='Jarvis',
+            last_name='Jast',
+            phone='1-515-984-0879 x7046',
         ),
     ),
 )
@@ -612,9 +612,9 @@ req = operations.UpdatePaymentRequest(
         cart=shared.CartCreate(
             add_ons=[
                 shared.CartAddOn(
-                    name='Northeast Pataca OCR',
-                    price=5220.84,
-                    product_id='West',
+                    name='Diesel',
+                    price=2053.88,
+                    product_id='Pataca',
                 ),
             ],
             billing_address=shared.Address(
@@ -654,10 +654,10 @@ req = operations.UpdatePaymentRequest(
                 shared.CartCreateFees(
                     description='Item Fee',
                     name='Item Fee',
-                    quantity=7407.21,
+                    quantity=4716.4,
                     reference='ItemFee',
-                    unit_price=1430.94,
-                    unit_tax_amount=5206.57,
+                    unit_price=4800.89,
+                    unit_tax_amount=5220.84,
                 ),
             ],
             fulfillments=[
@@ -1044,8 +1044,8 @@ req = operations.UpdatePaymentRequest(
                 ),
             ],
             metadata={
-                "key2": 'value2',
                 "key1": 'value1',
+                "key2": 'value2',
             },
             order_description='Order #1234567890',
             order_reference='order_100',
@@ -1097,10 +1097,10 @@ req = operations.UpdatePaymentRequest(
         ),
         shopper_identity=operations.UpdatePaymentRequestBodyShopperIdentity(
             create_bolt_account=True,
-            email='Trey.Ondricka83@hotmail.com',
-            first_name='Hayden',
-            last_name='Volkman',
-            phone='(760) 517-9258 x9562',
+            email='Adeline.Wyman52@gmail.com',
+            first_name='Rogers',
+            last_name='Weimann',
+            phone='1-918-596-7604 x1792',
         ),
     ),
     id='<ID>',

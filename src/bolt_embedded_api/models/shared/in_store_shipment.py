@@ -14,7 +14,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class InStoreShipment:
     r"""A cart that is being prepared for shipment"""

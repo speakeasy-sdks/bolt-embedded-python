@@ -8,7 +8,6 @@ from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class GetTestCreditCardTokenSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
@@ -17,7 +16,6 @@ class GetTestCreditCardTokenSecurity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GetTestCreditCardToken200ApplicationJSON:
     r"""Successfully Fetched Credit Card Token"""
@@ -32,7 +30,6 @@ class GetTestCreditCardToken200ApplicationJSON:
     token: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token'), 'exclude': lambda f: f is None }})
     r"""The newly generated credit card token."""
     
-
 
 
 

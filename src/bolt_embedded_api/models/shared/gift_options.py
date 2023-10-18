@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class GiftOptions:
     r"""Contains the gift option settings for wrapping and custom messages."""

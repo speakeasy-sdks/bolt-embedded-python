@@ -18,7 +18,6 @@ class MerchantDivisionSummaryViewHookType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class MerchantDivisionSummaryView:
     account_page_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('account_page_url'), 'exclude': lambda f: f is None }})

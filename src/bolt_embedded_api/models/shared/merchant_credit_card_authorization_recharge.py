@@ -17,7 +17,6 @@ class MerchantCreditCardAuthorizationRechargeSource(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class MerchantCreditCardAuthorizationRecharge:
     r"""This request is used for authorizing an existing, saved card associated with the account."""

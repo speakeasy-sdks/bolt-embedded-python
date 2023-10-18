@@ -4,14 +4,13 @@ from __future__ import annotations
 import dataclasses
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class OrderDecisionDetailsView:
-    decision_factors: Optional[list[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
+    decision_factors: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
     score: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('score'), 'exclude': lambda f: f is None }})
     
 

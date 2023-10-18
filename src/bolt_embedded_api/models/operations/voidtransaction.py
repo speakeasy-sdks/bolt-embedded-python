@@ -9,12 +9,10 @@ from ..shared import transaction_view as shared_transaction_view
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class VoidTransactionSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
     
-
 
 
 
@@ -25,7 +23,6 @@ class VoidTransactionRequest:
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
     r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
     
-
 
 
 

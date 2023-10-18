@@ -12,11 +12,10 @@ from ..shared import i_weight as shared_i_weight
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ICartShipmentViewPackageDimension:
     depth: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('depth'), 'exclude': lambda f: f is None }})
@@ -28,15 +27,14 @@ class ICartShipmentViewPackageDimension:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ICartShipmentView:
     carrier: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('carrier'), 'exclude': lambda f: f is None }})
     r"""The carrier used to deliver the shipment."""
     cost: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cost'), 'exclude': lambda f: f is None }})
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
-    description: Optional[list[shared_i_description_part.IDescriptionPart]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
-    description_tooltips: Optional[list[shared_i_description_tooltip.IDescriptionTooltip]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description_tooltips'), 'exclude': lambda f: f is None }})
+    description: Optional[List[shared_i_description_part.IDescriptionPart]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
+    description_tooltips: Optional[List[shared_i_description_tooltip.IDescriptionTooltip]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description_tooltips'), 'exclude': lambda f: f is None }})
     estimated_delivery_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('estimated_delivery_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
     expedited: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expedited'), 'exclude': lambda f: f is None }})
     r"""Used to determine whether a shipment has been expedited or not."""

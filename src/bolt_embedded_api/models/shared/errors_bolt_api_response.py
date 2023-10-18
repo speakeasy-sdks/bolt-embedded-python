@@ -6,14 +6,13 @@ from ..shared import error_bolt_api as shared_error_bolt_api
 from ..shared import request_result as shared_request_result
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ErrorsBoltAPIResponse:
-    errors: Optional[list[shared_error_bolt_api.ErrorBoltAPI]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
+    errors: Optional[List[shared_error_bolt_api.ErrorBoltAPI]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
     result: Optional[shared_request_result.RequestResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
     r"""Custom-defined Bolt result object."""
     

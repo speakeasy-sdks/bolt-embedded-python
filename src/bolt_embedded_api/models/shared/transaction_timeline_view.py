@@ -24,7 +24,6 @@ class TransactionTimelineViewType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class TransactionTimelineView:
     address_change: Optional[shared_address_change_view.AddressChangeView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address_change'), 'exclude': lambda f: f is None }})

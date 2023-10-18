@@ -12,7 +12,6 @@ from enum import Enum
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class AddPaymentMethodSecurity:
     o_auth: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
@@ -47,7 +46,6 @@ class AddPaymentMethodRequestBodyTokenType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AddPaymentMethodRequestBody:
     r"""The `credit_card` object is used to to pay for guest checkout transactions or save payment method details to an account. Once saved, you can reference the credit card with the associated `credit_card_id` for future transactions."""
@@ -84,7 +82,6 @@ class AddPaymentMethodRequestBody:
 
 
 
-
 @dataclasses.dataclass
 class AddPaymentMethodRequest:
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
@@ -93,7 +90,6 @@ class AddPaymentMethodRequest:
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
-
 
 
 

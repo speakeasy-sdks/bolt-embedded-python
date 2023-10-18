@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CartAddOn:
     r"""A list of up to 3 add-ons that are displayed to the shopper."""

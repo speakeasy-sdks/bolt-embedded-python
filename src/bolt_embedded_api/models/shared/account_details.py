@@ -8,11 +8,10 @@ from ..shared import saved_credit_card_view as shared_saved_credit_card_view
 from ..shared import saved_paypal_account_view as shared_saved_paypal_account_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional, Union
+from typing import List, Optional, Union
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AccountDetailsAddresses:
     r"""The address object returned in the response."""
@@ -60,21 +59,19 @@ class AccountDetailsAddresses:
 
 
 
-
 @dataclasses.dataclass
 class AccountDetailsPaymentMethods:
     pass
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class AccountDetails:
-    addresses: Optional[list[AccountDetailsAddresses]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses'), 'exclude': lambda f: f is None }})
+    addresses: Optional[List[AccountDetailsAddresses]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses'), 'exclude': lambda f: f is None }})
     r"""A list of all addresses associated to the shopper's account."""
     has_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_bolt_account'), 'exclude': lambda f: f is None }})
     r"""Used to determine whether a Bolt Account exists with this shopper's account details."""
-    payment_methods: Optional[list[Union[shared_saved_credit_card_view.SavedCreditCardView, shared_saved_paypal_account_view.SavedPaypalAccountView]]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_methods'), 'exclude': lambda f: f is None }})
+    payment_methods: Optional[List[Union[shared_saved_credit_card_view.SavedCreditCardView, shared_saved_paypal_account_view.SavedPaypalAccountView]]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_methods'), 'exclude': lambda f: f is None }})
     r"""A list of all payment methods associated to the shopper's account."""
     profile: Optional[shared_profile_view.ProfileView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('profile'), 'exclude': lambda f: f is None }})
     r"""The shopper's account profile."""

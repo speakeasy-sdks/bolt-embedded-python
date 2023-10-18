@@ -8,7 +8,6 @@ from typing import Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class Address:
     r"""The Address object is used for billing, shipping, and physical store address use cases."""

@@ -15,7 +15,6 @@ class CustomFieldsCheckoutSetup(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CustomFields:
     checkout_setup: Optional[CustomFieldsCheckoutSetup] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('checkout_setup'), 'exclude': lambda f: f is None }})

@@ -8,12 +8,10 @@ from ..shared import create_account_input as shared_create_account_input
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class CreateAccountSecurity:
     x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
     
-
 
 
 
@@ -25,7 +23,6 @@ class CreateAccountRequest:
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
-
 
 
 

@@ -10,11 +10,9 @@ from ..shared import o_auth_token_response as shared_o_auth_token_response
 from typing import Optional, Union
 
 
-
 @dataclasses.dataclass
 class OAuthTokenRequestBody:
     pass
-
 
 
 @dataclasses.dataclass
@@ -23,7 +21,6 @@ class OAuthTokenRequest:
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
-
 
 
 

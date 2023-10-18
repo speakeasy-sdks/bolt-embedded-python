@@ -8,18 +8,17 @@ from ..shared import transaction_operational_processor as shared_transaction_ope
 from ..shared import transaction_processor as shared_transaction_processor
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
-from typing import Optional
+from typing import List, Optional
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class Merchant:
     created_at: int = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('created_at') }})
     r"""The date the merchant account was created.  **Nullable** for Transactions Details."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The description of the merchant account. **Nullable** for Transactions Details."""
-    operational_processors: list[shared_transaction_operational_processor.TransactionOperationalProcessor] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('operational_processors') }})
+    operational_processors: List[shared_transaction_operational_processor.TransactionOperationalProcessor] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('operational_processors') }})
     r"""**Nullable** for Transactions Details."""
     processor: shared_transaction_processor.TransactionProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
     r"""The processor used. **Nullable** for Transactions Details."""

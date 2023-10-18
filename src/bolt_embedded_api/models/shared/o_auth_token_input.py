@@ -19,7 +19,6 @@ class OAuthTokenInputScope(str, Enum):
     OPENID = 'openid'
 
 
-
 @dataclasses.dataclass
 class OAuthTokenInput:
     client_id: str = dataclasses.field(metadata={'form': { 'field_name': 'client_id' }})

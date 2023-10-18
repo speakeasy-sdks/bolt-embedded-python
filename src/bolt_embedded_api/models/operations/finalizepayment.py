@@ -9,7 +9,6 @@ from enum import Enum
 from typing import Optional
 
 
-
 @dataclasses.dataclass
 class FinalizePaymentSecurity:
     o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
@@ -19,7 +18,6 @@ class FinalizePaymentSecurity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FinalizePaymentRequestBodyShopperIdentity:
     r"""Identification information for the Shopper"""
@@ -38,7 +36,6 @@ class FinalizePaymentRequestBodyShopperIdentity:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FinalizePaymentRequestBody:
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
@@ -46,7 +43,6 @@ class FinalizePaymentRequestBody:
     shopper_identity: Optional[FinalizePaymentRequestBodyShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
     r"""Identification information for the Shopper"""
     
-
 
 
 
@@ -62,7 +58,6 @@ class FinalizePaymentRequest:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FinalizePayment200ApplicationJSONPaypal:
     email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
@@ -78,7 +73,6 @@ class FinalizePayment200ApplicationJSONStatus(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FinalizePayment200ApplicationJSONTransaction:
     reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference'), 'exclude': lambda f: f is None }})
@@ -88,7 +82,6 @@ class FinalizePayment200ApplicationJSONTransaction:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class FinalizePayment200ApplicationJSON:
     r"""Payment Token Retrieved"""
@@ -101,7 +94,6 @@ class FinalizePayment200ApplicationJSON:
     r"""The current payment status."""
     transaction: Optional[FinalizePayment200ApplicationJSONTransaction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
     
-
 
 
 

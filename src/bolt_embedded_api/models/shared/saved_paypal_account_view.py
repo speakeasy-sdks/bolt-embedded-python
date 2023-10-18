@@ -14,7 +14,6 @@ class SavedPaypalAccountViewType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class SavedPaypalAccountView:
     r"""Saved PayPal account details."""

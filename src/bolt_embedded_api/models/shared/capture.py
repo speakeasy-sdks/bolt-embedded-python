@@ -7,7 +7,7 @@ from ..shared import capture_status as shared_capture_status
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
+from typing import Dict, List, Optional
 
 class CaptureSplitsType(str, Enum):
     r"""Fee type options. **Nullable** for Transactions Details."""
@@ -21,7 +21,6 @@ class CaptureSplitsType(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class CaptureSplits:
     r"""A split of fees by type and amount."""
@@ -33,7 +32,6 @@ class CaptureSplits:
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class Capture:
     r"""Deprecated. Use `captures`."""
@@ -42,9 +40,9 @@ class Capture:
     r"""The unique ID for the capture. **Nullable** for Transactions Details."""
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
-    metadata: Optional[dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is None }})
+    metadata: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is None }})
     r"""Additional information about the capture. For example, the processor capture ID. **Nullable** for Transactions Details."""
-    splits: Optional[list[CaptureSplits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
+    splits: Optional[List[CaptureSplits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
     r"""A split of fees by type and amount. **Nullable** for Transactions Details."""
     status: Optional[shared_capture_status.CaptureStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The status of the capture. **Nullable** for Transactions Details."""

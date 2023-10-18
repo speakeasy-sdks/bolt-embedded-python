@@ -15,7 +15,6 @@ class ICustomFieldViewCheckoutStep(str, Enum):
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
-
 @dataclasses.dataclass
 class ICustomFieldView:
     checkout_step: Optional[ICustomFieldViewCheckoutStep] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('checkout_step'), 'exclude': lambda f: f is None }})
