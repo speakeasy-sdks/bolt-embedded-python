@@ -302,7 +302,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    payment_method_id='across',
+    payment_method_id='string',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -345,7 +345,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='Clothing',
+    x_publishable_key='string',
 )
 
 res = s.account.detect_account(req)

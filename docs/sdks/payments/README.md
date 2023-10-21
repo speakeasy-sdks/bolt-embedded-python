@@ -79,9 +79,9 @@ req = operations.InitializePaymentRequest(
         cart=shared.CartCreate(
             add_ons=[
                 shared.CartAddOn(
-                    name='drive',
-                    price=7770.83,
-                    product_id='blue',
+                    name='string',
+                    price=3089.77,
+                    product_id='string',
                 ),
             ],
             billing_address=shared.Address(
@@ -121,10 +121,10 @@ req = operations.InitializePaymentRequest(
                 shared.CartCreateFees(
                     description='Item Fee',
                     name='Item Fee',
-                    quantity=609.16,
+                    quantity=7673.67,
                     reference='ItemFee',
-                    unit_price=5506.34,
-                    unit_tax_amount=1718.77,
+                    unit_price=7770.83,
+                    unit_tax_amount=7895.06,
                 ),
             ],
             fulfillments=[
@@ -511,8 +511,8 @@ req = operations.InitializePaymentRequest(
                 ),
             ],
             metadata={
-                "key1": 'value1',
                 "key2": 'value2',
+                "key1": 'value1',
             },
             order_description='Order #1234567890',
             order_reference='order_100',
@@ -564,10 +564,10 @@ req = operations.InitializePaymentRequest(
         ),
         shopper_identity=operations.InitializePaymentRequestBodyShopperIdentity(
             create_bolt_account=True,
-            email='Ottis.Bergnaum38@yahoo.com',
-            first_name='Jarvis',
-            last_name='Jast',
-            phone='1-515-984-0879 x7046',
+            email='Angelica40@gmail.com',
+            first_name='Ottis',
+            last_name='Bergnaum',
+            phone='434-564-1598 x40879',
         ),
     ),
 )
@@ -612,9 +612,9 @@ req = operations.UpdatePaymentRequest(
         cart=shared.CartCreate(
             add_ons=[
                 shared.CartAddOn(
-                    name='Diesel',
-                    price=2053.88,
-                    product_id='Pataca',
+                    name='string',
+                    price=8194.81,
+                    product_id='string',
                 ),
             ],
             billing_address=shared.Address(
@@ -654,10 +654,10 @@ req = operations.UpdatePaymentRequest(
                 shared.CartCreateFees(
                     description='Item Fee',
                     name='Item Fee',
-                    quantity=4716.4,
+                    quantity=1095.6,
                     reference='ItemFee',
-                    unit_price=4800.89,
-                    unit_tax_amount=5220.84,
+                    unit_price=2053.88,
+                    unit_tax_amount=4201.73,
                 ),
             ],
             fulfillments=[
@@ -1097,10 +1097,10 @@ req = operations.UpdatePaymentRequest(
         ),
         shopper_identity=operations.UpdatePaymentRequestBodyShopperIdentity(
             create_bolt_account=True,
-            email='Adeline.Wyman52@gmail.com',
-            first_name='Rogers',
-            last_name='Weimann',
-            phone='1-918-596-7604 x1792',
+            email='Jannie.Kshlerin@yahoo.com',
+            first_name='Adeline',
+            last_name='Wyman',
+            phone='358.969.1849 x6760',
         ),
     ),
     id='<ID>',

@@ -33,11 +33,11 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 
 req = operations.OAuthTokenRequest(
     shared.OAuthTokenInput(
-        client_id='Tesla',
-        client_secret='backing',
-        code='female',
+        client_id='string',
+        client_secret='string',
+        code='string',
         grant_type=shared.OAuthTokenInputGrantType.AUTHORIZATION_CODE,
-        scope=shared.OAuthTokenInputScope.BOLT_ACCOUNT_MANAGE,
+        scope=shared.OAuthTokenInputScope.OPENID,
     ),
 )
 

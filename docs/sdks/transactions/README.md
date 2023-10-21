@@ -36,9 +36,9 @@ req = operations.AuthorizeTransactionRequest(
         cart=shared.CartCreate(
             add_ons=[
                 shared.CartAddOn(
-                    name='Handmade',
-                    price=7867.96,
-                    product_id='green',
+                    name='string',
+                    price=2208.11,
+                    product_id='string',
                 ),
             ],
             billing_address=shared.Address(
@@ -78,10 +78,10 @@ req = operations.AuthorizeTransactionRequest(
                 shared.CartCreateFees(
                     description='Item Fee',
                     name='Item Fee',
-                    quantity=1111.02,
+                    quantity=7162.31,
                     reference='ItemFee',
-                    unit_price=2360.41,
-                    unit_tax_amount=4825.84,
+                    unit_price=7867.96,
+                    unit_tax_amount=7842.96,
                 ),
             ],
             fulfillments=[
@@ -672,7 +672,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetTransactionDetailsRequest(
-    reference='yum',
+    reference='string',
 )
 
 res = s.transactions.get_transaction_details(req, operations.GetTransactionDetailsSecurity(
@@ -754,7 +754,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.UpdateTransactionRequest(
-    reference='Margaret',
+    reference='string',
     request_body=operations.UpdateTransactionRequestBody(
         display_id='order-123',
         metadata={
