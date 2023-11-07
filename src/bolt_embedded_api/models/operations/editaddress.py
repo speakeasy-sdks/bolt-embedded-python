@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import address_account as shared_address_account
-from ..shared import metadata as shared_metadata
+from ...models.shared import address_account as shared_address_account
+from ...models.shared import metadata as shared_metadata
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -31,7 +31,7 @@ class EditAddressRequest:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class EditAddress200ApplicationJSON:
+class EditAddressResponseBody:
     r"""The address object returned in the response."""
     company: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('company'), 'exclude': lambda f: f is None }})
     r"""The company name associated with this address."""
@@ -82,7 +82,7 @@ class EditAddressResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    edit_address_200_application_json_object: Optional[EditAddress200ApplicationJSON] = dataclasses.field(default=None)
+    object: Optional[EditAddressResponseBody] = dataclasses.field(default=None)
     r"""Address Updated Successfully"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

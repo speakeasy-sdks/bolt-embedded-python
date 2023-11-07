@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import address_account as shared_address_account
-from ..shared import payment_method_account as shared_payment_method_account
-from ..shared import profile as shared_profile
+from .address_account import AddressAccount
+from .payment_method_account import PaymentMethodAccount
+from .profile import Profile
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import List, Optional
@@ -14,11 +14,11 @@ from typing import List, Optional
 @dataclasses.dataclass
 class CreateAccountInput:
     r"""The details needed to create a Bolt account."""
-    profile: shared_profile.Profile = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('profile') }})
+    profile: Profile = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('profile') }})
     r"""The first name, last name, email address, and phone number of a shopper."""
-    addresses: Optional[List[shared_address_account.AddressAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses'), 'exclude': lambda f: f is None }})
+    addresses: Optional[List[AddressAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('addresses'), 'exclude': lambda f: f is None }})
     r"""A list of physical shipping addresses associated with this account."""
-    payment_methods: Optional[List[shared_payment_method_account.PaymentMethodAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_methods'), 'exclude': lambda f: f is None }})
+    payment_methods: Optional[List[PaymentMethodAccount]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_methods'), 'exclude': lambda f: f is None }})
     r"""A list of payment methods associated with this account."""
     
 

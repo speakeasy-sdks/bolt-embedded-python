@@ -2,14 +2,14 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import i_custom_field_view as shared_i_custom_field_view
-from ..shared import i_gift_option_view as shared_i_gift_option_view
+from .i_custom_field_view import ICustomFieldView
+from .i_gift_option_view import IGiftOptionView
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import List, Optional
 
-class IOrderDynamicContentEligiblePaymentMethodsTransactionProcessorType(str, Enum):
+class TransactionProcessorType(str, Enum):
     AFFIRM = 'affirm'
     AFTERPAY = 'afterpay'
     AMAZON_PAY = 'amazon_pay'
@@ -43,13 +43,13 @@ class IOrderDynamicContentEligiblePaymentMethodsTransactionProcessorType(str, En
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class IOrderDynamicContentEligiblePaymentMethods:
+class EligiblePaymentMethods:
     eligible: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eligible'), 'exclude': lambda f: f is None }})
-    transaction_processor_type: Optional[IOrderDynamicContentEligiblePaymentMethodsTransactionProcessorType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_processor_type'), 'exclude': lambda f: f is None }})
+    transaction_processor_type: Optional[TransactionProcessorType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_processor_type'), 'exclude': lambda f: f is None }})
     
 
 
-class IOrderDynamicContentHideApm(str, Enum):
+class HideApm(str, Enum):
     PAYPAL = 'PAYPAL'
     AFFIRM = 'AFFIRM'
     AFTERPAY = 'AFTERPAY'
@@ -65,10 +65,10 @@ class IOrderDynamicContentHideApm(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class IOrderDynamicContent:
-    custom_fields: Optional[List[shared_i_custom_field_view.ICustomFieldView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('custom_fields'), 'exclude': lambda f: f is None }})
-    eligible_payment_methods: Optional[List[IOrderDynamicContentEligiblePaymentMethods]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eligible_payment_methods'), 'exclude': lambda f: f is None }})
-    gift_option_view: Optional[shared_i_gift_option_view.IGiftOptionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_option_view'), 'exclude': lambda f: f is None }})
-    hide_apm: Optional[List[IOrderDynamicContentHideApm]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hide_apm'), 'exclude': lambda f: f is None }})
+    custom_fields: Optional[List[ICustomFieldView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('custom_fields'), 'exclude': lambda f: f is None }})
+    eligible_payment_methods: Optional[List[EligiblePaymentMethods]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eligible_payment_methods'), 'exclude': lambda f: f is None }})
+    gift_option_view: Optional[IGiftOptionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_option_view'), 'exclude': lambda f: f is None }})
+    hide_apm: Optional[List[HideApm]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hide_apm'), 'exclude': lambda f: f is None }})
     order_notice: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order_notice'), 'exclude': lambda f: f is None }})
     payment_notice: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_notice'), 'exclude': lambda f: f is None }})
     shipping_info_notice: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_info_notice'), 'exclude': lambda f: f is None }})

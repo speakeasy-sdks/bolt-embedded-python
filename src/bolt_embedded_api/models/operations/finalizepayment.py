@@ -19,7 +19,7 @@ class FinalizePaymentSecurity:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class FinalizePaymentRequestBodyShopperIdentity:
+class ShopperIdentity:
     r"""Identification information for the Shopper"""
     email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
     r"""Email address of the shopper"""
@@ -40,7 +40,7 @@ class FinalizePaymentRequestBodyShopperIdentity:
 class FinalizePaymentRequestBody:
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
-    shopper_identity: Optional[FinalizePaymentRequestBodyShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    shopper_identity: Optional[ShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
     r"""Identification information for the Shopper"""
     
 
@@ -59,13 +59,13 @@ class FinalizePaymentRequest:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class FinalizePayment200ApplicationJSONPaypal:
+class Paypal:
     email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
     r"""An email address."""
     
 
 
-class FinalizePayment200ApplicationJSONStatus(str, Enum):
+class Status(str, Enum):
     r"""The current payment status."""
     AWAITING_USER_CONFIRMATION = 'awaiting_user_confirmation'
     PAYMENT_READY = 'payment_ready'
@@ -74,7 +74,7 @@ class FinalizePayment200ApplicationJSONStatus(str, Enum):
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class FinalizePayment200ApplicationJSONTransaction:
+class Transaction:
     reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference'), 'exclude': lambda f: f is None }})
     r"""The Bolt transaction reference (can be used to fetch transaction details, capture, void or refund transaction)"""
     
@@ -83,16 +83,16 @@ class FinalizePayment200ApplicationJSONTransaction:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class FinalizePayment200ApplicationJSON:
+class FinalizePaymentResponseBody:
     r"""Payment Token Retrieved"""
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     r"""The ID for the given Payment Attempt"""
     payment_method_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method_id'), 'exclude': lambda f: f is None }})
     r"""ID of the payment method in Bolt's system, only if the payment method is saved."""
-    paypal: Optional[FinalizePayment200ApplicationJSONPaypal] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paypal'), 'exclude': lambda f: f is None }})
-    status: Optional[FinalizePayment200ApplicationJSONStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    paypal: Optional[Paypal] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paypal'), 'exclude': lambda f: f is None }})
+    status: Optional[Status] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The current payment status."""
-    transaction: Optional[FinalizePayment200ApplicationJSONTransaction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
+    transaction: Optional[Transaction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
     
 
 
@@ -103,7 +103,7 @@ class FinalizePaymentResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    finalize_payment_200_application_json_object: Optional[FinalizePayment200ApplicationJSON] = dataclasses.field(default=None)
+    object: Optional[FinalizePaymentResponseBody] = dataclasses.field(default=None)
     r"""Payment Token Retrieved"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

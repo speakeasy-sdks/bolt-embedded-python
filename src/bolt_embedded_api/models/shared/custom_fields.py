@@ -7,7 +7,7 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import Optional
 
-class CustomFieldsCheckoutSetup(str, Enum):
+class CheckoutSetup(str, Enum):
     SHIPPING_STEP = 'shipping_step'
     DELIVERY_STEP = 'delivery_step'
     PAYMENT_STEP = 'payment_step'
@@ -17,7 +17,7 @@ class CustomFieldsCheckoutSetup(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class CustomFields:
-    checkout_setup: Optional[CustomFieldsCheckoutSetup] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('checkout_setup'), 'exclude': lambda f: f is None }})
+    checkout_setup: Optional[CheckoutSetup] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('checkout_setup'), 'exclude': lambda f: f is None }})
     dynamic: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('dynamic'), 'exclude': lambda f: f is None }})
     r"""Defines whether the field is dynamic."""
     external_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('external_id'), 'exclude': lambda f: f is None }})

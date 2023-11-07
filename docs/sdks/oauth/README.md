@@ -1,5 +1,5 @@
 # OAuth
-(*o_auth*)
+(*.o_auth*)
 
 ## Overview
 
@@ -36,8 +36,8 @@ req = operations.OAuthTokenRequest(
         client_id='string',
         client_secret='string',
         code='string',
-        grant_type=shared.OAuthTokenInputGrantType.AUTHORIZATION_CODE,
-        scope=shared.OAuthTokenInputScope.OPENID,
+        grant_type=shared.GrantType.AUTHORIZATION_CODE,
+        scope=shared.Scope.OPENID,
     ),
 )
 

@@ -44,7 +44,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
     x_api_key="",
 ))
 
-if res.add_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -54,7 +54,7 @@ if res.add_address_200_application_json_object is not None:
 ## Available Resources and Operations
 
 
-### [account](docs/sdks/account/README.md)
+### [.account](docs/sdks/account/README.md)
 
 * [add_address](docs/sdks/account/README.md#add_address) - Add Address
 * [add_payment_method](docs/sdks/account/README.md#add_payment_method) - Add Payment Method
@@ -67,22 +67,7 @@ if res.add_address_200_application_json_object is not None:
 * [replace_address](docs/sdks/account/README.md#replace_address) - Replace Address
 * [update_account_profile](docs/sdks/account/README.md#update_account_profile) - Update Profile
 
-### [o_auth](docs/sdks/oauth/README.md)
-
-* [o_auth_token](docs/sdks/oauth/README.md#o_auth_token) - OAuth Token Endpoint
-
-### [payments](docs/sdks/payments/README.md)
-
-* [finalize_payment](docs/sdks/payments/README.md#finalize_payment) - Finalize Payment
-* [initialize_payment](docs/sdks/payments/README.md#initialize_payment) - Initialize Payment
-* [update_payment](docs/sdks/payments/README.md#update_payment) - Update Payment
-
-### [testing](docs/sdks/testing/README.md)
-
-* [create_testing_shopper_account](docs/sdks/testing/README.md#create_testing_shopper_account) - Create Testing Shopper Account
-* [get_test_credit_card_token](docs/sdks/testing/README.md#get_test_credit_card_token) - Fetch a Test Credit Card Token
-
-### [transactions](docs/sdks/transactions/README.md)
+### [.transactions](docs/sdks/transactions/README.md)
 
 * [authorize_transaction](docs/sdks/transactions/README.md#authorize_transaction) - Authorize a Card
 * [capture_transaction](docs/sdks/transactions/README.md#capture_transaction) - Capture a Transaction
@@ -90,6 +75,21 @@ if res.add_address_200_application_json_object is not None:
 * [refund_transaction](docs/sdks/transactions/README.md#refund_transaction) - Refund a Transaction
 * [update_transaction](docs/sdks/transactions/README.md#update_transaction) - Update a Transaction
 * [void_transaction](docs/sdks/transactions/README.md#void_transaction) - Void a Transaction
+
+### [.o_auth](docs/sdks/oauth/README.md)
+
+* [o_auth_token](docs/sdks/oauth/README.md#o_auth_token) - OAuth Token Endpoint
+
+### [.payments](docs/sdks/payments/README.md)
+
+* [finalize_payment](docs/sdks/payments/README.md#finalize_payment) - Finalize Payment
+* [initialize_payment](docs/sdks/payments/README.md#initialize_payment) - Initialize Payment
+* [update_payment](docs/sdks/payments/README.md#update_payment) - Update Payment
+
+### [.testing](docs/sdks/testing/README.md)
+
+* [create_testing_shopper_account](docs/sdks/testing/README.md#create_testing_shopper_account) - Create Testing Shopper Account
+* [get_test_credit_card_token](docs/sdks/testing/README.md#get_test_credit_card_token) - Fetch a Test Credit Card Token
 <!-- End SDK Available Operations -->
 
 
@@ -118,6 +118,33 @@ Here's an example of one such pagination call:
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
 
 
+## Example
+
+```python
+import bolt_embedded_api
+from bolt_embedded_api.models import operations
+
+s = bolt_embedded_api.BoltEmbeddedAPI()
+
+req = operations.DeletePaymentMethodRequest(
+    payment_method_id='string',
+)
+
+res = None
+try:
+    res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
+    o_auth="",
+    x_api_key="",
+))
+
+except (errors_bolt_api_response) as e:
+    print(e) # handle exception
+
+
+if res.status_code == 200:
+    # handle response
+    pass
+```
 <!-- End Error Handling -->
 
 
@@ -137,13 +164,12 @@ You can override the default server globally by passing a server index to the `s
 
 For example:
 
-
 ```python
 import bolt_embedded_api
 from bolt_embedded_api.models import operations, shared
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
-    server_idx=2
+    server_idx=2,
 )
 
 req = operations.AddAddressRequest(
@@ -174,7 +200,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
     x_api_key="",
 ))
 
-if res.add_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -184,13 +210,12 @@ if res.add_address_200_application_json_object is not None:
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 
-
 ```python
 import bolt_embedded_api
 from bolt_embedded_api.models import operations, shared
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
-    server_url="https://api.bolt.com"
+    server_url="https://api.bolt.com",
 )
 
 req = operations.AddAddressRequest(
@@ -221,7 +246,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
     x_api_key="",
 ))
 
-if res.add_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -245,9 +270,107 @@ http_client = requests.Session()
 http_client.headers.update({'x-custom-header': 'someValue'})
 s = bolt_embedded_api.BoltEmbeddedAPI(client: http_client)
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security schemes globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `o_auth`     | oauth2       | OAuth2 token |
+| `x_api_key`  | apiKey       | API key      |
+
+You can set the security parameters through the `security` optional parameter when initializing the SDK client instance. The selected scheme will be used by default to authenticate with the API for all operations that support it. For example:
+
+```python
+import bolt_embedded_api
+from bolt_embedded_api.models import operations, shared
+
+s = bolt_embedded_api.BoltEmbeddedAPI()
+
+req = operations.AddAddressRequest(
+    address_account=shared.AddressAccount(
+        company='Bolt',
+        country='United States',
+        country_code='US',
+        door_code='123456',
+        email='alan.watts@example.com',
+        first_name='Alan',
+        last_name='Watts',
+        locality='Brooklyn',
+        metadata=shared.Metadata(),
+        name='Alan Watts',
+        phone='+12125550199',
+        postal_code='10044',
+        region='NY',
+        region_code='NY',
+        street_address1='888 main street',
+        street_address2='apt 3021',
+        street_address3='c/o Alicia Watts',
+        street_address4='Bridge Street Apartment Building B',
+    ),
+)
+
+res = s.account.add_address(req, operations.AddAddressSecurity(
+    o_auth="",
+    x_api_key="",
+))
+
+if res.object is not None:
+    # handle response
+    pass
+```
+
+## Per-Operation Security Schemes
+
+Some operations in your SDK require the security scheme to be specified at the request level. For example:
+
+```python
+import bolt_embedded_api
+from bolt_embedded_api.models import operations, shared
+
+s = bolt_embedded_api.BoltEmbeddedAPI()
+
+req = operations.AddAddressRequest(
+    address_account=shared.AddressAccount(
+        company='Bolt',
+        country='United States',
+        country_code='US',
+        door_code='123456',
+        email='alan.watts@example.com',
+        first_name='Alan',
+        last_name='Watts',
+        locality='Brooklyn',
+        metadata=shared.Metadata(),
+        name='Alan Watts',
+        phone='+12125550199',
+        postal_code='10044',
+        region='NY',
+        region_code='NY',
+        street_address1='888 main street',
+        street_address2='apt 3021',
+        street_address3='c/o Alicia Watts',
+        street_address4='Bridge Street Apartment Building B',
+    ),
+)
+
+res = s.account.add_address(req, operations.AddAddressSecurity(
+    o_auth="",
+    x_api_key="",
+))
+
+if res.object is not None:
+    # handle response
+    pass
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

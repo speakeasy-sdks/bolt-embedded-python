@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import metadata as shared_metadata
-from ..shared import profile_view as shared_profile_view
+from ...models.shared import metadata as shared_metadata
+from ...models.shared import profile_view as shared_profile_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional

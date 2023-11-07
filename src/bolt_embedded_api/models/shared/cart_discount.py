@@ -7,7 +7,7 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import Optional
 
-class CartDiscountDiscountCategory(str, Enum):
+class DiscountCategory(str, Enum):
     COUPON = 'coupon'
     GIFTCARD = 'giftcard'
     MANAGED_GIFTCARD = 'managed_giftcard'
@@ -19,7 +19,7 @@ class CartDiscountDiscountCategory(str, Enum):
     REWARDS_DISCOUNT = 'rewards_discount'
     UNKNOWN = 'unknown'
 
-class CartDiscountType(str, Enum):
+class Type(str, Enum):
     r"""The type of discount."""
     FIXED_AMOUNT = 'fixed_amount'
     PERCENTAGE = 'percentage'
@@ -35,10 +35,10 @@ class CartDiscount:
     r"""Used to define the discount offering."""
     details_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('details_url'), 'exclude': lambda f: f is None }})
     r"""Used to provide a link to additional details, such as a landing page, associated with the discount offering."""
-    discount_category: Optional[CartDiscountDiscountCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('discount_category'), 'exclude': lambda f: f is None }})
+    discount_category: Optional[DiscountCategory] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('discount_category'), 'exclude': lambda f: f is None }})
     reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference'), 'exclude': lambda f: f is None }})
     r"""Used to define the reference ID associated with the discount available."""
-    type: Optional[CartDiscountType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    type: Optional[Type] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""The type of discount."""
     
 

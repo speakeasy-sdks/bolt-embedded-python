@@ -3,7 +3,6 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
 from typing import Optional
 
 
@@ -31,8 +30,6 @@ class DeletePaymentMethodResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
-    r"""Forbidden"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
     

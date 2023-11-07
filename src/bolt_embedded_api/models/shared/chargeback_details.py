@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import amount_view as shared_amount_view
-from ..shared import chargeback_event_view as shared_chargeback_event_view
-from ..shared import chargeback_reason_code as shared_chargeback_reason_code
-from ..shared import chargeback_representment_result as shared_chargeback_representment_result
+from .amount_view import AmountView
+from .chargeback_event_view import ChargebackEventView
+from .chargeback_reason_code import ChargebackReasonCode
+from .chargeback_representment_result import ChargebackRepresentmentResult
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import List, Optional
@@ -14,20 +14,20 @@ from typing import List, Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class ChargebackDetails:
-    amt_won: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amt_won'), 'exclude': lambda f: f is None }})
-    chargeback_amt: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_amt'), 'exclude': lambda f: f is None }})
-    chargeback_fee: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_fee'), 'exclude': lambda f: f is None }})
+    amt_won: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amt_won'), 'exclude': lambda f: f is None }})
+    chargeback_amt: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_amt'), 'exclude': lambda f: f is None }})
+    chargeback_fee: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_fee'), 'exclude': lambda f: f is None }})
     chargeback_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('chargeback_id'), 'exclude': lambda f: f is None }})
     r"""The unique ID of the chargeback."""
-    event_views: Optional[List[shared_chargeback_event_view.ChargebackEventView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_views'), 'exclude': lambda f: f is None }})
-    net_amt: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('net_amt'), 'exclude': lambda f: f is None }})
+    event_views: Optional[List[ChargebackEventView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('event_views'), 'exclude': lambda f: f is None }})
+    net_amt: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('net_amt'), 'exclude': lambda f: f is None }})
     reason: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason'), 'exclude': lambda f: f is None }})
     r"""The reason for the chargeback."""
-    reason_code: Optional[shared_chargeback_reason_code.ChargebackReasonCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_code'), 'exclude': lambda f: f is None }})
+    reason_code: Optional[ChargebackReasonCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_code'), 'exclude': lambda f: f is None }})
     r"""Bolt's [standardized reason codes](https://help.bolt.com/merchants/references/policies/disputes/dispute-codes/)."""
     representment_reply_by_date: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('representment_reply_by_date'), 'exclude': lambda f: f is None }})
     r"""The date of the chargeback."""
-    representment_result: Optional[shared_chargeback_representment_result.ChargebackRepresentmentResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('representment_result'), 'exclude': lambda f: f is None }})
+    representment_result: Optional[ChargebackRepresentmentResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('representment_result'), 'exclude': lambda f: f is None }})
     r"""The result of the chargeback representment."""
     
 

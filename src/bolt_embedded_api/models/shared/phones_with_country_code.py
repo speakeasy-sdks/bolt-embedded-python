@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import phone_priority as shared_phone_priority
-from ..shared import phone_status as shared_phone_status
+from .phone_priority import PhonePriority
+from .phone_status import PhoneStatus
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -19,9 +19,9 @@ class PhonesWithCountryCode:
     r"""This is the ID for the phone number associated with the shopper."""
     number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('number'), 'exclude': lambda f: f is None }})
     r"""A phone number following E164 standards, in its globalized format, i.e. prepended with a plus sign."""
-    priority: Optional[shared_phone_priority.PhonePriority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
+    priority: Optional[PhonePriority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
     r"""This is the priority of the contact method. This field's contents are not displayed in the transaction details view."""
-    status: Optional[shared_phone_status.PhoneStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[PhoneStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""This is the status of the contact method."""
     
 

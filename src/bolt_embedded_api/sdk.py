@@ -21,14 +21,14 @@ class BoltEmbeddedAPI:
     """
     account: Account
     r"""Create Embedded Accounts user flows for logged-in and guest experiences by interacting with and updating shopper data."""
+    transactions: Transactions
+    r"""Authorize credit card transactions and perform operations on those transactions with Bolt's transaction API."""
     o_auth: OAuth
     r"""Interact with Shopper data by completing the Bolt OAuth process."""
     payments: Payments
     r"""Create and manage transactions for non credit card payments such as Paypal in your Embedded Accounts experience."""
     testing: Testing
     r"""A collection of endpoints that provide useful functionality to assist in testing your Bolt integration."""
-    transactions: Transactions
-    r"""Authorize credit card transactions and perform operations on those transactions with Bolt's transaction API."""
 
     sdk_configuration: SDKConfiguration
 
@@ -72,8 +72,8 @@ class BoltEmbeddedAPI:
     
     def _init_sdks(self):
         self.account = Account(self.sdk_configuration)
+        self.transactions = Transactions(self.sdk_configuration)
         self.o_auth = OAuth(self.sdk_configuration)
         self.payments = Payments(self.sdk_configuration)
         self.testing = Testing(self.sdk_configuration)
-        self.transactions = Transactions(self.sdk_configuration)
     

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import address_view as shared_address_view
+from .address_view import AddressView
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -11,12 +11,12 @@ from typing import Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class AddressChangeView:
-    from_address: Optional[shared_address_view.AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('from_address'), 'exclude': lambda f: f is None }})
+    from_address: Optional[AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('from_address'), 'exclude': lambda f: f is None }})
     r"""The address object returned in the response."""
     status: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     ticket_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ticket_id'), 'exclude': lambda f: f is None }})
     timestamp: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('timestamp'), 'exclude': lambda f: f is None }})
-    to_address: Optional[shared_address_view.AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to_address'), 'exclude': lambda f: f is None }})
+    to_address: Optional[AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to_address'), 'exclude': lambda f: f is None }})
     r"""The address object returned in the response."""
     
 

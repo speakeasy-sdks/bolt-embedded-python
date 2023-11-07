@@ -1,5 +1,5 @@
 # Account
-(*account*)
+(*.account*)
 
 ## Overview
 
@@ -59,7 +59,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
     x_api_key="",
 ))
 
-if res.add_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -122,7 +122,7 @@ req = operations.AddPaymentMethodRequest(
         metadata=shared.Metadata(),
         postal_code='10044',
         token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-        token_type=operations.AddPaymentMethodRequestBodyTokenType.BOLT,
+        token_type=operations.TokenType.BOLT,
     ),
 )
 
@@ -410,7 +410,7 @@ res = s.account.edit_address(req, operations.EditAddressSecurity(
     x_api_key="",
 ))
 
-if res.edit_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -508,7 +508,7 @@ res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
     x_api_key="",
 ))
 
-if res.replace_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```

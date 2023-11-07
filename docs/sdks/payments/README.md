@@ -1,5 +1,5 @@
 # Payments
-(*payments*)
+(*.payments*)
 
 ## Overview
 
@@ -28,7 +28,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 req = operations.FinalizePaymentRequest(
     request_body=operations.FinalizePaymentRequestBody(
         merchant_event_id='dbe0cd5d-3261-41d9-ba61-49e5b9d07567',
-        shopper_identity=operations.FinalizePaymentRequestBodyShopperIdentity(
+        shopper_identity=operations.ShopperIdentity(
             create_bolt_account=True,
             email='Shanon_Sipes@hotmail.com',
             first_name='Jalyn',
@@ -43,7 +43,7 @@ res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
     o_auth="",
 ))
 
-if res.finalize_payment_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -113,12 +113,12 @@ req = operations.InitializePaymentRequest(
                     description='10% off our summer collection',
                     details_url='https://boltswagstore.com/SUMMERSALE',
                     reference='DISC-1234',
-                    type=shared.CartDiscountType.PERCENTAGE,
+                    type=shared.Type.PERCENTAGE,
                 ),
             ],
             display_id='displayid_100',
             fees=[
-                shared.CartCreateFees(
+                shared.Fees(
                     description='Item Fee',
                     name='Item Fee',
                     quantity=7673.67,
@@ -128,7 +128,7 @@ req = operations.InitializePaymentRequest(
                 ),
             ],
             fulfillments=[
-                shared.CartCreateFulfillments(
+                shared.Fulfillments(
                     cart_items=[
                         shared.CartItem(
                             brand='Bolt',
@@ -153,7 +153,7 @@ req = operations.InitializePaymentRequest(
                             description='Large tote with Bolt logo.',
                             details_url='https://boltswagstore.com/products/123456',
                             external_inputs=shared.ICartItemExternalInputs(),
-                            gift_option=shared.CartItemGiftOption(
+                            gift_option=shared.GiftOption(
                                 cost=770,
                                 merchant_product_id='881',
                                 message='Happy Anniversary, Smoochy Poo!',
@@ -267,7 +267,7 @@ req = operations.InitializePaymentRequest(
                         total_weight_unit='kg',
                         type=shared.CartShipmentType.DOOR_DELIVERY,
                     ),
-                    digital_delivery=shared.CartCreateFulfillmentsDigitalDelivery(),
+                    digital_delivery=shared.DigitalDelivery(),
                     in_store_cart_shipment=shared.InStoreCartShipment(
                         cart_shipment=shared.CartShipment(
                             carrier='FedEx',
@@ -313,7 +313,7 @@ req = operations.InitializePaymentRequest(
                         ),
                         description='Pick up in-store at 123 Main St.',
                         distance=3,
-                        distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                        distance_unit=shared.DistanceUnit.MILE,
                         in_store_pickup_address=shared.Address(
                             company='Bolt',
                             country='United States',
@@ -384,7 +384,7 @@ req = operations.InitializePaymentRequest(
                     ),
                     description='Pick up in-store at 123 Main St.',
                     distance=3,
-                    distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                    distance_unit=shared.DistanceUnit.MILE,
                     in_store_pickup_address=shared.Address(
                         company='Bolt',
                         country='United States',
@@ -419,8 +419,8 @@ req = operations.InitializePaymentRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key2": 'value2',
                                 "key1": 'value1',
+                                "key2": 'value2',
                             },
                             price=shared.AmountView(
                                 amount=754,
@@ -432,7 +432,7 @@ req = operations.InitializePaymentRequest(
                     description='Large tote with Bolt logo.',
                     details_url='https://boltswagstore.com/products/123456',
                     external_inputs=shared.ICartItemExternalInputs(),
-                    gift_option=shared.CartItemGiftOption(
+                    gift_option=shared.GiftOption(
                         cost=770,
                         merchant_product_id='881',
                         message='Happy Anniversary, Smoochy Poo!',
@@ -562,7 +562,7 @@ req = operations.InitializePaymentRequest(
             ],
             total_amount=900,
         ),
-        shopper_identity=operations.InitializePaymentRequestBodyShopperIdentity(
+        shopper_identity=operations.InitializePaymentShopperIdentity(
             create_bolt_account=True,
             email='Angelica40@gmail.com',
             first_name='Ottis',
@@ -576,7 +576,7 @@ res = s.payments.initialize_payment(req, operations.InitializePaymentSecurity(
     o_auth="",
 ))
 
-if res.initialize_payment_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -646,12 +646,12 @@ req = operations.UpdatePaymentRequest(
                     description='10% off our summer collection',
                     details_url='https://boltswagstore.com/SUMMERSALE',
                     reference='DISC-1234',
-                    type=shared.CartDiscountType.PERCENTAGE,
+                    type=shared.Type.PERCENTAGE,
                 ),
             ],
             display_id='displayid_100',
             fees=[
-                shared.CartCreateFees(
+                shared.Fees(
                     description='Item Fee',
                     name='Item Fee',
                     quantity=1095.6,
@@ -661,7 +661,7 @@ req = operations.UpdatePaymentRequest(
                 ),
             ],
             fulfillments=[
-                shared.CartCreateFulfillments(
+                shared.Fulfillments(
                     cart_items=[
                         shared.CartItem(
                             brand='Bolt',
@@ -686,7 +686,7 @@ req = operations.UpdatePaymentRequest(
                             description='Large tote with Bolt logo.',
                             details_url='https://boltswagstore.com/products/123456',
                             external_inputs=shared.ICartItemExternalInputs(),
-                            gift_option=shared.CartItemGiftOption(
+                            gift_option=shared.GiftOption(
                                 cost=770,
                                 merchant_product_id='881',
                                 message='Happy Anniversary, Smoochy Poo!',
@@ -800,7 +800,7 @@ req = operations.UpdatePaymentRequest(
                         total_weight_unit='kg',
                         type=shared.CartShipmentType.DOOR_DELIVERY,
                     ),
-                    digital_delivery=shared.CartCreateFulfillmentsDigitalDelivery(),
+                    digital_delivery=shared.DigitalDelivery(),
                     in_store_cart_shipment=shared.InStoreCartShipment(
                         cart_shipment=shared.CartShipment(
                             carrier='FedEx',
@@ -846,7 +846,7 @@ req = operations.UpdatePaymentRequest(
                         ),
                         description='Pick up in-store at 123 Main St.',
                         distance=3,
-                        distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                        distance_unit=shared.DistanceUnit.MILE,
                         in_store_pickup_address=shared.Address(
                             company='Bolt',
                             country='United States',
@@ -917,7 +917,7 @@ req = operations.UpdatePaymentRequest(
                     ),
                     description='Pick up in-store at 123 Main St.',
                     distance=3,
-                    distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                    distance_unit=shared.DistanceUnit.MILE,
                     in_store_pickup_address=shared.Address(
                         company='Bolt',
                         country='United States',
@@ -965,7 +965,7 @@ req = operations.UpdatePaymentRequest(
                     description='Large tote with Bolt logo.',
                     details_url='https://boltswagstore.com/products/123456',
                     external_inputs=shared.ICartItemExternalInputs(),
-                    gift_option=shared.CartItemGiftOption(
+                    gift_option=shared.GiftOption(
                         cost=770,
                         merchant_product_id='881',
                         message='Happy Anniversary, Smoochy Poo!',
@@ -1095,7 +1095,7 @@ req = operations.UpdatePaymentRequest(
             ],
             total_amount=900,
         ),
-        shopper_identity=operations.UpdatePaymentRequestBodyShopperIdentity(
+        shopper_identity=operations.UpdatePaymentShopperIdentity(
             create_bolt_account=True,
             email='Jannie.Kshlerin@yahoo.com',
             first_name='Adeline',
@@ -1110,7 +1110,7 @@ res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(
     o_auth="",
 ))
 
-if res.update_payment_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```

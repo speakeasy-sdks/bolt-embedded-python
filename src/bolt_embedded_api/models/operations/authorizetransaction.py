@@ -3,9 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import i_authorize_result_view as shared_i_authorize_result_view
-from ..shared import merchant_credit_card_authorization as shared_merchant_credit_card_authorization
-from ..shared import merchant_credit_card_authorization_recharge as shared_merchant_credit_card_authorization_recharge
+from ...models.shared import i_authorize_result_view as shared_i_authorize_result_view
+from ...models.shared import merchant_credit_card_authorization as shared_merchant_credit_card_authorization
+from ...models.shared import merchant_credit_card_authorization_recharge as shared_merchant_credit_card_authorization_recharge
 from typing import Optional, Union
 
 

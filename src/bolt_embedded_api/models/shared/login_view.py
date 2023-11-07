@@ -7,11 +7,11 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import List, Optional
 
-class LoginViewActions(str, Enum):
+class Actions(str, Enum):
     SET_PASSWORD = 'set_password'
     ROTATE_PASSWORD = 'rotate_password'
 
-class LoginViewMethods(str, Enum):
+class Methods(str, Enum):
     CODE = 'code'
     CODE_PASSWORD = 'code_password'
     PASSWORD = 'password'
@@ -21,8 +21,8 @@ class LoginViewMethods(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class LoginView:
-    actions: Optional[List[LoginViewActions]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('actions'), 'exclude': lambda f: f is None }})
-    methods: Optional[List[LoginViewMethods]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('methods'), 'exclude': lambda f: f is None }})
+    actions: Optional[List[Actions]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('actions'), 'exclude': lambda f: f is None }})
+    methods: Optional[List[Methods]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('methods'), 'exclude': lambda f: f is None }})
     sso_authorization_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sso_authorization_url'), 'exclude': lambda f: f is None }})
     
 

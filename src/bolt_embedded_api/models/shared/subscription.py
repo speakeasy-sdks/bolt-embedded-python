@@ -7,7 +7,7 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import Optional
 
-class SubscriptionFrequencyUnit(str, Enum):
+class Unit(str, Enum):
     r"""The unit for this subscription's frequency."""
     DAY = 'day'
     WEEK = 'week'
@@ -17,9 +17,9 @@ class SubscriptionFrequencyUnit(str, Enum):
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class SubscriptionFrequency:
+class Frequency:
     r"""Describes how often the subscription recurs."""
-    unit: Optional[SubscriptionFrequencyUnit] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit'), 'exclude': lambda f: f is None }})
+    unit: Optional[Unit] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit'), 'exclude': lambda f: f is None }})
     r"""The unit for this subscription's frequency."""
     value: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('value'), 'exclude': lambda f: f is None }})
     r"""The value applied to the unit frequency."""
@@ -31,7 +31,7 @@ class SubscriptionFrequency:
 @dataclasses.dataclass
 class Subscription:
     r"""Describes a product added as a recurring subscription."""
-    frequency: Optional[SubscriptionFrequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('frequency'), 'exclude': lambda f: f is None }})
+    frequency: Optional[Frequency] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('frequency'), 'exclude': lambda f: f is None }})
     r"""Describes how often the subscription recurs."""
     
 

@@ -3,8 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
-from ..shared import transaction_view as shared_transaction_view
+from ...models.shared import transaction_view as shared_transaction_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -51,8 +50,6 @@ class RefundTransactionResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
-    r"""Generic Error Schema"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
     transaction_view: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None)

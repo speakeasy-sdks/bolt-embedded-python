@@ -3,10 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import errors_oauth_server_response as shared_errors_oauth_server_response
-from ..shared import o_auth_token_input as shared_o_auth_token_input
-from ..shared import o_auth_token_input_refresh as shared_o_auth_token_input_refresh
-from ..shared import o_auth_token_response as shared_o_auth_token_response
+from ...models.shared import o_auth_token_input as shared_o_auth_token_input
+from ...models.shared import o_auth_token_input_refresh as shared_o_auth_token_input_refresh
+from ...models.shared import o_auth_token_response as shared_o_auth_token_response
 from typing import Optional, Union
 
 
@@ -30,8 +29,6 @@ class OAuthTokenResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    errors_oauth_server_response: Optional[shared_errors_oauth_server_response.ErrorsOauthServerResponse] = dataclasses.field(default=None)
-    r"""Invalid request to OAuth Token."""
     o_auth_token_response: Optional[shared_o_auth_token_response.OAuthTokenResponse] = dataclasses.field(default=None)
     r"""OAuth token response."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)

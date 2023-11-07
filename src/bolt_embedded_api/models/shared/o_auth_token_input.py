@@ -5,14 +5,14 @@ import dataclasses
 from enum import Enum
 from typing import Optional
 
-class OAuthTokenInputGrantType(str, Enum):
+class GrantType(str, Enum):
     r"""The type of OAuth 2.0 grant being utilized.
 
     The value will always be `authorization_code` when exchanging an authorization code for an access token.
     """
     AUTHORIZATION_CODE = 'authorization_code'
 
-class OAuthTokenInputScope(str, Enum):
+class Scope(str, Enum):
     r"""The scope issued to the merchant when receiving an authorization code. Options include `bolt.account.manage`, `bolt.account.view`, `openid`. You can find more information on these options in our [OAuth scope documentation](https://help.bolt.com/developers/references/bolt-oauth/#scopes)."""
     BOLT_ACCOUNT_MANAGE = 'bolt.account.manage'
     BOLT_ACCOUNT_VIEW = 'bolt.account.view'
@@ -27,12 +27,12 @@ class OAuthTokenInput:
     r"""Your Bolt API Key."""
     code: str = dataclasses.field(metadata={'form': { 'field_name': 'code' }})
     r"""Fetched value using OTP value from the Authorization Modal."""
-    grant_type: OAuthTokenInputGrantType = dataclasses.field(metadata={'form': { 'field_name': 'grant_type' }})
+    grant_type: GrantType = dataclasses.field(metadata={'form': { 'field_name': 'grant_type' }})
     r"""The type of OAuth 2.0 grant being utilized.
 
     The value will always be `authorization_code` when exchanging an authorization code for an access token.
     """
-    scope: OAuthTokenInputScope = dataclasses.field(metadata={'form': { 'field_name': 'scope' }})
+    scope: Scope = dataclasses.field(metadata={'form': { 'field_name': 'scope' }})
     r"""The scope issued to the merchant when receiving an authorization code. Options include `bolt.account.manage`, `bolt.account.view`, `openid`. You can find more information on these options in our [OAuth scope documentation](https://help.bolt.com/developers/references/bolt-oauth/#scopes)."""
     state: Optional[str] = dataclasses.field(default=None, metadata={'form': { 'field_name': 'state' }})
     r"""A randomly generated string issued to the merchant when receiving an authorization code used to prevent CSRF attacks"""

@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import risk_decision_factor_yml as shared_risk_decision_factor_yml
+from .risk_decision_factor_yml import RiskDecisionFactorYml
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import List, Optional
@@ -12,7 +12,7 @@ from typing import List, Optional
 @dataclasses.dataclass
 class OrderDecision:
     r"""Decision and score for an order."""
-    decision_factors: Optional[List[shared_risk_decision_factor_yml.RiskDecisionFactorYml]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
+    decision_factors: Optional[List[RiskDecisionFactorYml]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('decision_factors'), 'exclude': lambda f: f is None }})
     r"""The top 5 factors of the fraud decision."""
     score: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('score'), 'exclude': lambda f: f is None }})
     r"""The total fraud risk score of the order."""

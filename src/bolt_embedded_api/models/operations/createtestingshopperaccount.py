@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import onev1_1testing_1shopper_1create_post_requestbody_content_application_1json_schema_properties_email_state as shared_onev1_1testing_1shopper_1create_post_requestbody_content_application_1json_schema_properties_email_state
+from ...models.shared import onev1_1testing_1shopper_1create_post_requestbody_content_application_1json_schema_properties_email_state as shared_onev1_1testing_1shopper_1create_post_requestbody_content_application_1json_schema_properties_email_state
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -16,7 +16,7 @@ class CreateTestingShopperAccountSecurity:
     
 
 
-class CreateTestingShopperAccountRequestBodyEmailState(str, Enum):
+class EmailState(str, Enum):
     r"""The status of the shopper account identifier (email or phone). If the account does not have this identifier, the status is \\"missing\\"; If the identifier has been used to receive an OTP code, the status is \\"verified\\"; If the identifier has not been used to receive an OTP code, the status is \\"unverified\\"."""
     MISSING = 'missing'
     VERIFIED = 'verified'
@@ -30,7 +30,7 @@ class CreateTestingShopperAccountRequestBody:
     r"""Number of days after which the test account is deactivated. Default: 30 days. Maximum: 180 days."""
     email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
     r"""Deprecated. Please leave this field absent and let the API automatically generate a random email."""
-    email_state: Optional[CreateTestingShopperAccountRequestBodyEmailState] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_state'), 'exclude': lambda f: f is None }})
+    email_state: Optional[EmailState] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_state'), 'exclude': lambda f: f is None }})
     r"""The status of the shopper account identifier (email or phone). If the account does not have this identifier, the status is \\"missing\\"; If the identifier has been used to receive an OTP code, the status is \\"verified\\"; If the identifier has not been used to receive an OTP code, the status is \\"unverified\\"."""
     has_address: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('has_address'), 'exclude': lambda f: f is None }})
     r"""Add a random U.S. address to the created account if set to `true`"""
@@ -55,7 +55,7 @@ class CreateTestingShopperAccountRequest:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class CreateTestingShopperAccount200ApplicationJSON:
+class CreateTestingShopperAccountResponseBody:
     r"""Testing Account Created"""
     email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
     r"""An email address."""
@@ -83,7 +83,7 @@ class CreateTestingShopperAccountResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    create_testing_shopper_account_200_application_json_object: Optional[CreateTestingShopperAccount200ApplicationJSON] = dataclasses.field(default=None)
+    object: Optional[CreateTestingShopperAccountResponseBody] = dataclasses.field(default=None)
     r"""Testing Account Created"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

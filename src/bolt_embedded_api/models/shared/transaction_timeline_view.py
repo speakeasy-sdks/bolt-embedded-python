@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import address_change_view as shared_address_change_view
-from ..shared import amount_view as shared_amount_view
-from ..shared import consumer_summary_view as shared_consumer_summary_view
-from ..shared import transaction_review_view as shared_transaction_review_view
-from ..shared import transaction_view as shared_transaction_view
+from .address_change_view import AddressChangeView
+from .amount_view import AmountView
+from .consumer_summary_view import ConsumerSummaryView
+from .transaction_review_view import TransactionReviewView
+from .transaction_view import TransactionView
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -26,13 +26,13 @@ class TransactionTimelineViewType(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class TransactionTimelineView:
-    address_change: Optional[shared_address_change_view.AddressChangeView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address_change'), 'exclude': lambda f: f is None }})
-    amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
-    consumer: Optional[shared_consumer_summary_view.ConsumerSummaryView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consumer'), 'exclude': lambda f: f is None }})
+    address_change: Optional[AddressChangeView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address_change'), 'exclude': lambda f: f is None }})
+    amount: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
+    consumer: Optional[ConsumerSummaryView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('consumer'), 'exclude': lambda f: f is None }})
     date_: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('date'), 'exclude': lambda f: f is None }})
     note: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('note'), 'exclude': lambda f: f is None }})
-    review: Optional[shared_transaction_review_view.TransactionReviewView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('review'), 'exclude': lambda f: f is None }})
-    transaction: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
+    review: Optional[TransactionReviewView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('review'), 'exclude': lambda f: f is None }})
+    transaction: Optional[TransactionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
     type: Optional[TransactionTimelineViewType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     visibility: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('visibility'), 'exclude': lambda f: f is None }})
     

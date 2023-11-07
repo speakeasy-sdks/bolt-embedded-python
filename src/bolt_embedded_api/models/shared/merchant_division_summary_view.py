@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import merchant_division_logo_view as shared_merchant_division_logo_view
+from .merchant_division_logo_view import MerchantDivisionLogoView
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import Optional
 
-class MerchantDivisionSummaryViewHookType(str, Enum):
+class HookType(str, Enum):
     ONE = '1'
     TWO = '2'
     THREE = '3'
@@ -29,13 +29,13 @@ class MerchantDivisionSummaryView:
     description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
     display_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('display_name'), 'exclude': lambda f: f is None }})
     get_account_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('get_account_url'), 'exclude': lambda f: f is None }})
-    hook_type: Optional[MerchantDivisionSummaryViewHookType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_type'), 'exclude': lambda f: f is None }})
+    hook_type: Optional[HookType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_type'), 'exclude': lambda f: f is None }})
     hook_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_url'), 'exclude': lambda f: f is None }})
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     is_universal_merchant_api: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_universal_merchant_api'), 'exclude': lambda f: f is None }})
     is_webhooks_v2: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('is_webhooks_v2'), 'exclude': lambda f: f is None }})
-    logo: Optional[shared_merchant_division_logo_view.MerchantDivisionLogoView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo'), 'exclude': lambda f: f is None }})
-    logo_dashboard: Optional[shared_merchant_division_logo_view.MerchantDivisionLogoView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo_dashboard'), 'exclude': lambda f: f is None }})
+    logo: Optional[MerchantDivisionLogoView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo'), 'exclude': lambda f: f is None }})
+    logo_dashboard: Optional[MerchantDivisionLogoView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo_dashboard'), 'exclude': lambda f: f is None }})
     merchant_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_id'), 'exclude': lambda f: f is None }})
     mobile_app_domain_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('mobile_app_domain_url'), 'exclude': lambda f: f is None }})
     oauth_logout_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('oauth_logout_url'), 'exclude': lambda f: f is None }})

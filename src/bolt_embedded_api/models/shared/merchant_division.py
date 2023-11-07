@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import merchant_logo as shared_merchant_logo
-from ..shared import merchant_platform as shared_merchant_platform
-from ..shared import webhooks_type as shared_webhooks_type
+from .merchant_logo import MerchantLogo
+from .merchant_platform import MerchantPlatform
+from .webhooks_type import WebhooksType
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -34,18 +34,18 @@ class MerchantDivision:
     r"""The endpoint URL provided by the merchant for debugging."""
     get_account_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('get_account_url'), 'exclude': lambda f: f is None }})
     r"""The endpoint URL provided by the merchant to fetch accounts."""
-    hook_type: Optional[shared_webhooks_type.WebhooksType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_type'), 'exclude': lambda f: f is None }})
+    hook_type: Optional[WebhooksType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_type'), 'exclude': lambda f: f is None }})
     r"""[Webhook events](https://help.bolt.com/developers/guides/webhooks/#transaction-hook-types) that trigger a notification to the URL.  **Note**:`newsletter_subscription` is only for merchant use cases."""
     hook_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('hook_url'), 'exclude': lambda f: f is None }})
     r"""The endpoint URL provided by the merchant to send webhooks."""
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     r"""The unique ID associated to the merchant's Bolt Account division; Merchants can have different divisions to suit multiple use cases (storefronts, pay-by-link, phone order processing). You can view and switch between these divisions from the Bolt Merchant Dashboard."""
-    logo: Optional[shared_merchant_logo.MerchantLogo] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo'), 'exclude': lambda f: f is None }})
+    logo: Optional[MerchantLogo] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logo'), 'exclude': lambda f: f is None }})
     oauth_logout_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('oauth_logout_url'), 'exclude': lambda f: f is None }})
     r"""The endpoint URL provided by the merchant for logging out of OAuth accounts."""
     oauth_redirect_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('oauth_redirect_url'), 'exclude': lambda f: f is None }})
     r"""The endpoint URL provided by the merchant for OAuth redirects."""
-    platform: Optional[shared_merchant_platform.MerchantPlatform] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform'), 'exclude': lambda f: f is None }})
+    platform: Optional[MerchantPlatform] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform'), 'exclude': lambda f: f is None }})
     r"""The type of platform being used for this merchant division."""
     plugin_config_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('plugin_config_url'), 'exclude': lambda f: f is None }})
     r"""The endpoint URL provided by the merchant for checking plugin configuration details."""

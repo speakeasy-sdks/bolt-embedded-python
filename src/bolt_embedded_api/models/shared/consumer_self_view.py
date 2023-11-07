@@ -2,15 +2,15 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import email_view as shared_email_view
-from ..shared import login_view as shared_login_view
-from ..shared import phone_view as shared_phone_view
+from .email_view import EmailView
+from .login_view import LoginView
+from .phone_view import PhoneView
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import List, Optional
 
-class ConsumerSelfViewPlatformAccountStatus(str, Enum):
+class PlatformAccountStatus(str, Enum):
     NONE = 'none'
     LINKED = 'linked'
     UNLINKED = 'unlinked'
@@ -19,13 +19,13 @@ class ConsumerSelfViewPlatformAccountStatus(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class ConsumerSelfView:
-    authentication: Optional[shared_login_view.LoginView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authentication'), 'exclude': lambda f: f is None }})
+    authentication: Optional[LoginView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('authentication'), 'exclude': lambda f: f is None }})
     email_verified: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_verified'), 'exclude': lambda f: f is None }})
-    emails: Optional[List[shared_email_view.EmailView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('emails'), 'exclude': lambda f: f is None }})
+    emails: Optional[List[EmailView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('emails'), 'exclude': lambda f: f is None }})
     first_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name'), 'exclude': lambda f: f is None }})
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     last_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name'), 'exclude': lambda f: f is None }})
-    phones: Optional[List[shared_phone_view.PhoneView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phones'), 'exclude': lambda f: f is None }})
-    platform_account_status: Optional[ConsumerSelfViewPlatformAccountStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_account_status'), 'exclude': lambda f: f is None }})
+    phones: Optional[List[PhoneView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phones'), 'exclude': lambda f: f is None }})
+    platform_account_status: Optional[PlatformAccountStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('platform_account_status'), 'exclude': lambda f: f is None }})
     
 

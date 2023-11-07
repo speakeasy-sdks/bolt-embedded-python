@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import address as shared_address
-from ..shared import cart_shipment_type as shared_cart_shipment_type
+from .address import Address
+from .cart_shipment_type import CartShipmentType
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
@@ -37,7 +37,7 @@ class CartShipment:
     r"""The width."""
     service: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('service'), 'exclude': lambda f: f is None }})
     r"""The service name."""
-    shipping_address: Optional[shared_address.Address] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_address'), 'exclude': lambda f: f is None }})
+    shipping_address: Optional[Address] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_address'), 'exclude': lambda f: f is None }})
     r"""The Address object is used for billing, shipping, and physical store address use cases."""
     shipping_address_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_address_id'), 'exclude': lambda f: f is None }})
     r"""ID for billing address"""
@@ -53,7 +53,7 @@ class CartShipment:
     r"""The total weight."""
     total_weight_unit: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_weight_unit'), 'exclude': lambda f: f is None }})
     r"""The unit of measurement for an item's weight."""
-    type: Optional[shared_cart_shipment_type.CartShipmentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    type: Optional[CartShipmentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""The type corresponding to this shipment, if applicable."""
     
 

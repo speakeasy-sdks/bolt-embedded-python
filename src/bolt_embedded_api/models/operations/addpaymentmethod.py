@@ -3,9 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import address as shared_address
-from ..shared import metadata as shared_metadata
-from ..shared import saved_credit_card_view as shared_saved_credit_card_view
+from ...models.shared import address as shared_address
+from ...models.shared import metadata as shared_metadata
+from ...models.shared import saved_credit_card_view as shared_saved_credit_card_view
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -19,7 +19,7 @@ class AddPaymentMethodSecurity:
     
 
 
-class AddPaymentMethodRequestBodyNetwork(str, Enum):
+class Network(str, Enum):
     UNKNOWN = 'unknown'
     VISA = 'visa'
     MASTERCARD = 'mastercard'
@@ -31,12 +31,12 @@ class AddPaymentMethodRequestBodyNetwork(str, Enum):
     ALLIANCEDATA = 'alliancedata'
     CITIPLCC = 'citiplcc'
 
-class AddPaymentMethodRequestBodyPriority(int, Enum):
+class Priority(int, Enum):
     r"""Used to indicate the card's priority. '1' indicates primary, while '2' indicates a secondary card."""
     ONE = 1
     TWO = 2
 
-class AddPaymentMethodRequestBodyTokenType(str, Enum):
+class TokenType(str, Enum):
     r"""Used to define which payment processor generated the token for this credit card.  For those using Bolt's tokenizer, the value must be `bolt`."""
     VANTIV = 'vantiv'
     APPLEPAY = 'applepay'
@@ -67,16 +67,16 @@ class AddPaymentMethodRequestBody:
     r"""The last 4 digits of the credit card number."""
     metadata: Optional[shared_metadata.Metadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
     r"""A key-value pair object that allows users to store arbitrary information associated with an object.  For any individual account object, we allow up to 50 keys. Keys can be up to 40 characters long and values can be up to 500 characters long.  Metadata should not contain any sensitive customer information, like PII (Personally Identifiable Information). For more information about metadata, see our [documentation](https://help.bolt.com/developers/references/embedded-metadata/)."""
-    network: Optional[AddPaymentMethodRequestBodyNetwork] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
+    network: Optional[Network] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
     number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('number'), 'exclude': lambda f: f is None }})
     r"""Used to provide ApplePay DPAN or private label credit card PAN when applicable. Required when charging a private label credit card."""
     postal_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('postal_code'), 'exclude': lambda f: f is None }})
     r"""Used for the postal or zip code associated with the credit card."""
-    priority: Optional[AddPaymentMethodRequestBodyPriority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
+    priority: Optional[Priority] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('priority'), 'exclude': lambda f: f is None }})
     r"""Used to indicate the card's priority. '1' indicates primary, while '2' indicates a secondary card."""
     save: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('save'), 'exclude': lambda f: f is None }})
     r"""Determines whether or not the credit card will be saved to the shopper's account. Defaults to `true`."""
-    token_type: Optional[AddPaymentMethodRequestBodyTokenType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token_type'), 'exclude': lambda f: f is None }})
+    token_type: Optional[TokenType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token_type'), 'exclude': lambda f: f is None }})
     r"""Used to define which payment processor generated the token for this credit card.  For those using Bolt's tokenizer, the value must be `bolt`."""
     
 

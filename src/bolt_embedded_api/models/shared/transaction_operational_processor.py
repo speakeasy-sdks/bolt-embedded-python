@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import transaction_processor as shared_transaction_processor
-from ..shared import transaction_processor_status as shared_transaction_processor_status
+from .transaction_processor import TransactionProcessor
+from .transaction_processor_status import TransactionProcessorStatus
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 
@@ -11,9 +11,9 @@ from dataclasses_json import Undefined, dataclass_json
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class TransactionOperationalProcessor:
-    processor: shared_transaction_processor.TransactionProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
+    processor: TransactionProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
     r"""The processor used. **Nullable** for Transactions Details."""
-    status: shared_transaction_processor_status.TransactionProcessorStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
+    status: TransactionProcessorStatus = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status') }})
     r"""The processor's status. Only `primary` and `active` processor are displayed."""
     
 

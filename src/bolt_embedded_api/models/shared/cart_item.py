@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import cart_item_customization as shared_cart_item_customization
-from ..shared import cart_item_property as shared_cart_item_property
-from ..shared import cart_shipment as shared_cart_shipment
-from ..shared import i_cart_item_external_inputs as shared_i_cart_item_external_inputs
+from .cart_item_customization import CartItemCustomization
+from .cart_item_property import CartItemProperty
+from .cart_shipment import CartShipment
+from .i_cart_item_external_inputs import ICartItemExternalInputs
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -14,7 +14,7 @@ from typing import List, Optional
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class CartItemGiftOption:
+class GiftOption:
     r"""Contains the gift option settings for wrapping and custom messages."""
     cost: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cost'), 'exclude': lambda f: f is None }})
     r"""The cost in cents."""
@@ -27,7 +27,7 @@ class CartItemGiftOption:
     
 
 
-class CartItemShipmentType(str, Enum):
+class ShipmentType(str, Enum):
     UNKNOWN = 'unknown'
     DOOR_DELIVERY = 'door_delivery'
     SHIP_TO_STORE = 'ship_to_store'
@@ -56,12 +56,12 @@ class CartItem:
     collections: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('collections'), 'exclude': lambda f: f is None }})
     color: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('color') }})
     r"""Used to define the color of the item."""
-    customizations: Optional[List[shared_cart_item_customization.CartItemCustomization]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customizations'), 'exclude': lambda f: f is None }})
+    customizations: Optional[List[CartItemCustomization]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customizations'), 'exclude': lambda f: f is None }})
     description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     details_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('details_url'), 'exclude': lambda f: f is None }})
     r"""Used to provide a link to the item's product page."""
-    external_inputs: Optional[shared_i_cart_item_external_inputs.ICartItemExternalInputs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('external_inputs'), 'exclude': lambda f: f is None }})
-    gift_option: Optional[CartItemGiftOption] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_option'), 'exclude': lambda f: f is None }})
+    external_inputs: Optional[ICartItemExternalInputs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('external_inputs'), 'exclude': lambda f: f is None }})
+    gift_option: Optional[GiftOption] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_option'), 'exclude': lambda f: f is None }})
     r"""Contains the gift option settings for wrapping and custom messages."""
     image_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('image_url'), 'exclude': lambda f: f is None }})
     r"""Used to provide a link to the image associated with the item."""
@@ -76,10 +76,10 @@ class CartItem:
     r"""A merchant's unique ID for a given product's specific variant."""
     msrp: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('msrp') }})
     options: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
-    properties: Optional[List[shared_cart_item_property.CartItemProperty]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('properties'), 'exclude': lambda f: f is None }})
-    shipment: Optional[shared_cart_shipment.CartShipment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment'), 'exclude': lambda f: f is None }})
+    properties: Optional[List[CartItemProperty]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('properties'), 'exclude': lambda f: f is None }})
+    shipment: Optional[CartShipment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment'), 'exclude': lambda f: f is None }})
     r"""A cart that is being prepared for shipment"""
-    shipment_type: Optional[CartItemShipmentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment_type'), 'exclude': lambda f: f is None }})
+    shipment_type: Optional[ShipmentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment_type'), 'exclude': lambda f: f is None }})
     size: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('size') }})
     r"""Used to define the size of the item."""
     sku: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sku') }})

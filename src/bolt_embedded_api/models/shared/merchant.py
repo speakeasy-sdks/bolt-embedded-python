@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import merchant_onboarding_status_code as shared_merchant_onboarding_status_code
-from ..shared import merchant_status as shared_merchant_status
-from ..shared import transaction_operational_processor as shared_transaction_operational_processor
-from ..shared import transaction_processor as shared_transaction_processor
+from .merchant_onboarding_status_code import MerchantOnboardingStatusCode
+from .merchant_status import MerchantStatus
+from .transaction_operational_processor import TransactionOperationalProcessor
+from .transaction_processor import TransactionProcessor
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import List, Optional
@@ -18,16 +18,16 @@ class Merchant:
     r"""The date the merchant account was created.  **Nullable** for Transactions Details."""
     description: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
     r"""The description of the merchant account. **Nullable** for Transactions Details."""
-    operational_processors: List[shared_transaction_operational_processor.TransactionOperationalProcessor] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('operational_processors') }})
+    operational_processors: List[TransactionOperationalProcessor] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('operational_processors') }})
     r"""**Nullable** for Transactions Details."""
-    processor: shared_transaction_processor.TransactionProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
+    processor: TransactionProcessor = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processor') }})
     r"""The processor used. **Nullable** for Transactions Details."""
     time_zone: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('time_zone') }})
     r"""The timezone of the merchant. **Nullable** for Transactions Details."""
-    onboarding_status: Optional[shared_merchant_onboarding_status_code.MerchantOnboardingStatusCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('onboarding_status'), 'exclude': lambda f: f is None }})
+    onboarding_status: Optional[MerchantOnboardingStatusCode] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('onboarding_status'), 'exclude': lambda f: f is None }})
     public_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('public_id'), 'exclude': lambda f: f is None }})
     r"""The unique public ID for the merchant's Bolt account. A merchant account contains many merchant divisions."""
-    status: Optional[shared_merchant_status.MerchantStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[MerchantStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The merchant's status:
       * `1` - Active
       * `2` - Inactive

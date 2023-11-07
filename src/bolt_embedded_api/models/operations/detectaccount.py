@@ -3,8 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
-from ..shared import v1_accounts_view as shared_v1_accounts_view
+from ...models.shared import v1_accounts_view as shared_v1_accounts_view
 from typing import Optional
 
 
@@ -28,8 +27,6 @@ class DetectAccountResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
-    r"""Missing Query Parameter"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
     v1_accounts_view: Optional[shared_v1_accounts_view.V1AccountsView] = dataclasses.field(default=None)

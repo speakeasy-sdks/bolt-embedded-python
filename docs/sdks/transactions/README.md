@@ -1,5 +1,5 @@
 # Transactions
-(*transactions*)
+(*.transactions*)
 
 ## Overview
 
@@ -70,12 +70,12 @@ req = operations.AuthorizeTransactionRequest(
                     description='10% off our summer collection',
                     details_url='https://boltswagstore.com/SUMMERSALE',
                     reference='DISC-1234',
-                    type=shared.CartDiscountType.PERCENTAGE,
+                    type=shared.Type.PERCENTAGE,
                 ),
             ],
             display_id='displayid_100',
             fees=[
-                shared.CartCreateFees(
+                shared.Fees(
                     description='Item Fee',
                     name='Item Fee',
                     quantity=7162.31,
@@ -85,7 +85,7 @@ req = operations.AuthorizeTransactionRequest(
                 ),
             ],
             fulfillments=[
-                shared.CartCreateFulfillments(
+                shared.Fulfillments(
                     cart_items=[
                         shared.CartItem(
                             brand='Bolt',
@@ -110,7 +110,7 @@ req = operations.AuthorizeTransactionRequest(
                             description='Large tote with Bolt logo.',
                             details_url='https://boltswagstore.com/products/123456',
                             external_inputs=shared.ICartItemExternalInputs(),
-                            gift_option=shared.CartItemGiftOption(
+                            gift_option=shared.GiftOption(
                                 cost=770,
                                 merchant_product_id='881',
                                 message='Happy Anniversary, Smoochy Poo!',
@@ -224,7 +224,7 @@ req = operations.AuthorizeTransactionRequest(
                         total_weight_unit='kg',
                         type=shared.CartShipmentType.DOOR_DELIVERY,
                     ),
-                    digital_delivery=shared.CartCreateFulfillmentsDigitalDelivery(),
+                    digital_delivery=shared.DigitalDelivery(),
                     in_store_cart_shipment=shared.InStoreCartShipment(
                         cart_shipment=shared.CartShipment(
                             carrier='FedEx',
@@ -270,7 +270,7 @@ req = operations.AuthorizeTransactionRequest(
                         ),
                         description='Pick up in-store at 123 Main St.',
                         distance=3,
-                        distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                        distance_unit=shared.DistanceUnit.MILE,
                         in_store_pickup_address=shared.Address(
                             company='Bolt',
                             country='United States',
@@ -341,7 +341,7 @@ req = operations.AuthorizeTransactionRequest(
                     ),
                     description='Pick up in-store at 123 Main St.',
                     distance=3,
-                    distance_unit=shared.InStoreCartShipmentDistanceUnit.MILE,
+                    distance_unit=shared.DistanceUnit.MILE,
                     in_store_pickup_address=shared.Address(
                         company='Bolt',
                         country='United States',
@@ -389,7 +389,7 @@ req = operations.AuthorizeTransactionRequest(
                     description='Large tote with Bolt logo.',
                     details_url='https://boltswagstore.com/products/123456',
                     external_inputs=shared.ICartItemExternalInputs(),
-                    gift_option=shared.CartItemGiftOption(
+                    gift_option=shared.GiftOption(
                         cost=770,
                         merchant_product_id='881',
                         message='Happy Anniversary, Smoochy Poo!',
@@ -546,7 +546,7 @@ req = operations.AuthorizeTransactionRequest(
             last4='1234',
             postal_code='10044',
             token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-            token_type=shared.CreditCardTokenType.BOLT,
+            token_type=shared.TokenType.BOLT,
         ),
         division_id='4ab56ad7865ada4ad32',
         merchant_event_id='dbe0cd5d-3261-41d9-ba61-49e5b9d07567',
@@ -571,7 +571,7 @@ req = operations.AuthorizeTransactionRequest(
             street_address3='c/o Alicia Watts',
             street_address4='Bridge Street Apartment Building B',
         ),
-        source=shared.MerchantCreditCardAuthorizationSource.DIRECT_PAYMENTS,
+        source=shared.Source.DIRECT_PAYMENTS,
         user_identifier=shared.UserIdentifier(
             artifact='null',
             email='alan.watts@example.com',
@@ -679,7 +679,7 @@ res = s.transactions.get_transaction_details(req, operations.GetTransactionDetai
     x_api_key="",
 ))
 
-if res.get_transaction_details_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -758,8 +758,8 @@ req = operations.UpdateTransactionRequest(
     request_body=operations.UpdateTransactionRequestBody(
         display_id='order-123',
         metadata={
-            "key2": 'value2',
             "key1": 'value1',
+            "key2": 'value2',
         },
     ),
 )
@@ -768,7 +768,7 @@ res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurit
     x_api_key="",
 ))
 
-if res.update_transaction_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```

@@ -3,12 +3,9 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import capture_transaction_with_reference as shared_capture_transaction_with_reference
-from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
-from ..shared import transaction_view as shared_transaction_view
-from bolt_embedded_api import utils
-from dataclasses_json import Undefined, dataclass_json
-from typing import List, Optional
+from ...models.shared import capture_transaction_with_reference as shared_capture_transaction_with_reference
+from ...models.shared import transaction_view as shared_transaction_view
+from typing import Optional
 
 
 @dataclasses.dataclass
@@ -28,41 +25,12 @@ class CaptureTransactionRequest:
 
 
 
-@dataclass_json(undefined=Undefined.EXCLUDE)
-@dataclasses.dataclass
-class CaptureTransaction422ApplicationJSONErrors:
-    code: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('code'), 'exclude': lambda f: f is None }})
-    field: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('field'), 'exclude': lambda f: f is None }})
-    message: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('message'), 'exclude': lambda f: f is None }})
-    
-
-
-
-@dataclasses.dataclass
-class CaptureTransaction422ApplicationJSONResult:
-    pass
-
-
-@dataclass_json(undefined=Undefined.EXCLUDE)
-@dataclasses.dataclass
-class CaptureTransaction422ApplicationJSON:
-    r"""Unprocessable Entity"""
-    errors: Optional[List[CaptureTransaction422ApplicationJSONErrors]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
-    result: Optional[CaptureTransaction422ApplicationJSONResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
-    
-
-
-
 @dataclasses.dataclass
 class CaptureTransactionResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    capture_transaction_422_application_json_object: Optional[CaptureTransaction422ApplicationJSON] = dataclasses.field(default=None)
-    r"""Unprocessable Entity"""
-    errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
-    r"""Generic Error Schema"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""
     transaction_view: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None)

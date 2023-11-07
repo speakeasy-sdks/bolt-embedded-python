@@ -3,12 +3,12 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import address_view as shared_address_view
-from ..shared import amount_view as shared_amount_view
-from ..shared import gift_option_view as shared_gift_option_view
-from ..shared import i_description_part as shared_i_description_part
-from ..shared import i_description_tooltip as shared_i_description_tooltip
-from ..shared import i_weight as shared_i_weight
+from .address_view import AddressView
+from .amount_view import AmountView
+from .gift_option_view import GiftOptionView
+from .i_description_part import IDescriptionPart
+from .i_description_tooltip import IDescriptionTooltip
+from .i_weight import IWeight
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
@@ -31,27 +31,27 @@ class ICartShipmentViewPackageDimension:
 class ICartShipmentView:
     carrier: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('carrier'), 'exclude': lambda f: f is None }})
     r"""The carrier used to deliver the shipment."""
-    cost: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cost'), 'exclude': lambda f: f is None }})
+    cost: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cost'), 'exclude': lambda f: f is None }})
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
-    description: Optional[List[shared_i_description_part.IDescriptionPart]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
-    description_tooltips: Optional[List[shared_i_description_tooltip.IDescriptionTooltip]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description_tooltips'), 'exclude': lambda f: f is None }})
+    description: Optional[List[IDescriptionPart]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is None }})
+    description_tooltips: Optional[List[IDescriptionTooltip]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description_tooltips'), 'exclude': lambda f: f is None }})
     estimated_delivery_date: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('estimated_delivery_date'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
     expedited: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expedited'), 'exclude': lambda f: f is None }})
     r"""Used to determine whether a shipment has been expedited or not."""
-    gift_options: Optional[shared_gift_option_view.GiftOptionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_options'), 'exclude': lambda f: f is None }})
+    gift_options: Optional[GiftOptionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('gift_options'), 'exclude': lambda f: f is None }})
     r"""Defines which gift options are hidden."""
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     package_dimension: Optional[ICartShipmentViewPackageDimension] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('package_dimension'), 'exclude': lambda f: f is None }})
     package_type: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('package_type'), 'exclude': lambda f: f is None }})
-    package_weight: Optional[shared_i_weight.IWeight] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('package_weight'), 'exclude': lambda f: f is None }})
+    package_weight: Optional[IWeight] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('package_weight'), 'exclude': lambda f: f is None }})
     reference: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference'), 'exclude': lambda f: f is None }})
     service: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('service'), 'exclude': lambda f: f is None }})
-    shipping_address: Optional[shared_address_view.AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_address'), 'exclude': lambda f: f is None }})
+    shipping_address: Optional[AddressView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_address'), 'exclude': lambda f: f is None }})
     r"""The address object returned in the response."""
     shipping_method: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipping_method'), 'exclude': lambda f: f is None }})
     signature: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('signature'), 'exclude': lambda f: f is None }})
-    tax_amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_amount'), 'exclude': lambda f: f is None }})
-    total_weight: Optional[shared_i_weight.IWeight] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_weight'), 'exclude': lambda f: f is None }})
+    tax_amount: Optional[AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_amount'), 'exclude': lambda f: f is None }})
+    total_weight: Optional[IWeight] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('total_weight'), 'exclude': lambda f: f is None }})
     type: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     
 

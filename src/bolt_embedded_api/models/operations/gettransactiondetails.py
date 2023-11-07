@@ -3,36 +3,35 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import address_change_request_metadata_view as shared_address_change_request_metadata_view
-from ..shared import amount_view as shared_amount_view
-from ..shared import authorization_verification_status as shared_authorization_verification_status
-from ..shared import capture as shared_capture
-from ..shared import chargeback_details as shared_chargeback_details
-from ..shared import consumer_self_view as shared_consumer_self_view
-from ..shared import consumer_user_membership as shared_consumer_user_membership
-from ..shared import credit as shared_credit
-from ..shared import credit_card_authorization_view as shared_credit_card_authorization_view
-from ..shared import credit_card_user as shared_credit_card_user
-from ..shared import credit_card_view as shared_credit_card_view
-from ..shared import custom_fields as shared_custom_fields
-from ..shared import customer_list_status as shared_customer_list_status
-from ..shared import errors_bolt_api_response as shared_errors_bolt_api_response
-from ..shared import manual_disputes as shared_manual_disputes
-from ..shared import merchant as shared_merchant
-from ..shared import merchant_division as shared_merchant_division
-from ..shared import order_decision as shared_order_decision
-from ..shared import order_view as shared_order_view
-from ..shared import review_ticket as shared_review_ticket
-from ..shared import risk_insights_yml as shared_risk_insights_yml
-from ..shared import risk_review_status as shared_risk_review_status
-from ..shared import transaction_indemnification_decision as shared_transaction_indemnification_decision
-from ..shared import transaction_indemnification_reason as shared_transaction_indemnification_reason
-from ..shared import transaction_processor as shared_transaction_processor
-from ..shared import transaction_status as shared_transaction_status
-from ..shared import transaction_timeline_view as shared_transaction_timeline_view
-from ..shared import transaction_type as shared_transaction_type
-from ..shared import transaction_view as shared_transaction_view
-from ..shared import void as shared_void
+from ...models.shared import address_change_request_metadata_view as shared_address_change_request_metadata_view
+from ...models.shared import amount_view as shared_amount_view
+from ...models.shared import authorization_verification_status as shared_authorization_verification_status
+from ...models.shared import capture as shared_capture
+from ...models.shared import chargeback_details as shared_chargeback_details
+from ...models.shared import consumer_self_view as shared_consumer_self_view
+from ...models.shared import consumer_user_membership as shared_consumer_user_membership
+from ...models.shared import credit as shared_credit
+from ...models.shared import credit_card_authorization_view as shared_credit_card_authorization_view
+from ...models.shared import credit_card_user as shared_credit_card_user
+from ...models.shared import credit_card_view as shared_credit_card_view
+from ...models.shared import custom_fields as shared_custom_fields
+from ...models.shared import customer_list_status as shared_customer_list_status
+from ...models.shared import manual_disputes as shared_manual_disputes
+from ...models.shared import merchant as shared_merchant
+from ...models.shared import merchant_division as shared_merchant_division
+from ...models.shared import order_decision as shared_order_decision
+from ...models.shared import order_view as shared_order_view
+from ...models.shared import review_ticket as shared_review_ticket
+from ...models.shared import risk_insights_yml as shared_risk_insights_yml
+from ...models.shared import risk_review_status as shared_risk_review_status
+from ...models.shared import transaction_indemnification_decision as shared_transaction_indemnification_decision
+from ...models.shared import transaction_indemnification_reason as shared_transaction_indemnification_reason
+from ...models.shared import transaction_processor as shared_transaction_processor
+from ...models.shared import transaction_status as shared_transaction_status
+from ...models.shared import transaction_timeline_view as shared_transaction_timeline_view
+from ...models.shared import transaction_type as shared_transaction_type
+from ...models.shared import transaction_view as shared_transaction_view
+from ...models.shared import void as shared_void
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -53,7 +52,7 @@ class GetTransactionDetailsRequest:
     
 
 
-class GetTransactionDetails200ApplicationJSONSplitsType(str, Enum):
+class Type(str, Enum):
     r"""**Nullable** for Transactions Details."""
     NET = 'net'
     PROCESSING_FEE = 'processing_fee'
@@ -65,10 +64,10 @@ class GetTransactionDetails200ApplicationJSONSplitsType(str, Enum):
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetTransactionDetails200ApplicationJSONSplits:
+class Splits:
     r"""A split of fees by type and amount."""
     amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
-    type: Optional[GetTransactionDetails200ApplicationJSONSplitsType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    type: Optional[Type] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""**Nullable** for Transactions Details."""
     
 
@@ -76,7 +75,7 @@ class GetTransactionDetails200ApplicationJSONSplits:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthRejectionDetails:
+class AuthRejectionDetails:
     reason_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_code'), 'exclude': lambda f: f is None }})
     reason_description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reason_description'), 'exclude': lambda f: f is None }})
     
@@ -85,15 +84,15 @@ class GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthReje
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetTransactionDetails200ApplicationJSONTransactionRejectionDetails:
-    auth_rejection_details: Optional[GetTransactionDetails200ApplicationJSONTransactionRejectionDetailsAuthRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth_rejection_details'), 'exclude': lambda f: f is None }})
+class TransactionRejectionDetails:
+    auth_rejection_details: Optional[AuthRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auth_rejection_details'), 'exclude': lambda f: f is None }})
     
 
 
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class GetTransactionDetails200ApplicationJSON:
+class GetTransactionDetailsResponseBody:
     r"""Transaction Details Retrieved"""
     address_change_request_metadata: Optional[shared_address_change_request_metadata_view.AddressChangeRequestMetadataView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('address_change_request_metadata'), 'exclude': lambda f: f is None }})
     adjust_transactions: Optional[List[shared_transaction_view.TransactionView]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('adjust_transactions'), 'exclude': lambda f: f is None }})
@@ -156,7 +155,7 @@ class GetTransactionDetails200ApplicationJSON:
     r"""Describes the current Risk Review status. A transaction could be unreviewed, reviewed, or pending manual review by the Bolt team."""
     risk_score: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('risk_score'), 'exclude': lambda f: f is None }})
     source_transaction: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source_transaction'), 'exclude': lambda f: f is None }})
-    splits: Optional[List[GetTransactionDetails200ApplicationJSONSplits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
+    splits: Optional[List[Splits]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('splits'), 'exclude': lambda f: f is None }})
     r"""A list of splits. **Nullable** for Transactions Details."""
     status: Optional[shared_transaction_status.TransactionStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The transaction's status."""
@@ -165,7 +164,7 @@ class GetTransactionDetails200ApplicationJSON:
     to_credit_card: Optional[shared_credit_card_view.CreditCardView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('to_credit_card'), 'exclude': lambda f: f is None }})
     r"""Contains details about the credit card transaction."""
     transaction_properties: Optional[Dict[str, str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_properties'), 'exclude': lambda f: f is None }})
-    transaction_rejection_details: Optional[GetTransactionDetails200ApplicationJSONTransactionRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_rejection_details'), 'exclude': lambda f: f is None }})
+    transaction_rejection_details: Optional[TransactionRejectionDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction_rejection_details'), 'exclude': lambda f: f is None }})
     type: Optional[shared_transaction_type.TransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""The type of transaction."""
     view_status: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('view_status'), 'exclude': lambda f: f is None }})
@@ -181,9 +180,7 @@ class GetTransactionDetailsResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    errors_bolt_api_response: Optional[shared_errors_bolt_api_response.ErrorsBoltAPIResponse] = dataclasses.field(default=None)
-    r"""Generic Error Schema"""
-    get_transaction_details_200_application_json_object: Optional[GetTransactionDetails200ApplicationJSON] = dataclasses.field(default=None)
+    object: Optional[GetTransactionDetailsResponseBody] = dataclasses.field(default=None)
     r"""Transaction Details Retrieved"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

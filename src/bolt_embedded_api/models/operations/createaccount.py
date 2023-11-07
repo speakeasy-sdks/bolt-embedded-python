@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import account_details as shared_account_details
-from ..shared import create_account_input as shared_create_account_input
+from ...models.shared import account_details as shared_account_details
+from ...models.shared import create_account_input as shared_create_account_input
 from typing import Optional
 
 

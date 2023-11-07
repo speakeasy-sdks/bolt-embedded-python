@@ -35,7 +35,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
     x_api_key="",
 ))
 
-if res.add_address_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```

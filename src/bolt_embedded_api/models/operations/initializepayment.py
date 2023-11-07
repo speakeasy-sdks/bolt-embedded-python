@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import cart_create as shared_cart_create
+from ...models.shared import cart_create as shared_cart_create
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
@@ -20,7 +20,7 @@ class InitializePaymentSecurity:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class InitializePaymentRequestBodyShopperIdentity:
+class InitializePaymentShopperIdentity:
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
     email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
     r"""Email address of the shopper"""
@@ -41,7 +41,7 @@ class InitializePaymentRequestBodyShopperIdentity:
 class InitializePaymentRequestBody:
     cart: shared_cart_create.CartCreate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart') }})
     r"""The details of the cart being purchased with this payment."""
-    shopper_identity: Optional[InitializePaymentRequestBodyShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    shopper_identity: Optional[InitializePaymentShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
     
 
@@ -57,7 +57,7 @@ class InitializePaymentRequest:
     
 
 
-class InitializePayment200ApplicationJSONStatus(str, Enum):
+class InitializePaymentStatus(str, Enum):
     r"""The current payment status."""
     AWAITING_USER_CONFIRMATION = 'awaiting_user_confirmation'
     PAYMENT_READY = 'payment_ready'
@@ -66,11 +66,11 @@ class InitializePayment200ApplicationJSONStatus(str, Enum):
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class InitializePayment200ApplicationJSON:
+class InitializePaymentResponseBody:
     r"""Payment token retrieved."""
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     r"""The ID for a Payment Attempt"""
-    status: Optional[InitializePayment200ApplicationJSONStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[InitializePaymentStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The current payment status."""
     
 
@@ -82,7 +82,7 @@ class InitializePaymentResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    initialize_payment_200_application_json_object: Optional[InitializePayment200ApplicationJSON] = dataclasses.field(default=None)
+    object: Optional[InitializePaymentResponseBody] = dataclasses.field(default=None)
     r"""Payment token retrieved."""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

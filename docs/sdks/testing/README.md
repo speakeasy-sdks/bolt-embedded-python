@@ -1,5 +1,5 @@
 # Testing
-(*testing*)
+(*.testing*)
 
 ## Overview
 
@@ -25,7 +25,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateTestingShopperAccountRequest(
     request_body=operations.CreateTestingShopperAccountRequestBody(
-        email_state=operations.CreateTestingShopperAccountRequestBodyEmailState.VERIFIED,
+        email_state=operations.EmailState.VERIFIED,
         phone_state=shared.Onev11testing1shopper1createPostRequestBodyContentApplication1jsonSchemaPropertiesEmailState.VERIFIED,
     ),
 )
@@ -34,7 +34,7 @@ res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShop
     x_api_key="",
 ))
 
-if res.create_testing_shopper_account_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
@@ -69,7 +69,7 @@ res = s.testing.get_test_credit_card_token(operations.GetTestCreditCardTokenSecu
     x_api_key="",
 ))
 
-if res.get_test_credit_card_token_200_application_json_object is not None:
+if res.object is not None:
     # handle response
     pass
 ```
