@@ -1,5 +1,5 @@
 # Testing
-(*.testing*)
+(*testing*)
 
 ## Overview
 
@@ -50,7 +50,11 @@ if res.object is not None:
 ### Response
 
 **[operations.CreateTestingShopperAccountResponse](../../models/operations/createtestingshopperaccountresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## get_test_credit_card_token
 
@@ -84,4 +88,8 @@ if res.object is not None:
 ### Response
 
 **[operations.GetTestCreditCardTokenResponse](../../models/operations/gettestcreditcardtokenresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

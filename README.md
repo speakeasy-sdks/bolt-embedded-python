@@ -54,7 +54,7 @@ if res.object is not None:
 ## Available Resources and Operations
 
 
-### [.account](docs/sdks/account/README.md)
+### [account](docs/sdks/account/README.md)
 
 * [add_address](docs/sdks/account/README.md#add_address) - Add Address
 * [add_payment_method](docs/sdks/account/README.md#add_payment_method) - Add Payment Method
@@ -67,7 +67,7 @@ if res.object is not None:
 * [replace_address](docs/sdks/account/README.md#replace_address) - Replace Address
 * [update_account_profile](docs/sdks/account/README.md#update_account_profile) - Update Profile
 
-### [.transactions](docs/sdks/transactions/README.md)
+### [transactions](docs/sdks/transactions/README.md)
 
 * [authorize_transaction](docs/sdks/transactions/README.md#authorize_transaction) - Authorize a Card
 * [capture_transaction](docs/sdks/transactions/README.md#capture_transaction) - Capture a Transaction
@@ -76,17 +76,17 @@ if res.object is not None:
 * [update_transaction](docs/sdks/transactions/README.md#update_transaction) - Update a Transaction
 * [void_transaction](docs/sdks/transactions/README.md#void_transaction) - Void a Transaction
 
-### [.o_auth](docs/sdks/oauth/README.md)
+### [o_auth](docs/sdks/oauth/README.md)
 
 * [o_auth_token](docs/sdks/oauth/README.md#o_auth_token) - OAuth Token Endpoint
 
-### [.payments](docs/sdks/payments/README.md)
+### [payments](docs/sdks/payments/README.md)
 
 * [finalize_payment](docs/sdks/payments/README.md#finalize_payment) - Finalize Payment
 * [initialize_payment](docs/sdks/payments/README.md#initialize_payment) - Initialize Payment
 * [update_payment](docs/sdks/payments/README.md#update_payment) - Update Payment
 
-### [.testing](docs/sdks/testing/README.md)
+### [testing](docs/sdks/testing/README.md)
 
 * [create_testing_shopper_account](docs/sdks/testing/README.md#create_testing_shopper_account) - Create Testing Shopper Account
 * [get_test_credit_card_token](docs/sdks/testing/README.md#get_test_credit_card_token) - Fetch a Test Credit Card Token
@@ -115,7 +115,12 @@ Here's an example of one such pagination call:
 <!-- Start Error Handling -->
 # Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 
 ## Example
@@ -136,8 +141,10 @@ try:
     o_auth="",
     x_api_key="",
 ))
+except (errors.ErrorsBoltAPIResponse) as e:
+    print(e) # handle exception
 
-except (errors_bolt_api_response) as e:
+except (errors.SDKError) as e:
     print(e) # handle exception
 
 
@@ -260,7 +267,7 @@ if res.object is not None:
 The Python SDK makes API calls using the (requests)[https://pypi.org/project/requests/] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `requests.Session` object.
 
 
-For example, you could specify a header for every request that your sdk makes as follows:
+For example, you could specify a header for every request that this sdk makes as follows:
 
 ```python
 import bolt_embedded_api
@@ -275,12 +282,11 @@ s = bolt_embedded_api.BoltEmbeddedAPI(client: http_client)
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
 
-Your SDK supports the following security schemes globally:
+This SDK supports the following security schemes globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |
@@ -330,7 +336,7 @@ if res.object is not None:
 
 ## Per-Operation Security Schemes
 
-Some operations in your SDK require the security scheme to be specified at the request level. For example:
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
 
 ```python
 import bolt_embedded_api

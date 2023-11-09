@@ -10,11 +10,6 @@ from typing import Optional, Union
 
 
 @dataclasses.dataclass
-class OAuthTokenRequestBody:
-    pass
-
-
-@dataclasses.dataclass
 class OAuthTokenRequest:
     request_body: Optional[Union[shared_o_auth_token_input.OAuthTokenInput, shared_o_auth_token_input_refresh.OAuthTokenInputRefresh]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/x-www-form-urlencoded' }})
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})

@@ -1,5 +1,5 @@
 # Transactions
-(*.transactions*)
+(*transactions*)
 
 ## Overview
 
@@ -376,8 +376,8 @@ req = operations.AuthorizeTransactionRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key1": 'value1',
                                 "key2": 'value2',
+                                "key1": 'value1',
                             },
                             price=shared.AmountView(
                                 amount=754,
@@ -607,7 +607,11 @@ if res.i_authorize_result_view is not None:
 ### Response
 
 **[operations.AuthorizeTransactionResponse](../../models/operations/authorizetransactionresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## capture_transaction
 
@@ -654,7 +658,13 @@ if res.transaction_view is not None:
 ### Response
 
 **[operations.CaptureTransactionResponse](../../models/operations/capturetransactionresponse.md)**
+### Errors
 
+| Error Object                          | Status Code                           | Content Type                          |
+| ------------------------------------- | ------------------------------------- | ------------------------------------- |
+| errors.ErrorsBoltAPIResponse          | 403,404                               | application/json                      |
+| errors.CaptureTransactionResponseBody | 422                                   | application/json                      |
+| errors.SDKError                       | 400-600                               | */*                                   |
 
 ## get_transaction_details
 
@@ -695,7 +705,12 @@ if res.object is not None:
 ### Response
 
 **[operations.GetTransactionDetailsResponse](../../models/operations/gettransactiondetailsresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 403,422                      | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 ## refund_transaction
 
@@ -739,7 +754,12 @@ if res.transaction_view is not None:
 ### Response
 
 **[operations.RefundTransactionResponse](../../models/operations/refundtransactionresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 422                          | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 ## update_transaction
 
@@ -784,7 +804,12 @@ if res.object is not None:
 ### Response
 
 **[operations.UpdateTransactionResponse](../../models/operations/updatetransactionresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 ## void_transaction
 
@@ -829,4 +854,9 @@ if res.transaction_view is not None:
 ### Response
 
 **[operations.VoidTransactionResponse](../../models/operations/voidtransactionresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |

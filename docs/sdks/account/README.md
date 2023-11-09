@@ -1,5 +1,5 @@
 # Account
-(*.account*)
+(*account*)
 
 ## Overview
 
@@ -75,7 +75,11 @@ if res.object is not None:
 ### Response
 
 **[operations.AddAddressResponse](../../models/operations/addaddressresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## add_payment_method
 
@@ -147,7 +151,11 @@ if res.saved_credit_card_view is not None:
 ### Response
 
 **[operations.AddPaymentMethodResponse](../../models/operations/addpaymentmethodresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## create_account
 
@@ -247,7 +255,11 @@ if res.account_details is not None:
 ### Response
 
 **[operations.CreateAccountResponse](../../models/operations/createaccountresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## delete_address
 
@@ -287,7 +299,11 @@ if res.status_code == 200:
 ### Response
 
 **[operations.DeleteAddressResponse](../../models/operations/deleteaddressresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## delete_payment_method
 
@@ -326,7 +342,12 @@ if res.status_code == 200:
 ### Response
 
 **[operations.DeletePaymentMethodResponse](../../models/operations/deletepaymentmethodresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 ## detect_account
 
@@ -365,7 +386,12 @@ if res.v1_accounts_view is not None:
 ### Response
 
 **[operations.DetectAccountResponse](../../models/operations/detectaccountresponse.md)**
+### Errors
 
+| Error Object                 | Status Code                  | Content Type                 |
+| ---------------------------- | ---------------------------- | ---------------------------- |
+| errors.ErrorsBoltAPIResponse | 422                          | application/json             |
+| errors.SDKError              | 400-600                      | */*                          |
 
 ## edit_address
 
@@ -426,7 +452,11 @@ if res.object is not None:
 ### Response
 
 **[operations.EditAddressResponse](../../models/operations/editaddressresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## get_account
 
@@ -463,7 +493,11 @@ if res.account_details is not None:
 ### Response
 
 **[operations.GetAccountResponse](../../models/operations/getaccountresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## replace_address
 
@@ -524,7 +558,11 @@ if res.object is not None:
 ### Response
 
 **[operations.ReplaceAddressResponse](../../models/operations/replaceaddressresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update_account_profile
 
@@ -567,4 +605,8 @@ if res.profile_view is not None:
 ### Response
 
 **[operations.UpdateAccountProfileResponse](../../models/operations/updateaccountprofileresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

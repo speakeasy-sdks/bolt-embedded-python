@@ -13,6 +13,7 @@ class Payments:
         self.sdk_configuration = sdk_config
         
     
+    
     def finalize_payment(self, request: operations.FinalizePaymentRequest, security: operations.FinalizePaymentSecurity) -> operations.FinalizePaymentResponse:
         r"""Finalize Payment
         Finalize a Bolt Payment. NOTE: The authorization header is NOT required for payments associated with users who do not have a Bolt account.
@@ -46,6 +47,7 @@ class Payments:
         return res
 
     
+    
     def initialize_payment(self, request: operations.InitializePaymentRequest, security: operations.InitializePaymentSecurity) -> operations.InitializePaymentResponse:
         r"""Initialize Payment
         Initialize a Bolt payment token that will be used to reference this payment to Bolt when it is updated or finalized. NOTE: The authorization header is NOT required for payments associated with users who do not have a Bolt account.
@@ -78,6 +80,7 @@ class Payments:
 
         return res
 
+    
     
     def update_payment(self, request: operations.UpdatePaymentRequest, security: operations.UpdatePaymentSecurity) -> operations.UpdatePaymentResponse:
         r"""Update Payment

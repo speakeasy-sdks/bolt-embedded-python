@@ -1,5 +1,5 @@
 # OAuth
-(*.o_auth*)
+(*o_auth*)
 
 ## Overview
 
@@ -58,4 +58,9 @@ if res.o_auth_token_response is not None:
 ### Response
 
 **[operations.OAuthTokenResponse](../../models/operations/oauthtokenresponse.md)**
+### Errors
 
+| Error Object                     | Status Code                      | Content Type                     |
+| -------------------------------- | -------------------------------- | -------------------------------- |
+| errors.ErrorsOauthServerResponse | 400,403,422                      | application/json                 |
+| errors.SDKError                  | 400-600                          | */*                              |

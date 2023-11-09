@@ -13,6 +13,7 @@ class Testing:
         self.sdk_configuration = sdk_config
         
     
+    
     def create_testing_shopper_account(self, request: operations.CreateTestingShopperAccountRequest, security: operations.CreateTestingShopperAccountSecurity) -> operations.CreateTestingShopperAccountResponse:
         r"""Create Testing Shopper Account
         Create a Bolt shopper account for testing purposes. Available for sandbox use only and the created  account will be recycled after a certain time.
@@ -45,6 +46,7 @@ class Testing:
 
         return res
 
+    
     
     def get_test_credit_card_token(self, security: operations.GetTestCreditCardTokenSecurity) -> operations.GetTestCreditCardTokenResponse:
         r"""Fetch a Test Credit Card Token

@@ -13,6 +13,7 @@ class Transactions:
         self.sdk_configuration = sdk_config
         
     
+    
     def authorize_transaction(self, request: operations.AuthorizeTransactionRequest, security: operations.AuthorizeTransactionSecurity) -> operations.AuthorizeTransactionResponse:
         r"""Authorize a Card
         This endpoint authorizes card payments and has three main use cases:
@@ -48,6 +49,7 @@ class Transactions:
 
         return res
 
+    
     
     def capture_transaction(self, request: operations.CaptureTransactionRequest, security: operations.CaptureTransactionSecurity) -> operations.CaptureTransactionResponse:
         r"""Capture a Transaction
@@ -98,6 +100,7 @@ class Transactions:
         return res
 
     
+    
     def get_transaction_details(self, request: operations.GetTransactionDetailsRequest, security: operations.GetTransactionDetailsSecurity) -> operations.GetTransactionDetailsResponse:
         r"""Transaction Details
         This allows you to pull the full transaction details for a given transaction.
@@ -136,6 +139,7 @@ class Transactions:
 
         return res
 
+    
     
     def refund_transaction(self, request: operations.RefundTransactionRequest, security: operations.RefundTransactionSecurity) -> operations.RefundTransactionResponse:
         r"""Refund a Transaction
@@ -177,6 +181,7 @@ class Transactions:
         return res
 
     
+    
     def update_transaction(self, request: operations.UpdateTransactionRequest, security: operations.UpdateTransactionSecurity) -> operations.UpdateTransactionResponse:
         r"""Update a Transaction
         This allows you to update certain transaction properties post-authorization.
@@ -216,6 +221,7 @@ class Transactions:
 
         return res
 
+    
     
     def void_transaction(self, request: operations.VoidTransactionRequest, security: operations.VoidTransactionSecurity) -> operations.VoidTransactionResponse:
         r"""Void a Transaction

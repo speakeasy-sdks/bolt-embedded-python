@@ -1,5 +1,5 @@
 # Payments
-(*.payments*)
+(*payments*)
 
 ## Overview
 
@@ -59,7 +59,11 @@ if res.object is not None:
 ### Response
 
 **[operations.FinalizePaymentResponse](../../models/operations/finalizepaymentresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## initialize_payment
 
@@ -140,8 +144,8 @@ req = operations.InitializePaymentRequest(
                             customizations=[
                                 shared.CartItemCustomization(
                                     attributes={
-                                        "key1": 'value1',
                                         "key2": 'value2',
+                                        "key1": 'value1',
                                     },
                                     price=shared.AmountView(
                                         amount=754,
@@ -419,8 +423,8 @@ req = operations.InitializePaymentRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key1": 'value1',
                                 "key2": 'value2',
+                                "key1": 'value1',
                             },
                             price=shared.AmountView(
                                 amount=754,
@@ -592,7 +596,11 @@ if res.object is not None:
 ### Response
 
 **[operations.InitializePaymentResponse](../../models/operations/initializepaymentresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## update_payment
 
@@ -1126,4 +1134,8 @@ if res.object is not None:
 ### Response
 
 **[operations.UpdatePaymentResponse](../../models/operations/updatepaymentresponse.md)**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

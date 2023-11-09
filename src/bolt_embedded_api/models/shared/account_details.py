@@ -59,11 +59,6 @@ class Addresses:
 
 
 
-@dataclasses.dataclass
-class PaymentMethods:
-    pass
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class AccountDetails:

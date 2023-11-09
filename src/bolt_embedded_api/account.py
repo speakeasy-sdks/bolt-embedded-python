@@ -13,6 +13,7 @@ class Account:
         self.sdk_configuration = sdk_config
         
     
+    
     def add_address(self, request: operations.AddAddressRequest, security: operations.AddAddressSecurity) -> operations.AddAddressResponse:
         r"""Add Address
         Add an address to a shopper's account address book.
@@ -45,6 +46,7 @@ class Account:
 
         return res
 
+    
     
     def add_payment_method(self, request: operations.AddPaymentMethodRequest, security: operations.AddPaymentMethodSecurity) -> operations.AddPaymentMethodResponse:
         r"""Add Payment Method
@@ -81,6 +83,7 @@ class Account:
         return res
 
     
+    
     def create_account(self, request: operations.CreateAccountRequest, security: operations.CreateAccountSecurity) -> operations.CreateAccountResponse:
         r"""Create Bolt Account
         Create a Bolt shopping account.
@@ -114,6 +117,7 @@ class Account:
         return res
 
     
+    
     def delete_address(self, request: operations.DeleteAddressRequest, security: operations.DeleteAddressSecurity) -> operations.DeleteAddressResponse:
         r"""Delete Address
         Deletes an existing address in a shopper's address book.
@@ -139,6 +143,7 @@ class Account:
 
         return res
 
+    
     
     def delete_payment_method(self, request: operations.DeletePaymentMethodRequest, security: operations.DeletePaymentMethodSecurity) -> operations.DeletePaymentMethodResponse:
         r"""Delete Payment Method
@@ -173,6 +178,7 @@ class Account:
         return res
 
     
+    
     def detect_account(self, request: operations.DetectAccountRequest) -> operations.DetectAccountResponse:
         r"""Detect Account
         Check whether an account exists using one of `email`, `phone`, or `sha256_email` as the unique identifier.
@@ -185,7 +191,10 @@ class Account:
         headers['Accept'] = 'application/json'
         headers['user-agent'] = self.sdk_configuration.user_agent
         
-        client = self.sdk_configuration.security_client
+        if callable(self.sdk_configuration.security):
+            client = utils.configure_security_client(self.sdk_configuration.client, self.sdk_configuration.security())
+        else:
+            client = utils.configure_security_client(self.sdk_configuration.client, self.sdk_configuration.security)
         
         http_res = client.request('GET', url, params=query_params, headers=headers)
         content_type = http_res.headers.get('Content-Type')
@@ -210,6 +219,7 @@ class Account:
 
         return res
 
+    
     
     def edit_address(self, request: operations.EditAddressRequest, security: operations.EditAddressSecurity) -> operations.EditAddressResponse:
         r"""Edit Address
@@ -245,6 +255,7 @@ class Account:
         return res
 
     
+    
     def get_account(self, request: operations.GetAccountRequest, security: operations.GetAccountSecurity) -> operations.GetAccountResponse:
         r"""Get Account Details
         Fetch a shopper's account details to pre-fill checkout fields. This request must come from your backend for security purposes, as it requires the use of your private key to authenticate. For PCI compliance, only limited information is returned for each credit card available in the shopper’s wallet.
@@ -274,6 +285,7 @@ class Account:
 
         return res
 
+    
     
     def replace_address(self, request: operations.ReplaceAddressRequest, security: operations.ReplaceAddressSecurity) -> operations.ReplaceAddressResponse:
         r"""Replace Address
@@ -308,6 +320,7 @@ class Account:
 
         return res
 
+    
     
     def update_account_profile(self, request: operations.UpdateAccountProfileRequest, security: operations.UpdateAccountProfileSecurity) -> operations.UpdateAccountProfileResponse:
         r"""Update Profile
