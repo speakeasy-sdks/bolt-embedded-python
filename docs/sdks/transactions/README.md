@@ -376,8 +376,8 @@ req = operations.AuthorizeTransactionRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key2": 'value2',
                                 "key1": 'value1',
+                                "key2": 'value2',
                             },
                             price=shared.AmountView(
                                 amount=754,

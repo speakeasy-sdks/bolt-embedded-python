@@ -1,6 +1,4 @@
 <!-- Start SDK Example Usage -->
-
-
 ```python
 import bolt_embedded_api
 from bolt_embedded_api.models import operations, shared
