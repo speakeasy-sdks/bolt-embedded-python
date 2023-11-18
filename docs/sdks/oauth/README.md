@@ -32,13 +32,13 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.OAuthTokenRequest(
-    shared.OAuthTokenInput(
-        client_id='string',
-        client_secret='string',
-        code='string',
-        grant_type=shared.GrantType.AUTHORIZATION_CODE,
-        scope=shared.Scope.OPENID,
-    ),
+    request_body=shared.OAuthTokenInput(
+    client_id='string',
+    client_secret='string',
+    code='string',
+    grant_type=shared.GrantType.AUTHORIZATION_CODE,
+    scope=shared.Scope.OPENID,
+),
 )
 
 res = s.o_auth.o_auth_token(req)

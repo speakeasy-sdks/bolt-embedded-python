@@ -12,6 +12,7 @@ src/bolt_embedded_api/utils/__init__.py
 src/bolt_embedded_api/utils/retries.py
 src/bolt_embedded_api/utils/utils.py
 src/bolt_embedded_api/models/errors/sdkerror.py
+tests/helpers.py
 src/bolt_embedded_api/models/operations/addaddress.py
 src/bolt_embedded_api/models/operations/addpaymentmethod.py
 src/bolt_embedded_api/models/operations/createaccount.py
@@ -46,6 +47,8 @@ src/bolt_embedded_api/models/shared/saved_paypal_account_view.py
 src/bolt_embedded_api/models/shared/create_account_input.py
 src/bolt_embedded_api/models/shared/profile.py
 src/bolt_embedded_api/models/shared/payment_method_account.py
+src/bolt_embedded_api/models/shared/request_result.py
+src/bolt_embedded_api/models/shared/error_bolt_api.py
 src/bolt_embedded_api/models/shared/v1_accounts_view.py
 src/bolt_embedded_api/models/shared/i_authorize_result_view.py
 src/bolt_embedded_api/models/shared/transaction_view.py
@@ -167,8 +170,6 @@ src/bolt_embedded_api/models/shared/o_auth_token_input_refresh.py
 src/bolt_embedded_api/models/shared/onev1_1testing_1shopper_1create_post_requestbody_content_application_1json_schema_properties_email_state.py
 src/bolt_embedded_api/models/shared/security.py
 src/bolt_embedded_api/models/errors/errors_bolt_api_response.py
-src/bolt_embedded_api/models/errors/request_result.py
-src/bolt_embedded_api/models/errors/error_bolt_api.py
 src/bolt_embedded_api/models/errors/capturetransaction.py
 src/bolt_embedded_api/models/errors/errors_oauth_server_response.py
 src/bolt_embedded_api/models/__init__.py
@@ -299,6 +300,8 @@ docs/models/shared/network.md
 docs/models/shared/paymentmethodaccountpriority.md
 docs/models/shared/paymentmethodaccounttokentype.md
 docs/models/shared/paymentmethodaccount.md
+docs/models/shared/requestresult.md
+docs/models/shared/errorboltapi.md
 docs/models/shared/v1accountsview.md
 docs/models/shared/iauthorizeresultview.md
 docs/models/shared/transactionviewtype.md
@@ -477,8 +480,6 @@ docs/models/shared/oauthtokeninputrefresh.md
 docs/models/shared/onev11testing1shopper1createpostrequestbodycontentapplication1jsonschemapropertiesemailstate.md
 docs/models/shared/security.md
 docs/models/errors/errorsboltapiresponse.md
-docs/models/errors/requestresult.md
-docs/models/errors/errorboltapi.md
 docs/models/errors/errors.md
 docs/models/errors/result.md
 docs/models/errors/capturetransactionresponsebody.md

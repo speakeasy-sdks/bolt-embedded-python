@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from .error_bolt_api import ErrorBoltAPI
-from .request_result import RequestResult
+from ...models.shared import error_bolt_api as shared_error_bolt_api
+from ...models.shared import request_result as shared_request_result
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from typing import List, Optional
@@ -13,8 +13,9 @@ from typing import List, Optional
 
 @dataclasses.dataclass
 class ErrorsBoltAPIResponse(Exception):
-    errors: Optional[List[ErrorBoltAPI]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
-    result: Optional[RequestResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
+    r"""Forbidden"""
+    errors: Optional[List[shared_error_bolt_api.ErrorBoltAPI]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
+    result: Optional[shared_request_result.RequestResult] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('result'), 'exclude': lambda f: f is None }})
     r"""Custom-defined Bolt result object."""
     
 
