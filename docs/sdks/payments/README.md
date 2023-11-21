@@ -423,8 +423,8 @@ req = operations.InitializePaymentRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key1": 'value1',
                                 "key2": 'value2',
+                                "key1": 'value1',
                             },
                             price=shared.AmountView(
                                 amount=754,
@@ -960,8 +960,8 @@ req = operations.UpdatePaymentRequest(
                     customizations=[
                         shared.CartItemCustomization(
                             attributes={
-                                "key1": 'value1',
                                 "key2": 'value2',
+                                "key1": 'value1',
                             },
                             price=shared.AmountView(
                                 amount=754,
