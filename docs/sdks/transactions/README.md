@@ -97,8 +97,8 @@ req = operations.AuthorizeTransactionRequest(
                         customizations=[
                             shared.CartItemCustomization(
                                 attributes={
-                                    "key1": 'value1',
-                                    "key2": 'value2',
+                                    'key1': 'value1',
+                                    'key2': 'value2',
                                 },
                                 price=shared.AmountView(
                                     amount=754,
@@ -376,8 +376,8 @@ req = operations.AuthorizeTransactionRequest(
                 customizations=[
                     shared.CartItemCustomization(
                         attributes={
-                            "key1": 'value1',
-                            "key2": 'value2',
+                            'key1': 'value1',
+                            'key2': 'value2',
                         },
                         price=shared.AmountView(
                             amount=754,
@@ -468,8 +468,8 @@ req = operations.AuthorizeTransactionRequest(
             ),
         ],
         metadata={
-            "key1": 'value1',
-            "key2": 'value2',
+            'key1': 'value1',
+            'key2': 'value2',
         },
         order_description='Order #1234567890',
         order_reference='order_100',
@@ -778,8 +778,8 @@ req = operations.UpdateTransactionRequest(
     request_body=operations.UpdateTransactionRequestBody(
         display_id='order-123',
         metadata={
-            "key2": 'value2',
-            "key1": 'value1',
+            'key1': 'value1',
+            'key2': 'value2',
         },
     ),
 )

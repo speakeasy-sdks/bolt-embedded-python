@@ -176,7 +176,6 @@ src/bolt_embedded_api/models/__init__.py
 src/bolt_embedded_api/models/errors/__init__.py
 src/bolt_embedded_api/models/operations/__init__.py
 src/bolt_embedded_api/models/shared/__init__.py
-USAGE.md
 docs/models/operations/addaddresssecurity.md
 docs/models/operations/addaddressrequest.md
 docs/models/operations/addaddressresponsebody.md
@@ -490,4 +489,5 @@ docs/sdks/transactions/README.md
 docs/sdks/oauth/README.md
 docs/sdks/payments/README.md
 docs/sdks/testing/README.md
+USAGE.md
 .gitattributes
