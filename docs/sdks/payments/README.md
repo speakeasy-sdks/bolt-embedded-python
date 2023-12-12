@@ -40,7 +40,7 @@ req = operations.FinalizePaymentRequest(
 )
 
 res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
-    o_auth="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
 ))
 
 if res.object is not None:
@@ -577,7 +577,7 @@ req = operations.InitializePaymentRequest(
 )
 
 res = s.payments.initialize_payment(req, operations.InitializePaymentSecurity(
-    o_auth="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
 ))
 
 if res.object is not None:
@@ -1115,7 +1115,7 @@ req = operations.UpdatePaymentRequest(
 )
 
 res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(
-    o_auth="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
 ))
 
 if res.object is not None:

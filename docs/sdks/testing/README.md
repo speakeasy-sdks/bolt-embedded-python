@@ -31,7 +31,7 @@ req = operations.CreateTestingShopperAccountRequest(
 )
 
 res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShopperAccountSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -70,7 +70,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 
 
 res = s.testing.get_test_credit_card_token(operations.GetTestCreditCardTokenSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:

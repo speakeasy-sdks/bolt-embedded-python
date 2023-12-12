@@ -27,7 +27,7 @@ from bolt_embedded_api.models import operations, shared
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
     security=shared.Security(
-        o_auth="",
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
     ),
 )
 

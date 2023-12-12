@@ -550,7 +550,7 @@ req = operations.AuthorizeTransactionRequest(
     ),
     division_id='4ab56ad7865ada4ad32',
     merchant_event_id='dbe0cd5d-3261-41d9-ba61-49e5b9d07567',
-    previous_transaction_id='null',
+    previous_transaction_id='string',
     shipping_address=shared.Address(
         company='Bolt',
         country='United States',
@@ -573,11 +573,11 @@ req = operations.AuthorizeTransactionRequest(
     ),
     source=shared.Source.DIRECT_PAYMENTS,
     user_identifier=shared.UserIdentifier(
-        artifact='null',
+        artifact='string',
         email='alan.watts@example.com',
-        email_id='null',
+        email_id='string',
         phone='+12125550199',
-        phone_id='null',
+        phone_id='string',
     ),
     user_identity=shared.UserIdentity(
         first_name='Charlotte',
@@ -587,8 +587,8 @@ req = operations.AuthorizeTransactionRequest(
 )
 
 res = s.transactions.authorize_transaction(req, operations.AuthorizeTransactionSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.i_authorize_result_view is not None:
@@ -639,7 +639,7 @@ req = operations.CaptureTransactionRequest(
 )
 
 res = s.transactions.capture_transaction(req, operations.CaptureTransactionSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.transaction_view is not None:
@@ -686,7 +686,7 @@ req = operations.GetTransactionDetailsRequest(
 )
 
 res = s.transactions.get_transaction_details(req, operations.GetTransactionDetailsSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -735,7 +735,7 @@ req = operations.RefundTransactionRequest(
 )
 
 res = s.transactions.refund_transaction(req, operations.RefundTransactionSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.transaction_view is not None:
@@ -785,7 +785,7 @@ req = operations.UpdateTransactionRequest(
 )
 
 res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -835,7 +835,7 @@ req = operations.VoidTransactionRequest(
 )
 
 res = s.transactions.void_transaction(req, operations.VoidTransactionSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.transaction_view is not None:

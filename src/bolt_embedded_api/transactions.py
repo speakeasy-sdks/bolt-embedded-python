@@ -25,7 +25,7 @@ class Transactions:
         
         url = base_url + '/v1/merchant/transactions/authorize'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.AuthorizeTransactionRequest, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -61,7 +61,7 @@ class Transactions:
         
         url = base_url + '/v1/merchant/transactions/capture'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "capture_transaction_with_reference", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.CaptureTransactionRequest, "capture_transaction_with_reference", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -149,7 +149,7 @@ class Transactions:
         
         url = base_url + '/v1/merchant/transactions/credit'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.RefundTransactionRequest, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -190,7 +190,7 @@ class Transactions:
         
         url = utils.generate_url(operations.UpdateTransactionRequest, base_url, '/v1/merchant/transactions/{REFERENCE}', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.UpdateTransactionRequest, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -233,7 +233,7 @@ class Transactions:
         
         url = base_url + '/v1/merchant/transactions/void'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "credit_card_void", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.VoidTransactionRequest, "credit_card_void", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'

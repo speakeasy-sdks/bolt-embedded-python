@@ -26,7 +26,7 @@ class OAuth:
         
         url = base_url + '/v1/oauth/token'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'form')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.OAuthTokenRequest, "request_body", False, True, 'form')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'

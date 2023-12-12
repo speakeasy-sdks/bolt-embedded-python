@@ -29,8 +29,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:

@@ -43,8 +43,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -125,8 +125,8 @@ req = operations.DeletePaymentMethodRequest(
 res = None
 try:
     res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 except errors.ErrorsBoltAPIResponse as e:
     print(e)  # handle exception
@@ -190,8 +190,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -235,8 +235,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -284,7 +284,7 @@ from bolt_embedded_api.models import operations, shared
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
     security=shared.Security(
-        o_auth="",
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
     ),
 )
 
@@ -332,8 +332,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:

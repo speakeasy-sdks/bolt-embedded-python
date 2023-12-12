@@ -22,7 +22,7 @@ class Account:
         
         url = base_url + '/v1/account/addresses'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.AddAddressRequest, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -58,7 +58,7 @@ class Account:
         
         url = base_url + '/v1/account/payment_methods'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.AddPaymentMethodRequest, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -92,7 +92,7 @@ class Account:
         
         url = base_url + '/v1/account'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "create_account_input", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.CreateAccountRequest, "create_account_input", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -230,7 +230,7 @@ class Account:
         
         url = utils.generate_url(operations.EditAddressRequest, base_url, '/v1/account/addresses/{id}', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.EditAddressRequest, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -296,7 +296,7 @@ class Account:
         
         url = utils.generate_url(operations.ReplaceAddressRequest, base_url, '/v1/account/addresses/{id}', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "address_account", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.ReplaceAddressRequest, "address_account", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'
@@ -330,7 +330,7 @@ class Account:
         
         url = base_url + '/v1/account/profile'
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "request_body", False, True, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.UpdateAccountProfileRequest, "request_body", False, True, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         headers['Accept'] = 'application/json'

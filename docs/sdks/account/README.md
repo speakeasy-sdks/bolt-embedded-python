@@ -55,8 +55,8 @@ req = operations.AddAddressRequest(
 )
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -118,7 +118,7 @@ req = operations.AddPaymentMethodRequest(
             street_address3='c/o Alicia Watts',
             street_address4='Bridge Street Apartment Building B',
         ),
-        billing_address_id='null',
+        billing_address_id='string',
         bin='411111',
         currency='USD',
         expiration='2025-11',
@@ -131,8 +131,8 @@ req = operations.AddPaymentMethodRequest(
 )
 
 res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.saved_credit_card_view is not None:
@@ -215,7 +215,7 @@ req = operations.CreateAccountRequest(
                     street_address3='c/o Alicia Watts',
                     street_address4='Bridge Street Apartment Building B',
                 ),
-                billing_address_id='null',
+                billing_address_id='string',
                 bin='411111',
                 expiration='2025-11',
                 last4='1234',
@@ -236,7 +236,7 @@ req = operations.CreateAccountRequest(
 )
 
 res = s.account.create_account(req, operations.CreateAccountSecurity(
-    x_api_key="",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.account_details is not None:
@@ -279,8 +279,8 @@ req = operations.DeleteAddressRequest(
 )
 
 res = s.account.delete_address(req, operations.DeleteAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.status_code == 200:
@@ -322,8 +322,8 @@ req = operations.DeletePaymentMethodRequest(
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.status_code == 200:
@@ -361,7 +361,7 @@ from bolt_embedded_api.models import operations, shared
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
     security=shared.Security(
-        o_auth="",
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
     ),
 )
 
@@ -432,8 +432,8 @@ req = operations.EditAddressRequest(
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -473,8 +473,8 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 req = operations.GetAccountRequest()
 
 res = s.account.get_account(req, operations.GetAccountSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.account_details is not None:
@@ -538,8 +538,8 @@ req = operations.ReplaceAddressRequest(
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.object is not None:
@@ -585,8 +585,8 @@ req = operations.UpdateAccountProfileRequest(
 )
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(
-    o_auth="",
-    x_api_key="",
+    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    x_api_key="<YOUR_API_KEY_HERE>",
 ))
 
 if res.profile_view is not None:
