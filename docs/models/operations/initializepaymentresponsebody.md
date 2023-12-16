@@ -3,9 +3,17 @@
 Payment token retrieved.
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                              | Type                                                                                               | Required                                                                                           | Description                                                                                        |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `id`                                                                                               | *Optional[str]*                                                                                    | :heavy_minus_sign:                                                                                 | The ID for a Payment Attempt                                                                       |
-| `status`                                                                                           | [Optional[operations.InitializePaymentStatus]](../../models/operations/initializepaymentstatus.md) | :heavy_minus_sign:                                                                                 | The current payment status.                                                                        |
+### PaypalPaymentViewSchemas
+
+```python
+initializePaymentResponseBody: operations.PaypalPaymentViewSchemas = /* values here */
+```
+
+### SavedPaymentViewSchemas
+
+```python
+initializePaymentResponseBody: operations.SavedPaymentViewSchemas = /* values here */
+```
+

@@ -1,4 +1,4 @@
-# Type
+# SavedPaymentInputInitializeType
 
 The type of the payment attempt
 

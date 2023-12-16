@@ -1,4 +1,4 @@
-# Type
+# PaypalPaymentInputUpdateType
 
 The type of the payment attempt
 

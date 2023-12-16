@@ -3,7 +3,7 @@
 from .sdkconfiguration import SDKConfiguration
 from bolt_embedded_api import utils
 from bolt_embedded_api.models import errors, operations
-from typing import Optional
+from typing import Optional, Union
 
 class Payments:
     r"""Create and manage transactions for non credit card payments such as Paypal in your Embedded Accounts experience."""
@@ -71,8 +71,8 @@ class Payments:
         
         if http_res.status_code == 200:
             if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, Optional[operations.InitializePaymentResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[Union[operations.PaypalPaymentViewSchemas, operations.SavedPaymentViewSchemas]])
+                res.one_of = out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 403 or http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:
@@ -105,8 +105,8 @@ class Payments:
         
         if http_res.status_code == 200:
             if utils.match_content_type(content_type, 'application/json'):
-                out = utils.unmarshal_json(http_res.text, Optional[operations.UpdatePaymentResponseBody])
-                res.object = out
+                out = utils.unmarshal_json(http_res.text, Optional[Union[operations.PaypalPaymentViewSchemas, operations.SavedPaymentViewSchemas]])
+                res.one_of = out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code == 403 or http_res.status_code >= 400 and http_res.status_code < 500 or http_res.status_code >= 500 and http_res.status_code < 600:

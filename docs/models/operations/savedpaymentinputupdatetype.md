@@ -1,4 +1,4 @@
-# Type
+# SavedPaymentInputUpdateType
 
 The type of the payment attempt
 

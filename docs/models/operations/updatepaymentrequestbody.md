@@ -1,9 +1,17 @@
 # UpdatePaymentRequestBody
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `cart`                                                                                                       | [Optional[shared.CartCreate]](../../models/shared/cartcreate.md)                                             | :heavy_minus_sign:                                                                                           | The details of the cart being purchased with this payment.                                                   |
-| `shopper_identity`                                                                                           | [Optional[operations.UpdatePaymentShopperIdentity]](../../models/operations/updatepaymentshopperidentity.md) | :heavy_minus_sign:                                                                                           | Identification information for the Shopper. This is only required when creating a new Bolt account.          |
+### PaypalPaymentInputUpdateSchemas
+
+```python
+updatePaymentRequestBody: operations.PaypalPaymentInputUpdateSchemas = /* values here */
+```
+
+### SavedPaymentInputUpdateSchemas
+
+```python
+updatePaymentRequestBody: operations.SavedPaymentInputUpdateSchemas = /* values here */
+```
+

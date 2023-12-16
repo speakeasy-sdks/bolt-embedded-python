@@ -65,7 +65,7 @@ class Paypal:
     
 
 
-class Status(str, Enum):
+class FinalizePaymentStatus(str, Enum):
     r"""The current payment status."""
     AWAITING_USER_CONFIRMATION = 'awaiting_user_confirmation'
     PAYMENT_READY = 'payment_ready'
@@ -90,7 +90,7 @@ class FinalizePaymentResponseBody:
     payment_method_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method_id'), 'exclude': lambda f: f is None }})
     r"""ID of the payment method in Bolt's system, only if the payment method is saved."""
     paypal: Optional[Paypal] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paypal'), 'exclude': lambda f: f is None }})
-    status: Optional[Status] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[FinalizePaymentStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The current payment status."""
     transaction: Optional[Transaction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transaction'), 'exclude': lambda f: f is None }})
     

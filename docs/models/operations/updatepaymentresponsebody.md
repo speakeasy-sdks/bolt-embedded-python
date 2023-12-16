@@ -3,9 +3,17 @@
 Payment updated.
 
 
-## Fields
+## Supported Types
 
-| Field                                                                                      | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `id`                                                                                       | *Optional[str]*                                                                            | :heavy_minus_sign:                                                                         | The ID for a Payment Attempt                                                               |
-| `status`                                                                                   | [Optional[operations.UpdatePaymentStatus]](../../models/operations/updatepaymentstatus.md) | :heavy_minus_sign:                                                                         | The current payment status.                                                                |
+### PaypalPaymentViewSchemas
+
+```python
+updatePaymentResponseBody: operations.PaypalPaymentViewSchemas = /* values here */
+```
+
+### SavedPaymentViewSchemas
+
+```python
+updatePaymentResponseBody: operations.SavedPaymentViewSchemas = /* values here */
+```
+

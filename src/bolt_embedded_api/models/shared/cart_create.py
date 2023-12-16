@@ -64,7 +64,7 @@ class Fulfillments:
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class CartCreate:
-    r"""The base_cart object contains the core details typically found in most cart objects, including items, discounts, amount totals, shipments, and in-store pickups."""
+    r"""The cart_create object is a composite of the base_cart object and additional order details."""
     currency: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currency') }})
     order_reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order_reference') }})
     r"""This value is used by Bolt as an external reference to a given order. This reference must be unique per successful transaction."""

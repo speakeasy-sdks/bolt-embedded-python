@@ -7,7 +7,7 @@ from ...models.shared import cart_create as shared_cart_create
 from bolt_embedded_api import utils
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
-from typing import Optional
+from typing import Optional, Union
 
 
 @dataclasses.dataclass
@@ -20,7 +20,33 @@ class InitializePaymentSecurity:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class InitializePaymentShopperIdentity:
+class SavedPaymentInputInitializePaymentData:
+    r"""Initialize payment for a saved payment method"""
+    id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
+    r"""Payment ID of the saved Bolt Payment method."""
+    
+
+
+class SavedPaymentInputInitializeType(str, Enum):
+    r"""The type of the payment attempt"""
+    PAYPAL = 'paypal'
+    SAVED_PAYMENT_METHOD = 'saved_payment_method'
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputInitializePaymentMethod:
+    payment_data: SavedPaymentInputInitializePaymentData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_data') }})
+    r"""Initialize payment for a saved payment method"""
+    type: SavedPaymentInputInitializeType = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    r"""The type of the payment attempt"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputInitializeShopperIdentity:
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
     email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
     r"""Email address of the shopper"""
@@ -38,10 +64,69 @@ class InitializePaymentShopperIdentity:
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class InitializePaymentRequestBody:
+class SavedPaymentInputInitializeSchemas:
     cart: shared_cart_create.CartCreate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart') }})
     r"""The details of the cart being purchased with this payment."""
-    shopper_identity: Optional[InitializePaymentShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    payment_method: SavedPaymentInputInitializePaymentMethod = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method') }})
+    shopper_identity: Optional[SavedPaymentInputInitializeShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaymentData:
+    r"""Initialize payment for a new PayPal order."""
+    cancel: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cancel'), 'exclude': lambda f: f is None }})
+    r"""Redirect URL for canceled PayPal transaction."""
+    success: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('success'), 'exclude': lambda f: f is None }})
+    r"""Redirect URL for successful PayPal transaction."""
+    
+
+
+class Type(str, Enum):
+    r"""The type of the payment attempt"""
+    PAYPAL = 'paypal'
+    SAVED_PAYMENT_METHOD = 'saved_payment_method'
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaymentMethod:
+    payment_data: PaymentData = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_data') }})
+    r"""Initialize payment for a new PayPal order."""
+    type: Type = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type') }})
+    r"""The type of the payment attempt"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentInputInitializeShopperIdentity:
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
+    r"""Email address of the shopper"""
+    first_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name') }})
+    r"""First name of the shopper"""
+    last_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name') }})
+    r"""Last name of the shopper"""
+    phone: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
+    r"""Phone number of the shopper"""
+    create_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('create_bolt_account'), 'exclude': lambda f: f is None }})
+    r"""determines whether to create a bolt account for this shopper"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class Schemas:
+    cart: shared_cart_create.CartCreate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart') }})
+    r"""The details of the cart being purchased with this payment."""
+    payment_method: PaymentMethod = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method') }})
+    shopper_identity: Optional[PaypalPaymentInputInitializeShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
     r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
     
 
@@ -51,13 +136,27 @@ class InitializePaymentRequestBody:
 class InitializePaymentRequest:
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
     r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
-    request_body: Optional[InitializePaymentRequestBody] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
+    request_body: Optional[Union[Schemas, SavedPaymentInputInitializeSchemas]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
     
 
 
-class InitializePaymentStatus(str, Enum):
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentViewAction:
+    r"""Action after initializing payment"""
+    method: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('method'), 'exclude': lambda f: f is None }})
+    r"""action method"""
+    type: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    r"""action type"""
+    url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
+    r"""action URL"""
+    
+
+
+class SavedPaymentViewStatus(str, Enum):
     r"""The current payment status."""
     AWAITING_USER_CONFIRMATION = 'awaiting_user_confirmation'
     PAYMENT_READY = 'payment_ready'
@@ -66,11 +165,45 @@ class InitializePaymentStatus(str, Enum):
 
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
-class InitializePaymentResponseBody:
-    r"""Payment token retrieved."""
+class SavedPaymentViewSchemas:
+    action: Optional[SavedPaymentViewAction] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('action'), 'exclude': lambda f: f is None }})
+    r"""Action after initializing payment"""
     id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
     r"""The ID for a Payment Attempt"""
-    status: Optional[InitializePaymentStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[SavedPaymentViewStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    r"""The current payment status."""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class Action:
+    r"""Action after initializing payment"""
+    method: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('method'), 'exclude': lambda f: f is None }})
+    r"""action method"""
+    type: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    r"""action type"""
+    url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('url'), 'exclude': lambda f: f is None }})
+    r"""action URL"""
+    
+
+
+class Status(str, Enum):
+    r"""The current payment status."""
+    AWAITING_USER_CONFIRMATION = 'awaiting_user_confirmation'
+    PAYMENT_READY = 'payment_ready'
+    SUCCESS = 'success'
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentViewSchemas:
+    action: Optional[Action] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('action'), 'exclude': lambda f: f is None }})
+    r"""Action after initializing payment"""
+    id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
+    r"""The ID for a Payment Attempt"""
+    status: Optional[Status] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""The current payment status."""
     
 
@@ -84,7 +217,156 @@ class InitializePaymentResponse:
     r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    object: Optional[InitializePaymentResponseBody] = dataclasses.field(default=None)
+    one_of: Optional[Union[PaypalPaymentViewSchemas, SavedPaymentViewSchemas]] = dataclasses.field(default=None)
     r"""Payment token retrieved."""
+    
+
+
+
+@dataclasses.dataclass
+class UpdatePaymentSecurity:
+    o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
+    x_api_key: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputUpdatePaymentData:
+    r"""Initialize payment for a saved payment method"""
+    id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is None }})
+    r"""Payment ID of the saved Bolt Payment method."""
+    
+
+
+class SavedPaymentInputUpdateType(str, Enum):
+    r"""The type of the payment attempt"""
+    PAYPAL = 'paypal'
+    SAVED_PAYMENT_METHOD = 'saved_payment_method'
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputUpdatePaymentMethod:
+    payment_data: Optional[SavedPaymentInputUpdatePaymentData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_data'), 'exclude': lambda f: f is None }})
+    r"""Initialize payment for a saved payment method"""
+    type: Optional[SavedPaymentInputUpdateType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    r"""The type of the payment attempt"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputUpdateShopperIdentity:
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
+    r"""Email address of the shopper"""
+    first_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name') }})
+    r"""First name of the shopper"""
+    last_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name') }})
+    r"""Last name of the shopper"""
+    phone: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
+    r"""Phone number of the shopper"""
+    create_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('create_bolt_account'), 'exclude': lambda f: f is None }})
+    r"""determines whether to create a bolt account for this shopper"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class SavedPaymentInputUpdateSchemas:
+    cart: Optional[shared_cart_create.CartCreate] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart'), 'exclude': lambda f: f is None }})
+    r"""The details of the cart being purchased with this payment."""
+    payment_method: Optional[SavedPaymentInputUpdatePaymentMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method'), 'exclude': lambda f: f is None }})
+    shopper_identity: Optional[SavedPaymentInputUpdateShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentInputUpdatePaymentData:
+    r"""Initialize payment for a new PayPal order."""
+    cancel: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cancel'), 'exclude': lambda f: f is None }})
+    r"""Redirect URL for canceled PayPal transaction."""
+    success: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('success'), 'exclude': lambda f: f is None }})
+    r"""Redirect URL for successful PayPal transaction."""
+    
+
+
+class PaypalPaymentInputUpdateType(str, Enum):
+    r"""The type of the payment attempt"""
+    PAYPAL = 'paypal'
+    SAVED_PAYMENT_METHOD = 'saved_payment_method'
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentInputUpdatePaymentMethod:
+    payment_data: Optional[PaypalPaymentInputUpdatePaymentData] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_data'), 'exclude': lambda f: f is None }})
+    r"""Initialize payment for a new PayPal order."""
+    type: Optional[PaypalPaymentInputUpdateType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    r"""The type of the payment attempt"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentInputUpdateShopperIdentity:
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
+    r"""Email address of the shopper"""
+    first_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name') }})
+    r"""First name of the shopper"""
+    last_name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name') }})
+    r"""Last name of the shopper"""
+    phone: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone') }})
+    r"""Phone number of the shopper"""
+    create_bolt_account: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('create_bolt_account'), 'exclude': lambda f: f is None }})
+    r"""determines whether to create a bolt account for this shopper"""
+    
+
+
+
+@dataclass_json(undefined=Undefined.EXCLUDE)
+@dataclasses.dataclass
+class PaypalPaymentInputUpdateSchemas:
+    cart: Optional[shared_cart_create.CartCreate] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart'), 'exclude': lambda f: f is None }})
+    r"""The details of the cart being purchased with this payment."""
+    payment_method: Optional[PaypalPaymentInputUpdatePaymentMethod] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('payment_method'), 'exclude': lambda f: f is None }})
+    shopper_identity: Optional[PaypalPaymentInputUpdateShopperIdentity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shopper_identity'), 'exclude': lambda f: f is None }})
+    r"""Identification information for the Shopper. This is only required when creating a new Bolt account."""
+    
+
+
+
+@dataclasses.dataclass
+class UpdatePaymentRequest:
+    id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'id', 'style': 'simple', 'explode': False }})
+    r"""The ID received in the initial v1/payments request."""
+    idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
+    r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
+    request_body: Optional[Union[PaypalPaymentInputUpdateSchemas, SavedPaymentInputUpdateSchemas]] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
+    x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
+    r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
+    
+
+
+
+@dataclasses.dataclass
+class UpdatePaymentResponse:
+    content_type: str = dataclasses.field()
+    r"""HTTP response content type for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
+    status_code: int = dataclasses.field()
+    r"""HTTP response status code for this operation"""
+    one_of: Optional[Union[PaypalPaymentViewSchemas, SavedPaymentViewSchemas]] = dataclasses.field(default=None)
+    r"""Payment updated."""
     
 

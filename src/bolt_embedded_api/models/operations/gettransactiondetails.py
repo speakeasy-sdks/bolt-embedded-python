@@ -52,7 +52,7 @@ class GetTransactionDetailsRequest:
     
 
 
-class Type(str, Enum):
+class GetTransactionDetailsType(str, Enum):
     r"""**Nullable** for Transactions Details."""
     NET = 'net'
     PROCESSING_FEE = 'processing_fee'
@@ -67,7 +67,7 @@ class Type(str, Enum):
 class Splits:
     r"""A split of fees by type and amount."""
     amount: Optional[shared_amount_view.AmountView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('amount'), 'exclude': lambda f: f is None }})
-    type: Optional[Type] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
+    type: Optional[GetTransactionDetailsType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
     r"""**Nullable** for Transactions Details."""
     
 

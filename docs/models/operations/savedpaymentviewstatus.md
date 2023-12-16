@@ -1,4 +1,4 @@
-# InitializePaymentStatus
+# SavedPaymentViewStatus
 
 The current payment status.
 

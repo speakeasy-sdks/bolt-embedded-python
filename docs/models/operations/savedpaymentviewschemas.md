@@ -1,0 +1,10 @@
+# SavedPaymentViewSchemas
+
+
+## Fields
+
+| Field                                                                                            | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `action`                                                                                         | [Optional[operations.SavedPaymentViewAction]](../../models/operations/savedpaymentviewaction.md) | :heavy_minus_sign:                                                                               | Action after initializing payment                                                                |
+| `id`                                                                                             | *Optional[str]*                                                                                  | :heavy_minus_sign:                                                                               | The ID for a Payment Attempt                                                                     |
+| `status`                                                                                         | [Optional[operations.SavedPaymentViewStatus]](../../models/operations/savedpaymentviewstatus.md) | :heavy_minus_sign:                                                                               | The current payment status.                                                                      |

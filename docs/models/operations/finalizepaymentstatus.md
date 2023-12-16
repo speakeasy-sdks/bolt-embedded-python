@@ -1,4 +1,4 @@
-# UpdatePaymentStatus
+# FinalizePaymentStatus
 
 The current payment status.
 
