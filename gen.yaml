@@ -1,23 +1,10 @@
-configVersion: 1.0.0
-management:
-  docChecksum: b58aa22b520fd02d35640f920003ff1d
-  docVersion: 1.0.1
-  speakeasyVersion: 1.126.4
-  generationVersion: 2.214.10
+configVersion: 2.0.0
 generation:
-  comments: {}
   sdkClassName: bolt-embedded-api
-  repoURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
   usageSnippets:
     optionalPropertyRendering: withExample
   fixes:
     nameResolutionDec2023: false
-features:
-  python:
-    core: 4.3.1
-    globalSecurity: 2.83.1
-    globalServerURLs: 2.82.1
-    methodSecurity: 2.82.0
 python:
   version: 0.15.1
   author: ryan-test
@@ -33,8 +20,6 @@ python:
       shared: models/shared
       webhooks: models/webhooks
   inputModelSuffix: input
-  installationURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
   maxMethodParams: 0
   outputModelSuffix: output
   packageName: bolt-embedded-api
-  repoSubDirectory: .

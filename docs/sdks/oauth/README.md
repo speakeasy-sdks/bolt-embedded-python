@@ -63,4 +63,4 @@ if res.o_auth_token_response is not None:
 | Error Object                     | Status Code                      | Content Type                     |
 | -------------------------------- | -------------------------------- | -------------------------------- |
 | errors.ErrorsOauthServerResponse | 400,403,422                      | application/json                 |
-| errors.SDKError                  | 400-600                          | */*                              |
+| errors.SDKError                  | 4x-5xx                           | */*                              |

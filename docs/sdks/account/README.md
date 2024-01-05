@@ -79,7 +79,7 @@ if res.object is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## add_payment_method
 
@@ -155,7 +155,7 @@ if res.saved_credit_card_view is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## create_account
 
@@ -259,7 +259,7 @@ if res.account_details is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## delete_address
 
@@ -303,7 +303,7 @@ if res.status_code == 200:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## delete_payment_method
 
@@ -347,7 +347,7 @@ if res.status_code == 200:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
 
 ## detect_account
 
@@ -391,7 +391,7 @@ if res.v1_accounts_view is not None:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 422                          | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
 
 ## edit_address
 
@@ -456,7 +456,7 @@ if res.object is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## get_account
 
@@ -497,7 +497,7 @@ if res.account_details is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## replace_address
 
@@ -562,7 +562,7 @@ if res.object is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## update_account_profile
 
@@ -609,4 +609,4 @@ if res.profile_view is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |

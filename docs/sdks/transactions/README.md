@@ -611,7 +611,7 @@ if res.i_authorize_result_view is not None:
 
 | Error Object    | Status Code     | Content Type    |
 | --------------- | --------------- | --------------- |
-| errors.SDKError | 400-600         | */*             |
+| errors.SDKError | 4x-5xx          | */*             |
 
 ## capture_transaction
 
@@ -664,7 +664,7 @@ if res.transaction_view is not None:
 | ------------------------------------- | ------------------------------------- | ------------------------------------- |
 | errors.ErrorsBoltAPIResponse          | 403,404                               | application/json                      |
 | errors.CaptureTransactionResponseBody | 422                                   | application/json                      |
-| errors.SDKError                       | 400-600                               | */*                                   |
+| errors.SDKError                       | 4x-5xx                                | */*                                   |
 
 ## get_transaction_details
 
@@ -710,7 +710,7 @@ if res.object is not None:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 403,422                      | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
 
 ## refund_transaction
 
@@ -759,7 +759,7 @@ if res.transaction_view is not None:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 422                          | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
 
 ## update_transaction
 
@@ -809,7 +809,7 @@ if res.object is not None:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
 
 ## void_transaction
 
@@ -859,4 +859,4 @@ if res.transaction_view is not None:
 | Error Object                 | Status Code                  | Content Type                 |
 | ---------------------------- | ---------------------------- | ---------------------------- |
 | errors.ErrorsBoltAPIResponse | 403,404                      | application/json             |
-| errors.SDKError              | 400-600                      | */*                          |
+| errors.SDKError              | 4x-5xx                       | */*                          |
