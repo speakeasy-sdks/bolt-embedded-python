@@ -4,18 +4,18 @@ management:
   docChecksum: b58aa22b520fd02d35640f920003ff1d
   docVersion: 1.0.1
   speakeasyVersion: internal
-  generationVersion: 2.233.2
-  releaseVersion: 0.15.2
-  configChecksum: f512b7f6e2dbb40eb05fd83ebdc425c4
+  generationVersion: 2.237.2
+  releaseVersion: 0.15.3
+  configChecksum: dcb035ec3c62f23d58e35293e5e81520
   repoURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
 features:
   python:
-    core: 4.4.1
-    globalSecurity: 2.83.1
+    core: 4.4.2
+    globalSecurity: 2.83.2
     globalServerURLs: 2.82.1
-    methodSecurity: 2.82.0
+    methodSecurity: 2.82.1
     unions: 2.82.5
 generatedFiles:
   - src/bolt_embedded_api/sdkconfiguration.py
