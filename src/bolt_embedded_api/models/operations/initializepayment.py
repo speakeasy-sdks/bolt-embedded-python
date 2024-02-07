@@ -213,10 +213,10 @@ class PaypalPaymentViewSchemas:
 class InitializePaymentResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     one_of: Optional[Union[PaypalPaymentViewSchemas, SavedPaymentViewSchemas]] = dataclasses.field(default=None)
     r"""Payment token retrieved."""
     
@@ -362,10 +362,10 @@ class UpdatePaymentRequest:
 class UpdatePaymentResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     one_of: Optional[Union[PaypalPaymentViewSchemas, SavedPaymentViewSchemas]] = dataclasses.field(default=None)
     r"""Payment updated."""
     

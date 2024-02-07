@@ -17,11 +17,11 @@ class CreateAccountSecurity:
 
 @dataclasses.dataclass
 class CreateAccountRequest:
-    create_account_input: Optional[shared_create_account_input.CreateAccountInput] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
     r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
     x_publishable_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'X-Publishable-Key', 'style': 'simple', 'explode': False }})
     r"""The publicly viewable identifier used to identify a merchant division. This key is found in the Developer > API section of the Bolt Merchant Dashboard [RECOMMENDED]."""
+    create_account_input: Optional[shared_create_account_input.CreateAccountInput] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
     
 
 
@@ -30,10 +30,10 @@ class CreateAccountRequest:
 class CreateAccountResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     account_details: Optional[shared_account_details.AccountDetails] = dataclasses.field(default=None)
     r"""Account Created"""
     

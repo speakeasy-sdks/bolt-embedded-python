@@ -128,9 +128,9 @@ class TransactionView:
     r"""Describes whether the transaction is indemnified by Bolt for fraud."""
     indemnification_reason: Optional[TransactionIndemnificationReason] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('indemnification_reason'), 'exclude': lambda f: f is None }})
     r"""Describes the reason that the transaction is or is not indemnified by Bolt for fraud."""
-    last_viewed_utc: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_viewed_utc'), 'exclude': lambda f: f is None }})
     last4: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last4'), 'exclude': lambda f: f is None }})
     r"""The card's last 4 digits. **Nullable** for Transactions Details."""
+    last_viewed_utc: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_viewed_utc'), 'exclude': lambda f: f is None }})
     merchant_division: Optional[MerchantDivisionSummaryView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_division'), 'exclude': lambda f: f is None }})
     merchant_order_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_order_number'), 'exclude': lambda f: f is None }})
     order_decision: Optional[OrderDecisionDetailsView] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('order_decision'), 'exclude': lambda f: f is None }})

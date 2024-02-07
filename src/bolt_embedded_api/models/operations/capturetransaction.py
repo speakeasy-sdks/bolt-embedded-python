@@ -17,10 +17,10 @@ class CaptureTransactionSecurity:
 
 @dataclasses.dataclass
 class CaptureTransactionRequest:
-    capture_transaction_with_reference: Optional[shared_capture_transaction_with_reference.CaptureTransactionWithReference] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
-    r"""Capture a Transaction"""
     idempotency_key: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'Idempotency-Key', 'style': 'simple', 'explode': False }})
     r"""A key created by merchants that ensures `POST` and `PATCH` requests are only performed once. [Read more about Idempotent Requests here](/developers/references/idempotency/)."""
+    capture_transaction_with_reference: Optional[shared_capture_transaction_with_reference.CaptureTransactionWithReference] = dataclasses.field(default=None, metadata={'request': { 'media_type': 'application/json' }})
+    r"""Capture a Transaction"""
     
 
 
@@ -29,10 +29,10 @@ class CaptureTransactionRequest:
 class CaptureTransactionResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     transaction_view: Optional[shared_transaction_view.TransactionView] = dataclasses.field(default=None)
     r"""Capture Successful"""
     

@@ -140,10 +140,10 @@ class UpdateTransactionResponseBody:
     r"""Describes whether the transaction is indemnified by Bolt for fraud."""
     indemnification_reason: Optional[shared_transaction_indemnification_reason.TransactionIndemnificationReason] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('indemnification_reason'), 'exclude': lambda f: f is None }})
     r"""Describes the reason that the transaction is or is not indemnified by Bolt for fraud."""
-    last_viewed_utc: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_viewed_utc'), 'exclude': lambda f: f is None }})
-    r"""The last view time as UTC."""
     last4: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last4'), 'exclude': lambda f: f is None }})
     r"""The card's last 4 digits. **Nullable** for Transactions Details."""
+    last_viewed_utc: Optional[int] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_viewed_utc'), 'exclude': lambda f: f is None }})
+    r"""The last view time as UTC."""
     manual_disputes: Optional[shared_manual_disputes.ManualDisputes] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('manual_disputes'), 'exclude': lambda f: f is None }})
     merchant: Optional[shared_merchant.Merchant] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant'), 'exclude': lambda f: f is None }})
     merchant_division: Optional[shared_merchant_division.MerchantDivision] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_division'), 'exclude': lambda f: f is None }})
@@ -193,10 +193,10 @@ class UpdateTransactionResponseBody:
 class UpdateTransactionResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     object: Optional[UpdateTransactionResponseBody] = dataclasses.field(default=None)
     r"""Transaction Details Retrieved"""
     
