@@ -39,6 +39,7 @@ class Source(str, Enum):
 @dataclasses.dataclass
 class MerchantCreditCardAuthorization:
     r"""This request is used for authorizing a new, unsaved card."""
+    UNSET='__SPEAKEASY_UNSET__'
     cart: CartCreate = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cart') }})
     create_bolt_account: bool = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('create_bolt_account') }})
     r"""If `true`, the guest shopper is provided a Bolt Account using their email address as its unique ID; if `false`, no information is saved at checkout."""
@@ -53,7 +54,7 @@ class MerchantCreditCardAuthorization:
     auto_capture: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('auto_capture'), 'exclude': lambda f: f is None }})
     merchant_event_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_event_id'), 'exclude': lambda f: f is None }})
     r"""The reference ID associated with a transaction event (auth, capture, refund, void). This is an arbitrary identifier created by the merchant. Bolt does not enforce any uniqueness constraints on this ID. It is up to the merchant to generate identifiers that properly fulfill its needs."""
-    previous_transaction_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('previous_transaction_id') }})
+    previous_transaction_id: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('previous_transaction_id'), 'exclude': lambda f: f is MerchantCreditCardAuthorization.UNSET }})
     r"""The unique ID associated with to the shopper's previous subscription-based transaction. Leave `null` for standard, non-subscription transactions."""
     processing_initiator: Optional[MerchantCreditCardAuthorizationProcessingInitiator] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('processing_initiator'), 'exclude': lambda f: f is None }})
     r"""Determines who initiated the transaction (e.g. shopper, merchant) and how they did it (e.g. recurring subscription, on-file card).

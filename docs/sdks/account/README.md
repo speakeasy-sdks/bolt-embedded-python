@@ -27,32 +27,11 @@ Add an address to a shopper's account address book.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.AddAddressRequest(
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
-)
+req = operations.AddAddressRequest()
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
@@ -92,43 +71,11 @@ Add a payment method to a shopper's Bolt account Wallet. For security purposes, 
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.AddPaymentMethodRequest(
-    request_body=operations.AddPaymentMethodRequestBody(
-        billing_address=shared.Address(
-            country_code='US',
-            email='alan.watts@example.com',
-            first_name='Alan',
-            last_name='Watts',
-            locality='Brooklyn',
-            postal_code='10044',
-            region='NY',
-            street_address1='888 main street',
-            company='Bolt',
-            country='United States',
-            default=True,
-            door_code='123456',
-            name='Alan Watts',
-            phone='+12125550199',
-            region_code='NY',
-            street_address2='apt 3021',
-            street_address3='c/o Alicia Watts',
-            street_address4='Bridge Street Apartment Building B',
-        ),
-        expiration='2025-11',
-        token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-        billing_address_id='string',
-        bin='411111',
-        currency='USD',
-        last4='1234',
-        metadata=shared.Metadata(),
-        postal_code='10044',
-        token_type=operations.TokenType.BOLT,
-    ),
-)
+req = operations.AddPaymentMethodRequest()
 
 res = s.account.add_payment_method(req, operations.AddPaymentMethodSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
@@ -165,75 +112,11 @@ Create a Bolt shopping account.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.CreateAccountRequest(
-    create_account_input=shared.CreateAccountInput(
-        profile=shared.Profile(
-            email='alan.watts@example.com',
-            first_name='Alan',
-            last_name='Watts',
-            phone='+12125550199',
-            metadata=shared.ProfileMetadata(),
-        ),
-        addresses=[
-            shared.AddressAccount(
-                country_code='US',
-                email='alan.watts@example.com',
-                first_name='Alan',
-                last_name='Watts',
-                locality='Brooklyn',
-                postal_code='10044',
-                region='NY',
-                street_address1='888 main street',
-                company='Bolt',
-                country='United States',
-                door_code='123456',
-                metadata=shared.Metadata(),
-                name='Alan Watts',
-                phone='+12125550199',
-                region_code='NY',
-                street_address2='apt 3021',
-                street_address3='c/o Alicia Watts',
-                street_address4='Bridge Street Apartment Building B',
-            ),
-        ],
-        payment_methods=[
-            shared.PaymentMethodAccount(
-                billing_address=shared.Address(
-                    country_code='US',
-                    email='alan.watts@example.com',
-                    first_name='Alan',
-                    last_name='Watts',
-                    locality='Brooklyn',
-                    postal_code='10044',
-                    region='NY',
-                    street_address1='888 main street',
-                    company='Bolt',
-                    country='United States',
-                    default=True,
-                    door_code='123456',
-                    name='Alan Watts',
-                    phone='+12125550199',
-                    region_code='NY',
-                    street_address2='apt 3021',
-                    street_address3='c/o Alicia Watts',
-                    street_address4='Bridge Street Apartment Building B',
-                ),
-                expiration='2025-11',
-                token='a1B2c3D4e5F6G7H8i9J0k1L2m3N4o5P6Q7r8S9t0',
-                billing_address_id='string',
-                bin='411111',
-                last4='1234',
-                metadata=shared.Metadata(),
-                postal_code='10044',
-                token_type=shared.PaymentMethodAccountTokenType.BOLT,
-            ),
-        ],
-    ),
-)
+req = operations.CreateAccountRequest()
 
 res = s.account.create_account(req, operations.CreateAccountSecurity(
     x_api_key="<YOUR_API_KEY_HERE>",
@@ -403,32 +286,12 @@ This endpoint fully replaces the information for an existing address while retai
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
     id='<ID>',
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
@@ -509,32 +372,12 @@ These changes delete the existing address and create a new one.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
     id='<ID>',
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
@@ -572,17 +415,11 @@ Update the identifiers for a shopper's profile (first name or last name).
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.UpdateAccountProfileRequest(
-    request_body=operations.UpdateAccountProfileRequestBody(
-        first_name='Alan',
-        last_name='Watts',
-        metadata=shared.Metadata(),
-    ),
-)
+req = operations.UpdateAccountProfileRequest()
 
 res = s.account.update_account_profile(req, operations.UpdateAccountProfileSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",

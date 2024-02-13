@@ -18,6 +18,7 @@ from typing import Dict, List, Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class Fees:
+    UNSET='__SPEAKEASY_UNSET__'
     name: Optional[str] = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     r"""Name of the fee that will appear in the order ledger."""
     quantity: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('quantity') }})
@@ -25,7 +26,7 @@ class Fees:
     r"""Unique reference used to identify the fee."""
     unit_price: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit_price') }})
     unit_tax_amount: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit_tax_amount') }})
-    description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
+    description: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is Fees.UNSET }})
     r"""Description of the fee that will appear in the tooltip if the mouse hovers over the fee."""
     
 

@@ -35,6 +35,7 @@ class ReplaceAddressRequest:
 @dataclasses.dataclass
 class ReplaceAddressResponseBody:
     r"""The address object returned in the response."""
+    UNSET='__SPEAKEASY_UNSET__'
     company: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('company'), 'exclude': lambda f: f is None }})
     r"""The company name associated with this address."""
     country: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country'), 'exclude': lambda f: f is None }})
@@ -42,7 +43,7 @@ class ReplaceAddressResponseBody:
     country_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_code'), 'exclude': lambda f: f is None }})
     r"""The ISO 3166-1 alpha-2 country code associated with this address."""
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
-    door_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('door_code') }})
+    door_code: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('door_code'), 'exclude': lambda f: f is ReplaceAddressResponseBody.UNSET }})
     r"""The building door code or community gate code."""
     email_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email_address'), 'exclude': lambda f: f is None }})
     r"""An email address."""
@@ -54,7 +55,7 @@ class ReplaceAddressResponseBody:
     r"""The surname of the person associated with this address."""
     locality: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locality'), 'exclude': lambda f: f is None }})
     r"""The city name details associated with this address."""
-    metadata: Optional[shared_metadata.Metadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[shared_metadata.Metadata] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is ReplaceAddressResponseBody.UNSET }})
     r"""A key-value pair object that allows users to store arbitrary information associated with an object.  For any individual account object, we allow up to 50 keys. Keys can be up to 40 characters long and values can be up to 500 characters long.  Metadata should not contain any sensitive customer information, like PII (Personally Identifiable Information). For more information about metadata, see our [documentation](https://help.bolt.com/developers/references/embedded-metadata/)."""
     name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})
     r"""The given and surname of the person associated with this address."""
@@ -64,15 +65,15 @@ class ReplaceAddressResponseBody:
     r"""The postal or zip code associated with this address."""
     region: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('region'), 'exclude': lambda f: f is None }})
     r"""The region details such as state or province associated with this address."""
-    region_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('region_code') }})
+    region_code: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('region_code'), 'exclude': lambda f: f is ReplaceAddressResponseBody.UNSET }})
     r"""The the ISO 3166-2 region code associated with this address."""
     street_address1: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address1'), 'exclude': lambda f: f is None }})
     r"""The street number and street name of the address."""
     street_address2: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address2'), 'exclude': lambda f: f is None }})
     r"""Any apartment, floor, or unit details."""
-    street_address3: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address3') }})
+    street_address3: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address3'), 'exclude': lambda f: f is ReplaceAddressResponseBody.UNSET }})
     r"""Any additional street address details."""
-    street_address4: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address4') }})
+    street_address4: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address4'), 'exclude': lambda f: f is ReplaceAddressResponseBody.UNSET }})
     r"""Any additional street address details."""
     
 

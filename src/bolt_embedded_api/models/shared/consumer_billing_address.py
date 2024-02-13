@@ -10,6 +10,7 @@ from typing import Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class ConsumerBillingAddress:
+    UNSET='__SPEAKEASY_UNSET__'
     locality: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('locality') }})
     r"""A locale such as county, district, etc."""
     postal_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('postal_code') }})
@@ -28,7 +29,7 @@ class ConsumerBillingAddress:
     r"""An email address."""
     first_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('first_name'), 'exclude': lambda f: f is None }})
     r"""The person's first name."""
-    id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id') }})
+    id: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('id'), 'exclude': lambda f: f is ConsumerBillingAddress.UNSET }})
     r"""The unique Bolt ID associated with a previously saved billing address. Not applicable to new, unsaved addresses."""
     last_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last_name'), 'exclude': lambda f: f is None }})
     r"""The person's last name."""

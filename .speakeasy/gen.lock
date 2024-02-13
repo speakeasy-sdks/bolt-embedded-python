@@ -4,7 +4,7 @@ management:
   docChecksum: b58aa22b520fd02d35640f920003ff1d
   docVersion: 1.0.1
   speakeasyVersion: internal
-  generationVersion: 2.250.12
+  generationVersion: 2.253.0
   releaseVersion: 0.17.0
   configChecksum: 858569a85f2fbfae4914773f3318a010
   repoURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git

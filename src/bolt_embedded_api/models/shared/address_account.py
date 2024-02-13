@@ -12,6 +12,7 @@ from typing import Optional
 @dataclasses.dataclass
 class AddressAccount:
     r"""The Address object is used for billing, shipping, and physical store address use cases."""
+    UNSET='__SPEAKEASY_UNSET__'
     country_code: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('country_code') }})
     r"""The ISO 3166-1 alpha-2 country code associated with this address."""
     email: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email') }})
@@ -34,24 +35,24 @@ class AddressAccount:
     r"""The name of the country associated with this address."""
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
     r"""Set this to true to make this the default shipping address. There can be only one address with default set to true."""
-    door_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('door_code') }})
+    door_code: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('door_code'), 'exclude': lambda f: f is AddressAccount.UNSET }})
     r"""The building door code or community gate code."""
-    metadata: Optional[Metadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[Metadata] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is AddressAccount.UNSET }})
     r"""A key-value pair object that allows users to store arbitrary information associated with an object.  For any individual account object, we allow up to 50 keys. Keys can be up to 40 characters long and values can be up to 500 characters long.  Metadata should not contain any sensitive customer information, like PII (Personally Identifiable Information). For more information about metadata, see our [documentation](https://help.bolt.com/developers/references/embedded-metadata/)."""
     name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name'), 'exclude': lambda f: f is None }})
     r"""The given and surname of the person associated with this address."""
     phone: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('phone'), 'exclude': lambda f: f is None }})
     r"""A phone number following E164 standards, in its globalized format, i.e. prepended with a plus sign."""
-    region_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('region_code') }})
+    region_code: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('region_code'), 'exclude': lambda f: f is AddressAccount.UNSET }})
     r"""The ISO 3166-2 region code associated with this address.
       - * If specified, value must be valid for the `country`.
       - * If null, value is inferred from the `region`.
     """
     street_address2: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address2'), 'exclude': lambda f: f is None }})
     r"""Any apartment, floor, or unit details."""
-    street_address3: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address3') }})
+    street_address3: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address3'), 'exclude': lambda f: f is AddressAccount.UNSET }})
     r"""Any additional street address details."""
-    street_address4: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address4') }})
+    street_address4: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('street_address4'), 'exclude': lambda f: f is AddressAccount.UNSET }})
     r"""Any additional street address details."""
     
 

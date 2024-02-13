@@ -43,6 +43,7 @@ class CartItemType(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class CartItem:
+    UNSET='__SPEAKEASY_UNSET__'
     name: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('name') }})
     quantity: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('quantity') }})
     reference: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('reference') }})
@@ -50,14 +51,14 @@ class CartItem:
     r"""The total amount, in cents, of the item including its taxes if applicable."""
     unit_price: float = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('unit_price') }})
     r"""The price of one unit of the item; for example, the price of one pack of socks."""
-    brand: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('brand') }})
-    category: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category') }})
+    brand: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('brand'), 'exclude': lambda f: f is CartItem.UNSET }})
+    category: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('category'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define a product category associated with the item."""
     collections: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('collections'), 'exclude': lambda f: f is None }})
-    color: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('color') }})
+    color: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('color'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the color of the item."""
     customizations: Optional[List[CartItemCustomization]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customizations'), 'exclude': lambda f: f is None }})
-    description: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description') }})
+    description: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('description'), 'exclude': lambda f: f is CartItem.UNSET }})
     details_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('details_url'), 'exclude': lambda f: f is None }})
     r"""Used to provide a link to the item's product page."""
     external_inputs: Optional[ICartItemExternalInputs] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('external_inputs'), 'exclude': lambda f: f is None }})
@@ -65,38 +66,38 @@ class CartItem:
     r"""Contains the gift option settings for wrapping and custom messages."""
     image_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('image_url'), 'exclude': lambda f: f is None }})
     r"""Used to provide a link to the image associated with the item."""
-    isbn: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('isbn') }})
+    isbn: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('isbn'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the International Standard Book Number associated with the book."""
-    item_group: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_group') }})
-    manufacturer: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('manufacturer') }})
+    item_group: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('item_group'), 'exclude': lambda f: f is CartItem.UNSET }})
+    manufacturer: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('manufacturer'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the organization that manufactured the item."""
     merchant_product_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_product_id'), 'exclude': lambda f: f is None }})
     r"""The merchant's unique ID for the product."""
     merchant_variant_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('merchant_variant_id'), 'exclude': lambda f: f is None }})
     r"""A merchant's unique ID for a given product's specific variant."""
-    msrp: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('msrp') }})
-    options: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options') }})
+    msrp: Optional[float] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('msrp'), 'exclude': lambda f: f is CartItem.UNSET }})
+    options: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('options'), 'exclude': lambda f: f is CartItem.UNSET }})
     properties: Optional[List[CartItemProperty]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('properties'), 'exclude': lambda f: f is None }})
     shipment: Optional[CartShipment] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment'), 'exclude': lambda f: f is None }})
     r"""A cart that is being prepared for shipment"""
     shipment_type: Optional[ShipmentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('shipment_type'), 'exclude': lambda f: f is None }})
-    size: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('size') }})
+    size: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('size'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the size of the item."""
-    sku: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sku') }})
+    sku: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('sku'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the alpha-numberic Stock Keeping Unit associated with the item as it is mapped to your internal product catalogue."""
-    source: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source') }})
-    tags: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tags') }})
+    source: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('source'), 'exclude': lambda f: f is CartItem.UNSET }})
+    tags: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tags'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define a comma-separated list of tags associated with the item."""
-    tax_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_amount') }})
+    tax_amount: Optional[float] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_amount'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""The tax amount for the item; this value should scale with the quantity of units selected."""
-    tax_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_code') }})
-    taxable: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('taxable') }})
+    tax_code: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('tax_code'), 'exclude': lambda f: f is CartItem.UNSET }})
+    taxable: Optional[bool] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('taxable'), 'exclude': lambda f: f is CartItem.UNSET }})
     type: Optional[CartItemType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('type'), 'exclude': lambda f: f is None }})
-    uom: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('uom') }})
+    uom: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('uom'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the unit of measure used to describe the item."""
-    upc: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('upc') }})
+    upc: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('upc'), 'exclude': lambda f: f is CartItem.UNSET }})
     r"""Used to define the 12-digit Universal Product Code (a barcode) associated with the item worldwide."""
-    weight: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weight') }})
-    weight_unit: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weight_unit') }})
+    weight: Optional[float] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weight'), 'exclude': lambda f: f is CartItem.UNSET }})
+    weight_unit: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('weight_unit'), 'exclude': lambda f: f is CartItem.UNSET }})
     
 

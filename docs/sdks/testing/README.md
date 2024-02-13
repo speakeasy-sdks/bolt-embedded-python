@@ -25,6 +25,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.CreateTestingShopperAccountRequest(
     request_body=operations.CreateTestingShopperAccountRequestBody(
+        deactivate_in_days=30,
         email_state=operations.EmailState.VERIFIED,
         phone_state=shared.Onev11testing1shopper1createPostRequestBodyContentApplication1jsonSchemaPropertiesEmailState.VERIFIED,
     ),

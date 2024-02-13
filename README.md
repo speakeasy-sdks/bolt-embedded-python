@@ -15,32 +15,11 @@ pip install git+https://github.com/speakeasy-sdks/bolt-embedded-python.git
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.AddAddressRequest(
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
-)
+req = operations.AddAddressRequest()
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
@@ -114,7 +93,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import errors, operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
@@ -129,10 +108,10 @@ try:
     x_api_key="<YOUR_API_KEY_HERE>",
 ))
 except errors.ErrorsBoltAPIResponse as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 except errors.SDKError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 
 if res.status_code == 200:
@@ -160,34 +139,13 @@ You can override the default server globally by passing a server index to the `s
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
     server_idx=2,
 )
 
-req = operations.AddAddressRequest(
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
-)
+req = operations.AddAddressRequest()
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
@@ -205,34 +163,13 @@ if res.object is not None:
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI(
     server_url="https://api.bolt.com",
 )
 
-req = operations.AddAddressRequest(
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
-)
+req = operations.AddAddressRequest()
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
@@ -304,32 +241,11 @@ if res.v1_accounts_view is not None:
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
-req = operations.AddAddressRequest(
-    address_account=shared.AddressAccount(
-        country_code='US',
-        email='alan.watts@example.com',
-        first_name='Alan',
-        last_name='Watts',
-        locality='Brooklyn',
-        postal_code='10044',
-        region='NY',
-        street_address1='888 main street',
-        company='Bolt',
-        country='United States',
-        door_code='123456',
-        metadata=shared.Metadata(),
-        name='Alan Watts',
-        phone='+12125550199',
-        region_code='NY',
-        street_address2='apt 3021',
-        street_address3='c/o Alicia Watts',
-        street_address4='Bridge Street Apartment Building B',
-    ),
-)
+req = operations.AddAddressRequest()
 
 res = s.account.add_address(req, operations.AddAddressSecurity(
     o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",

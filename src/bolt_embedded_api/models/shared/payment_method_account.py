@@ -39,13 +39,14 @@ class PaymentMethodAccountTokenType(str, Enum):
 @dataclasses.dataclass
 class PaymentMethodAccount:
     r"""The `credit_card` object is used to to pay for guest checkout transactions or save payment method details to an account. Once saved, you can reference the credit card with the associated `credit_card_id` for future transactions."""
+    UNSET='__SPEAKEASY_UNSET__'
     billing_address: Address = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_address') }})
     r"""The Address object is used for billing, shipping, and physical store address use cases."""
     expiration: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('expiration') }})
     r"""The expiration date of the credit card."""
     token: str = dataclasses.field(metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('token') }})
     r"""The Bolt token associated to the credit card."""
-    billing_address_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_address_id') }})
+    billing_address_id: Optional[str] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billing_address_id'), 'exclude': lambda f: f is PaymentMethodAccount.UNSET }})
     r"""The unique Bolt ID associated with a saved shopper address. This can be obtained by accessing a shopper's account details. If you use this field, you do not need to use `billing_address`."""
     bin: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bin'), 'exclude': lambda f: f is None }})
     r"""The Bank Identification Number for the credit card. This is typically the first 4-6 digits of the credit card number."""
@@ -55,7 +56,7 @@ class PaymentMethodAccount:
     eci: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('eci'), 'exclude': lambda f: f is None }})
     last4: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('last4'), 'exclude': lambda f: f is None }})
     r"""The last 4 digits of the credit card number."""
-    metadata: Optional[Metadata] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata') }})
+    metadata: Optional[Metadata] = dataclasses.field(default=UNSET, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('metadata'), 'exclude': lambda f: f is PaymentMethodAccount.UNSET }})
     r"""A key-value pair object that allows users to store arbitrary information associated with an object.  For any individual account object, we allow up to 50 keys. Keys can be up to 40 characters long and values can be up to 500 characters long.  Metadata should not contain any sensitive customer information, like PII (Personally Identifiable Information). For more information about metadata, see our [documentation](https://help.bolt.com/developers/references/embedded-metadata/)."""
     network: Optional[Network] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('network'), 'exclude': lambda f: f is None }})
     number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('number'), 'exclude': lambda f: f is None }})
