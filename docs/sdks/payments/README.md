@@ -26,7 +26,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.FinalizePaymentRequest(
-    id='<ID>',
+    id='<id>',
 )
 
 res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
@@ -110,7 +110,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.UpdatePaymentRequest(
-    id='<ID>',
+    id='<id>',
 )
 
 res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(

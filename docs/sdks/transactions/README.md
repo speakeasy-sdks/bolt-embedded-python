@@ -121,7 +121,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.GetTransactionDetailsRequest(
-    reference='string',
+    reference='<value>',
 )
 
 res = s.transactions.get_transaction_details(req, operations.GetTransactionDetailsSecurity(
@@ -205,7 +205,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.UpdateTransactionRequest(
-    reference='string',
+    reference='<value>',
 )
 
 res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurity(

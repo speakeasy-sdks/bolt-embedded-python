@@ -98,7 +98,7 @@ from bolt_embedded_api.models import errors, operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    payment_method_id='string',
+    payment_method_id='<value>',
 )
 
 res = None
@@ -226,7 +226,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='string',
+    x_publishable_key='<value>',
 )
 
 res = s.account.detect_account(req)

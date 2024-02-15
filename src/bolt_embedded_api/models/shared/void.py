@@ -16,7 +16,6 @@ class Cause(str, Enum):
     AUTH_EXPIRE = 'auth_expire'
     AUTH_VERIFICATION_EXPIRED = 'auth_verification_expired'
     PAYMENT_METHOD_UPDATER = 'payment_method_updater'
-    LESS_THAN_NIL_GREATER_THAN_ = '<nil>'
 
 class Status(str, Enum):
     r"""The status of the void request."""

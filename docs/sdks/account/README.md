@@ -158,7 +158,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeleteAddressRequest(
-    id='<ID>',
+    id='<id>',
 )
 
 res = s.account.delete_address(req, operations.DeleteAddressSecurity(
@@ -201,7 +201,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DeletePaymentMethodRequest(
-    payment_method_id='string',
+    payment_method_id='<value>',
 )
 
 res = s.account.delete_payment_method(req, operations.DeletePaymentMethodSecurity(
@@ -249,7 +249,7 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
 )
 
 req = operations.DetectAccountRequest(
-    x_publishable_key='string',
+    x_publishable_key='<value>',
 )
 
 res = s.account.detect_account(req)
@@ -291,7 +291,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.EditAddressRequest(
-    id='<ID>',
+    id='<id>',
 )
 
 res = s.account.edit_address(req, operations.EditAddressSecurity(
@@ -377,7 +377,7 @@ from bolt_embedded_api.models import operations
 s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.ReplaceAddressRequest(
-    id='<ID>',
+    id='<id>',
 )
 
 res = s.account.replace_address(req, operations.ReplaceAddressSecurity(
