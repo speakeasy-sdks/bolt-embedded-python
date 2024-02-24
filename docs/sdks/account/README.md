@@ -240,13 +240,9 @@ Check whether an account exists using one of `email`, `phone`, or `sha256_email`
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations, shared
+from bolt_embedded_api.models import operations
 
-s = bolt_embedded_api.BoltEmbeddedAPI(
-    security=shared.Security(
-        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
-    ),
-)
+s = bolt_embedded_api.BoltEmbeddedAPI()
 
 req = operations.DetectAccountRequest(
     x_publishable_key='<value>',
