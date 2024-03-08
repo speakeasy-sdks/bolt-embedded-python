@@ -38,6 +38,7 @@ res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShop
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -77,6 +78,7 @@ res = s.testing.get_test_credit_card_token(operations.GetTestCreditCardTokenSecu
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

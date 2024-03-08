@@ -15,5 +15,6 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 <!-- End SDK Example Usage [usage] -->

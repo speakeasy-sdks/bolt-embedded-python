@@ -36,6 +36,7 @@ res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -77,6 +78,7 @@ res = s.payments.initialize_payment(req, operations.InitializePaymentSecurity(
 if res.one_of is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -120,6 +122,7 @@ res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(
 if res.one_of is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

@@ -41,6 +41,7 @@ res = s.transactions.authorize_transaction(req, operations.AuthorizeTransactionS
 if res.i_authorize_result_view is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -84,6 +85,7 @@ res = s.transactions.capture_transaction(req, operations.CaptureTransactionSecur
 if res.transaction_view is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -131,6 +133,7 @@ res = s.transactions.get_transaction_details(req, operations.GetTransactionDetai
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -172,6 +175,7 @@ res = s.transactions.refund_transaction(req, operations.RefundTransactionSecurit
 if res.transaction_view is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -215,6 +219,7 @@ res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurit
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -259,6 +264,7 @@ res = s.transactions.void_transaction(req, operations.VoidTransactionSecurity(
 if res.transaction_view is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

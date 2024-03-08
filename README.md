@@ -29,6 +29,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 <!-- End SDK Example Usage [usage] -->
 
@@ -114,9 +115,10 @@ except errors.SDKError as e:
     # handle exception
     raise(e)
 
-if res.status_code == 200:
+if res is not None:
     # handle response
     pass
+
 ```
 <!-- End Error Handling [errors] -->
 
@@ -155,6 +157,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 
@@ -179,6 +182,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 <!-- End Server Selection [server] -->
 
@@ -234,6 +238,7 @@ res = s.account.detect_account(req)
 if res.v1_accounts_view is not None:
     # handle response
     pass
+
 ```
 
 ### Per-Operation Security Schemes
@@ -255,6 +260,7 @@ res = s.account.add_address(req, operations.AddAddressSecurity(
 if res.object is not None:
     # handle response
     pass
+
 ```
 <!-- End Authentication [security] -->
 
