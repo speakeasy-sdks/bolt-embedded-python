@@ -134,16 +134,19 @@ class Account:
 
     
     
-    def create_account(self, request: operations.CreateAccountRequest, security: operations.CreateAccountSecurity) -> operations.CreateAccountResponse:
+    def create_account(self, request: operations.CreateAccountRequest) -> operations.CreateAccountResponse:
         r"""Create Bolt Account
         Create a Bolt shopping account.
         """
-        hook_ctx = HookContext(operation_id='createAccount', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='createAccount', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/account'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.CreateAccountRequest, "create_account_input", False, True, 'json')

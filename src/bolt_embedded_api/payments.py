@@ -16,16 +16,19 @@ class Payments:
         
     
     
-    def finalize_payment(self, request: operations.FinalizePaymentRequest, security: operations.FinalizePaymentSecurity) -> operations.FinalizePaymentResponse:
+    def finalize_payment(self, request: operations.FinalizePaymentRequest) -> operations.FinalizePaymentResponse:
         r"""Finalize Payment
         Finalize a Bolt Payment. NOTE: The authorization header is NOT required for payments associated with users who do not have a Bolt account.
         """
-        hook_ctx = HookContext(operation_id='finalizePayment', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='finalizePayment', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.FinalizePaymentRequest, base_url, '/v1/payments/{id}/finalize', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.FinalizePaymentRequest, "request_body", False, True, 'json')
@@ -74,16 +77,19 @@ class Payments:
 
     
     
-    def initialize_payment(self, request: operations.InitializePaymentRequest, security: operations.InitializePaymentSecurity) -> operations.InitializePaymentResponse:
+    def initialize_payment(self, request: operations.InitializePaymentRequest) -> operations.InitializePaymentResponse:
         r"""Initialize Payment
         Initialize a Bolt payment token that will be used to reference this payment to Bolt when it is updated or finalized. NOTE: The authorization header is NOT required for payments associated with users who do not have a Bolt account.
         """
-        hook_ctx = HookContext(operation_id='initializePayment', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='initializePayment', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/payments'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.InitializePaymentRequest, "request_body", False, True, 'json')
@@ -132,16 +138,19 @@ class Payments:
 
     
     
-    def update_payment(self, request: operations.UpdatePaymentRequest, security: operations.UpdatePaymentSecurity) -> operations.UpdatePaymentResponse:
+    def update_payment(self, request: operations.UpdatePaymentRequest) -> operations.UpdatePaymentResponse:
         r"""Update Payment
         Update a Bolt payment using the token given after initializing a payment.  Updates will completely replace the original top-level resource (for example, if a cart is sent in with the request it will replace the existing cart).  Any included object should be sent as complete object. NOTE: The authorization header is NOT required for payments associated with users who do not have a Bolt account.
         """
-        hook_ctx = HookContext(operation_id='updatePayment', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='updatePayment', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.UpdatePaymentRequest, base_url, '/v1/payments/{id}', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.UpdatePaymentRequest, "request_body", False, True, 'json')

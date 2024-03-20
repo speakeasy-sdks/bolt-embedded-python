@@ -21,7 +21,11 @@ Create a Bolt shopper account for testing purposes. Available for sandbox use on
 import bolt_embedded_api
 from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.CreateTestingShopperAccountRequest(
     request_body=operations.CreateTestingShopperAccountRequestBody(
@@ -31,9 +35,7 @@ req = operations.CreateTestingShopperAccountRequest(
     ),
 )
 
-res = s.testing.create_testing_shopper_account(req, operations.CreateTestingShopperAccountSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.testing.create_testing_shopper_account(req)
 
 if res.object is not None:
     # handle response
@@ -43,10 +45,9 @@ if res.object is not None:
 
 ### Parameters
 
-| Parameter                                                                                                        | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
-| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `request`                                                                                                        | [operations.CreateTestingShopperAccountRequest](../../models/operations/createtestingshopperaccountrequest.md)   | :heavy_check_mark:                                                                                               | The request object to use for the request.                                                                       |
-| `security`                                                                                                       | [operations.CreateTestingShopperAccountSecurity](../../models/operations/createtestingshopperaccountsecurity.md) | :heavy_check_mark:                                                                                               | The security requirements to use for the request.                                                                |
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.CreateTestingShopperAccountRequest](../../models/operations/createtestingshopperaccountrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
 
 
 ### Response
@@ -66,26 +67,22 @@ This endpoint fetches a new credit card token for Bolt's universal test credit c
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 
-res = s.testing.get_test_credit_card_token(operations.GetTestCreditCardTokenSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.testing.get_test_credit_card_token()
 
 if res.object is not None:
     # handle response
     pass
 
 ```
-
-### Parameters
-
-| Parameter                                                                                              | Type                                                                                                   | Required                                                                                               | Description                                                                                            |
-| ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ |
-| `security`                                                                                             | [operations.GetTestCreditCardTokenSecurity](../../models/operations/gettestcreditcardtokensecurity.md) | :heavy_check_mark:                                                                                     | The security requirements to use for the request.                                                      |
 
 
 ### Response

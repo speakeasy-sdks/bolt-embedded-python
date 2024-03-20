@@ -10,14 +10,6 @@ from enum import Enum
 from typing import Optional, Union
 
 
-@dataclasses.dataclass
-class InitializePaymentSecurity:
-    o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
-    x_api_key: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class SavedPaymentInputInitializePaymentData:
@@ -219,14 +211,6 @@ class InitializePaymentResponse:
     r"""Raw HTTP response; suitable for custom response parsing"""
     one_of: Optional[Union[PaypalPaymentViewSchemas, SavedPaymentViewSchemas]] = dataclasses.field(default=None)
     r"""Payment token retrieved."""
-    
-
-
-
-@dataclasses.dataclass
-class UpdatePaymentSecurity:
-    o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
-    x_api_key: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
     
 
 

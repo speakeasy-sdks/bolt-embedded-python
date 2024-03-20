@@ -3,17 +3,17 @@ id: 9c457a65-774d-41b9-804a-27c97bd61eb9
 management:
   docChecksum: b58aa22b520fd02d35640f920003ff1d
   docVersion: 1.0.1
-  speakeasyVersion: 1.207.1
-  generationVersion: 2.280.6
-  releaseVersion: 0.19.1
-  configChecksum: ad02365d216474a112dd50dc7e7ab18d
+  speakeasyVersion: 1.213.0
+  generationVersion: 2.283.1
+  releaseVersion: 0.19.2
+  configChecksum: cbd76a9f5cf326500d28c75bdcc92f4d
   repoURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/bolt-embedded-python.git
 features:
   python:
     core: 4.5.1
-    globalSecurity: 2.83.4
+    globalSecurity: 2.83.5
     globalServerURLs: 2.82.2
     methodSecurity: 2.82.1
     responseFormat: 0.1.0
@@ -208,7 +208,6 @@ generatedFiles:
   - docs/models/operations/addpaymentmethodrequestbody.md
   - docs/models/operations/addpaymentmethodrequest.md
   - docs/models/operations/addpaymentmethodresponse.md
-  - docs/models/operations/createaccountsecurity.md
   - docs/models/operations/createaccountrequest.md
   - docs/models/operations/createaccountresponse.md
   - docs/models/operations/deleteaddresssecurity.md
@@ -238,10 +237,8 @@ generatedFiles:
   - docs/models/operations/authorizetransactionrequestbody.md
   - docs/models/operations/authorizetransactionrequest.md
   - docs/models/operations/authorizetransactionresponse.md
-  - docs/models/operations/capturetransactionsecurity.md
   - docs/models/operations/capturetransactionrequest.md
   - docs/models/operations/capturetransactionresponse.md
-  - docs/models/operations/gettransactiondetailssecurity.md
   - docs/models/operations/gettransactiondetailsrequest.md
   - docs/models/operations/gettransactiondetailstype.md
   - docs/models/operations/splits.md
@@ -249,11 +246,9 @@ generatedFiles:
   - docs/models/operations/transactionrejectiondetails.md
   - docs/models/operations/gettransactiondetailsresponsebody.md
   - docs/models/operations/gettransactiondetailsresponse.md
-  - docs/models/operations/refundtransactionsecurity.md
   - docs/models/operations/refundtransactionrequestbody.md
   - docs/models/operations/refundtransactionrequest.md
   - docs/models/operations/refundtransactionresponse.md
-  - docs/models/operations/updatetransactionsecurity.md
   - docs/models/operations/updatetransactionrequestbody.md
   - docs/models/operations/updatetransactionrequest.md
   - docs/models/operations/updatetransactiontype.md
@@ -262,13 +257,11 @@ generatedFiles:
   - docs/models/operations/updatetransactiontransactionrejectiondetails.md
   - docs/models/operations/updatetransactionresponsebody.md
   - docs/models/operations/updatetransactionresponse.md
-  - docs/models/operations/voidtransactionsecurity.md
   - docs/models/operations/voidtransactionrequest.md
   - docs/models/operations/voidtransactionresponse.md
   - docs/models/operations/oauthtokenrequestbody.md
   - docs/models/operations/oauthtokenrequest.md
   - docs/models/operations/oauthtokenresponse.md
-  - docs/models/operations/finalizepaymentsecurity.md
   - docs/models/operations/shopperidentity.md
   - docs/models/operations/finalizepaymentrequestbody.md
   - docs/models/operations/finalizepaymentrequest.md
@@ -277,7 +270,6 @@ generatedFiles:
   - docs/models/operations/transaction.md
   - docs/models/operations/finalizepaymentresponsebody.md
   - docs/models/operations/finalizepaymentresponse.md
-  - docs/models/operations/initializepaymentsecurity.md
   - docs/models/operations/savedpaymentinputinitializepaymentdata.md
   - docs/models/operations/savedpaymentinputinitializetype.md
   - docs/models/operations/savedpaymentinputinitializepaymentmethod.md
@@ -298,7 +290,6 @@ generatedFiles:
   - docs/models/operations/paypalpaymentviewschemas.md
   - docs/models/operations/initializepaymentresponsebody.md
   - docs/models/operations/initializepaymentresponse.md
-  - docs/models/operations/updatepaymentsecurity.md
   - docs/models/operations/savedpaymentinputupdatepaymentdata.md
   - docs/models/operations/savedpaymentinputupdatetype.md
   - docs/models/operations/savedpaymentinputupdatepaymentmethod.md
@@ -313,13 +304,11 @@ generatedFiles:
   - docs/models/operations/updatepaymentrequest.md
   - docs/models/operations/updatepaymentresponsebody.md
   - docs/models/operations/updatepaymentresponse.md
-  - docs/models/operations/createtestingshopperaccountsecurity.md
   - docs/models/operations/emailstate.md
   - docs/models/operations/createtestingshopperaccountrequestbody.md
   - docs/models/operations/createtestingshopperaccountrequest.md
   - docs/models/operations/createtestingshopperaccountresponsebody.md
   - docs/models/operations/createtestingshopperaccountresponse.md
-  - docs/models/operations/gettestcreditcardtokensecurity.md
   - docs/models/operations/gettestcreditcardtokenresponsebody.md
   - docs/models/operations/gettestcreditcardtokenresponse.md
   - docs/models/shared/metadata.md

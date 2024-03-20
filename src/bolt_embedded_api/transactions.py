@@ -77,18 +77,21 @@ class Transactions:
 
     
     
-    def capture_transaction(self, request: operations.CaptureTransactionRequest, security: operations.CaptureTransactionSecurity) -> operations.CaptureTransactionResponse:
+    def capture_transaction(self, request: operations.CaptureTransactionRequest) -> operations.CaptureTransactionResponse:
         r"""Capture a Transaction
         This captures funds for the designated transaction. A capture can be done for any partial amount or for the total authorized amount.
 
         Although the response returns the standard `transaction_view` object, only `captures` and either `id` or `reference` are needed.
         """
-        hook_ctx = HookContext(operation_id='captureTransaction', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='captureTransaction', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/merchant/transactions/capture'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.CaptureTransactionRequest, "capture_transaction_with_reference", False, True, 'json')
@@ -152,18 +155,21 @@ class Transactions:
 
     
     
-    def get_transaction_details(self, request: operations.GetTransactionDetailsRequest, security: operations.GetTransactionDetailsSecurity) -> operations.GetTransactionDetailsResponse:
+    def get_transaction_details(self, request: operations.GetTransactionDetailsRequest) -> operations.GetTransactionDetailsResponse:
         r"""Transaction Details
         This allows you to pull the full transaction details for a given transaction.
 
          **Note**: All objects and fields marked `required` in the Transaction Details response are also **nullable**. This includes any sub-components (objects or fields) also marked `required`.
         """
-        hook_ctx = HookContext(operation_id='getTransactionDetails', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='getTransactionDetails', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.GetTransactionDetailsRequest, base_url, '/v1/merchant/transactions/{REFERENCE}', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers['Accept'] = 'application/json'
         headers['user-agent'] = self.sdk_configuration.user_agent
@@ -215,16 +221,19 @@ class Transactions:
 
     
     
-    def refund_transaction(self, request: operations.RefundTransactionRequest, security: operations.RefundTransactionSecurity) -> operations.RefundTransactionResponse:
+    def refund_transaction(self, request: operations.RefundTransactionRequest) -> operations.RefundTransactionResponse:
         r"""Refund a Transaction
         This refunds a captured transaction. Refunds can be done for any partial amount or for the total authorized amount. These refunds are processed synchronously and return information about the refunded transaction in the standard `transaction_view` object.
         """
-        hook_ctx = HookContext(operation_id='refundTransaction', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='refundTransaction', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/merchant/transactions/credit'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.RefundTransactionRequest, "request_body", False, True, 'json')
@@ -280,16 +289,19 @@ class Transactions:
 
     
     
-    def update_transaction(self, request: operations.UpdateTransactionRequest, security: operations.UpdateTransactionSecurity) -> operations.UpdateTransactionResponse:
+    def update_transaction(self, request: operations.UpdateTransactionRequest) -> operations.UpdateTransactionResponse:
         r"""Update a Transaction
         This allows you to update certain transaction properties post-authorization.
         """
-        hook_ctx = HookContext(operation_id='updateTransaction', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='updateTransaction', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.UpdateTransactionRequest, base_url, '/v1/merchant/transactions/{REFERENCE}', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.UpdateTransactionRequest, "request_body", False, True, 'json')
@@ -345,18 +357,21 @@ class Transactions:
 
     
     
-    def void_transaction(self, request: operations.VoidTransactionRequest, security: operations.VoidTransactionSecurity) -> operations.VoidTransactionResponse:
+    def void_transaction(self, request: operations.VoidTransactionRequest) -> operations.VoidTransactionResponse:
         r"""Void a Transaction
         This voids the authorization for a given transaction. Voids must be completed before the authorization is captured.
         In the request, either `transaction_id` or `transaction_reference` is required.
         Although the response returns the standard `transaction_view` object, only `status` and either `id` or `reference` are needed.
         """
-        hook_ctx = HookContext(operation_id='voidTransaction', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='voidTransaction', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/merchant/transactions/void'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.VoidTransactionRequest, "credit_card_void", False, True, 'json')

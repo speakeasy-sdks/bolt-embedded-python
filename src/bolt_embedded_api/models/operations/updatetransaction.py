@@ -38,13 +38,6 @@ from enum import Enum
 from typing import Dict, List, Optional
 
 
-@dataclasses.dataclass
-class UpdateTransactionSecurity:
-    x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class UpdateTransactionRequestBody:

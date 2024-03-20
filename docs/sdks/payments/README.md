@@ -21,17 +21,19 @@ Finalize a Bolt Payment. NOTE: The authorization header is NOT required for paym
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.FinalizePaymentRequest(
     id='<id>',
 )
 
-res = s.payments.finalize_payment(req, operations.FinalizePaymentSecurity(
-    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
-))
+res = s.payments.finalize_payment(req)
 
 if res.object is not None:
     # handle response
@@ -41,10 +43,9 @@ if res.object is not None:
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.FinalizePaymentRequest](../../models/operations/finalizepaymentrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.FinalizePaymentSecurity](../../models/operations/finalizepaymentsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.FinalizePaymentRequest](../../models/operations/finalizepaymentrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
@@ -65,15 +66,17 @@ Initialize a Bolt payment token that will be used to reference this payment to B
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.InitializePaymentRequest()
 
-res = s.payments.initialize_payment(req, operations.InitializePaymentSecurity(
-    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
-))
+res = s.payments.initialize_payment(req)
 
 if res.one_of is not None:
     # handle response
@@ -83,10 +86,9 @@ if res.one_of is not None:
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.InitializePaymentRequest](../../models/operations/initializepaymentrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.InitializePaymentSecurity](../../models/operations/initializepaymentsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.InitializePaymentRequest](../../models/operations/initializepaymentrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -107,17 +109,19 @@ Update a Bolt payment using the token given after initializing a payment.  Updat
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.UpdatePaymentRequest(
     id='<id>',
 )
 
-res = s.payments.update_payment(req, operations.UpdatePaymentSecurity(
-    o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
-))
+res = s.payments.update_payment(req)
 
 if res.one_of is not None:
     # handle response
@@ -127,10 +131,9 @@ if res.one_of is not None:
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.UpdatePaymentRequest](../../models/operations/updatepaymentrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.UpdatePaymentSecurity](../../models/operations/updatepaymentsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.UpdatePaymentRequest](../../models/operations/updatepaymentrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response

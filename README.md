@@ -229,13 +229,11 @@ s = bolt_embedded_api.BoltEmbeddedAPI(
     ),
 )
 
-req = operations.DetectAccountRequest(
-    x_publishable_key='<value>',
-)
+req = operations.CreateAccountRequest()
 
-res = s.account.detect_account(req)
+res = s.account.create_account(req)
 
-if res.v1_accounts_view is not None:
+if res.account_details is not None:
     # handle response
     pass
 

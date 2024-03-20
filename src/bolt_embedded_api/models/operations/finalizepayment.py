@@ -9,14 +9,6 @@ from enum import Enum
 from typing import Optional
 
 
-@dataclasses.dataclass
-class FinalizePaymentSecurity:
-    o_auth: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'oauth2', 'field_name': 'Authorization' }})
-    x_api_key: Optional[str] = dataclasses.field(default=None, metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class ShopperIdentity:

@@ -9,13 +9,6 @@ from dataclasses_json import Undefined, dataclass_json
 from typing import Optional
 
 
-@dataclasses.dataclass
-class RefundTransactionSecurity:
-    x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
-
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class RefundTransactionRequestBody:

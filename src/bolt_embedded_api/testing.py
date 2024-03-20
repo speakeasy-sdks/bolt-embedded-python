@@ -16,16 +16,19 @@ class Testing:
         
     
     
-    def create_testing_shopper_account(self, request: operations.CreateTestingShopperAccountRequest, security: operations.CreateTestingShopperAccountSecurity) -> operations.CreateTestingShopperAccountResponse:
+    def create_testing_shopper_account(self, request: operations.CreateTestingShopperAccountRequest) -> operations.CreateTestingShopperAccountResponse:
         r"""Create Testing Shopper Account
         Create a Bolt shopper account for testing purposes. Available for sandbox use only and the created  account will be recycled after a certain time.
         """
-        hook_ctx = HookContext(operation_id='createTestingShopperAccount', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='createTestingShopperAccount', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/testing/shopper/create'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.CreateTestingShopperAccountRequest, "request_body", False, True, 'json')
@@ -74,16 +77,19 @@ class Testing:
 
     
     
-    def get_test_credit_card_token(self, security: operations.GetTestCreditCardTokenSecurity) -> operations.GetTestCreditCardTokenResponse:
+    def get_test_credit_card_token(self) -> operations.GetTestCreditCardTokenResponse:
         r"""Fetch a Test Credit Card Token
         This endpoint fetches a new credit card token for Bolt's universal test credit card number `4111 1111 1111 1004`. This is for testing and is available only in sandbox.
         """
-        hook_ctx = HookContext(operation_id='getTestCreditCardToken', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='getTestCreditCardToken', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = base_url + '/v1/testing/card_token'
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers['Accept'] = 'application/json'
         headers['user-agent'] = self.sdk_configuration.user_agent

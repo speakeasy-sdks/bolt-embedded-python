@@ -9,13 +9,6 @@ from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from typing import Optional
 
-
-@dataclasses.dataclass
-class CreateTestingShopperAccountSecurity:
-    x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
 class EmailState(str, Enum):
     r"""The status of the shopper account identifier (email or phone). If the account does not have this identifier, the status is \\"missing\\"; If the identifier has been used to receive an OTP code, the status is \\"verified\\"; If the identifier has not been used to receive an OTP code, the status is \\"unverified\\"."""
     MISSING = 'missing'

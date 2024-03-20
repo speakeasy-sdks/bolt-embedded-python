@@ -114,15 +114,17 @@ Create a Bolt shopping account.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.CreateAccountRequest()
 
-res = s.account.create_account(req, operations.CreateAccountSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.account.create_account(req)
 
 if res.account_details is not None:
     # handle response
@@ -132,10 +134,9 @@ if res.account_details is not None:
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.CreateAccountRequest](../../models/operations/createaccountrequest.md)   | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `security`                                                                           | [operations.CreateAccountSecurity](../../models/operations/createaccountsecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [operations.CreateAccountRequest](../../models/operations/createaccountrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
 
 
 ### Response

@@ -39,13 +39,6 @@ from typing import Dict, List, Optional
 
 
 @dataclasses.dataclass
-class GetTransactionDetailsSecurity:
-    x_api_key: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'X-API-Key' }})
-    
-
-
-
-@dataclasses.dataclass
 class GetTransactionDetailsRequest:
     reference: str = dataclasses.field(metadata={'path_param': { 'field_name': 'REFERENCE', 'style': 'simple', 'explode': False }})
     r"""This is the Bolt transaction reference. (ex. N7Y3-NFKC-VFRF)"""

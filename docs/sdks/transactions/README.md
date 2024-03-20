@@ -72,15 +72,17 @@ Although the response returns the standard `transaction_view` object, only `capt
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.CaptureTransactionRequest()
 
-res = s.transactions.capture_transaction(req, operations.CaptureTransactionSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.transactions.capture_transaction(req)
 
 if res.transaction_view is not None:
     # handle response
@@ -90,10 +92,9 @@ if res.transaction_view is not None:
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.CaptureTransactionRequest](../../models/operations/capturetransactionrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.CaptureTransactionSecurity](../../models/operations/capturetransactionsecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.CaptureTransactionRequest](../../models/operations/capturetransactionrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response
@@ -118,17 +119,19 @@ This allows you to pull the full transaction details for a given transaction.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.GetTransactionDetailsRequest(
     reference='<value>',
 )
 
-res = s.transactions.get_transaction_details(req, operations.GetTransactionDetailsSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.transactions.get_transaction_details(req)
 
 if res.object is not None:
     # handle response
@@ -138,10 +141,9 @@ if res.object is not None:
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `request`                                                                                            | [operations.GetTransactionDetailsRequest](../../models/operations/gettransactiondetailsrequest.md)   | :heavy_check_mark:                                                                                   | The request object to use for the request.                                                           |
-| `security`                                                                                           | [operations.GetTransactionDetailsSecurity](../../models/operations/gettransactiondetailssecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.GetTransactionDetailsRequest](../../models/operations/gettransactiondetailsrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
 
 
 ### Response
@@ -162,15 +164,17 @@ This refunds a captured transaction. Refunds can be done for any partial amount 
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.RefundTransactionRequest()
 
-res = s.transactions.refund_transaction(req, operations.RefundTransactionSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.transactions.refund_transaction(req)
 
 if res.transaction_view is not None:
     # handle response
@@ -180,10 +184,9 @@ if res.transaction_view is not None:
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.RefundTransactionRequest](../../models/operations/refundtransactionrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.RefundTransactionSecurity](../../models/operations/refundtransactionsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.RefundTransactionRequest](../../models/operations/refundtransactionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -204,17 +207,19 @@ This allows you to update certain transaction properties post-authorization.
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.UpdateTransactionRequest(
     reference='<value>',
 )
 
-res = s.transactions.update_transaction(req, operations.UpdateTransactionSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.transactions.update_transaction(req)
 
 if res.object is not None:
     # handle response
@@ -224,10 +229,9 @@ if res.object is not None:
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.UpdateTransactionRequest](../../models/operations/updatetransactionrequest.md)   | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `security`                                                                                   | [operations.UpdateTransactionSecurity](../../models/operations/updatetransactionsecurity.md) | :heavy_check_mark:                                                                           | The security requirements to use for the request.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [operations.UpdateTransactionRequest](../../models/operations/updatetransactionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
 
 
 ### Response
@@ -251,15 +255,17 @@ Although the response returns the standard `transaction_view` object, only `stat
 
 ```python
 import bolt_embedded_api
-from bolt_embedded_api.models import operations
+from bolt_embedded_api.models import operations, shared
 
-s = bolt_embedded_api.BoltEmbeddedAPI()
+s = bolt_embedded_api.BoltEmbeddedAPI(
+    security=shared.Security(
+        o_auth="Bearer <YOUR_ACCESS_TOKEN_HERE>",
+    ),
+)
 
 req = operations.VoidTransactionRequest()
 
-res = s.transactions.void_transaction(req, operations.VoidTransactionSecurity(
-    x_api_key="<YOUR_API_KEY_HERE>",
-))
+res = s.transactions.void_transaction(req)
 
 if res.transaction_view is not None:
     # handle response
@@ -269,10 +275,9 @@ if res.transaction_view is not None:
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.VoidTransactionRequest](../../models/operations/voidtransactionrequest.md)   | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `security`                                                                               | [operations.VoidTransactionSecurity](../../models/operations/voidtransactionsecurity.md) | :heavy_check_mark:                                                                       | The security requirements to use for the request.                                        |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [operations.VoidTransactionRequest](../../models/operations/voidtransactionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
 
 
 ### Response
